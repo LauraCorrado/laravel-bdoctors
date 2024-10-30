@@ -11,7 +11,7 @@
             </svg>
         </div>
         <h1 class="display-5 fw-bold">
-            Welcome to Laravel+Bootstrap <i class="bi bi-box"></i>
+            Welcome to Laravel+Bootstrap a tutti<i class="bi bi-box"></i>
         </h1>
 
         <p class="col-md-8 fs-4">
