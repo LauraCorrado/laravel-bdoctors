@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Field;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
 
@@ -15,7 +16,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = Doctor::all();
+        return view('admin.doctors.index', compact('doctors'));
     }
 
     /**
@@ -25,7 +27,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
