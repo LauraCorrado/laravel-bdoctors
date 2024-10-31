@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Field;
+use App\Models\Review;
 use Illuminate\Support\Str;
 
 class Doctor extends Model
@@ -18,5 +19,10 @@ class Doctor extends Model
     //relazione MtM
     public function fields() {
         return $this->belongsToMany(Field::class);
+    }
+
+    // realazione OtM
+    public function reviews() {
+        return $this->hasMany(Review::class);
     }
 }
