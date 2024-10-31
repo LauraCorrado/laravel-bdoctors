@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('doctors_fields', function (Blueprint $table) {
+        Schema::create('doctors_sponsors', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('doctor_id');
-            // $table->foreign('doctor_id')->references('id')->on('doctors');
-
-            // $table->unsignedBigInteger('field_id');
-            // $table->foreign('field_id')->references('id')->on('fields');
-            
+            $table->dateTime('expiring_date');
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
-            $table->foreignId('field_id')->constrained()->onDelete('cascade');
-
+            $table->foreignId('sponsor_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors_fields');
+        Schema::dropIfExists('doctors_sponsors');
     }
 };
