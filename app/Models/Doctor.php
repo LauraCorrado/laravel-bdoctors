@@ -10,7 +10,7 @@ class Doctor extends Model
 {
     use HasFactory;
 
-    public function createSlug($name) {
+    public static function createSlug($name) {
         return Str::slug($name, '-');
     }
 }
