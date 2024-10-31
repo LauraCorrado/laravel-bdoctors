@@ -9,6 +9,7 @@ use App\Models\Review;
 use App\Models\User;
 use App\Models\Message;
 use App\Models\Rating;
+use App\Models\Sponsor;
 use Illuminate\Support\Str;
 
 class Doctor extends Model
@@ -42,5 +43,10 @@ class Doctor extends Model
     //relazione MtM
     public function ratings() {
         return $this->belongsToMany(Rating::class);
+    }
+
+    // relazione MtM
+    public function sponsors(){
+        return $this->belongsToMany(Sponsor::class);
     }
 }
