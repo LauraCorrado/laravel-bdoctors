@@ -8,6 +8,7 @@ use App\Models\Field;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\Message;
+use App\Models\Rating;
 use Illuminate\Support\Str;
 
 class Doctor extends Model
@@ -36,5 +37,10 @@ class Doctor extends Model
     // realazione OtM
     public function messages() {
         return $this->hasMany(Message::class);
+    }
+
+    //relazione MtM
+    public function ratings() {
+        return $this->belongsToMany(Rating::class);
     }
 }
