@@ -16,6 +16,8 @@ class Doctor extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_name', 'user_surname', 'city', 'address', 'phone_number', 'performance', 'slug'];
+
     public static function createSlug($name) {
         return Str::slug($name, '-');
     }
