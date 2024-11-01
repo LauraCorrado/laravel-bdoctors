@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-12 col-md-6 col-lg-4">
                             <label for="performances">Prestazioni</label>
-                            <textarea name="performances" id="performances" cols="30" rows="10"></textarea>
+                            <textarea name="performance" id="performance" cols="30" rows="10"></textarea>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-sm btn-success">Salva i dati</button>
