@@ -1,1 +1,4 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+@import 'generals/variables.scss';
+@import 'partials/create.scss';
+@import 'partials/show.scss';
