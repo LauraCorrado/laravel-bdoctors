@@ -20,8 +20,7 @@
             works from laravel 9.x to the latest release 11.x.
             You can also use bootstrap icons out of the box.
         </p>
-        <a href="https://packagist.org/packages/pacificdev/laravel_9_preset" class="btn btn-primary btn-lg"
-            type="button">Documentation</a>
+
     </div>
 </div>
 
