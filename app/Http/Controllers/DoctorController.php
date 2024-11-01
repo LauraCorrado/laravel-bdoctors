@@ -27,7 +27,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.doctors.create');
     }
 
     /**
@@ -36,9 +36,13 @@ class DoctorController extends Controller
      * @param  \App\Http\Requests\StoreDoctorRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDoctorRequest $request)
+    public function store(StoreDoctorRequest $request, Doctor $doctor)
     {
-        //
+        $form_data = $request->validated();
+        $form_data['slug'] = Doctor::createSlug($form_data['user_name'].$form_data['user_surname']);
+        $doctor->fill($form_data);
+        $doctor->save();
+        return redirect()->route('admin.doctors.show');
     }
 
     /**
