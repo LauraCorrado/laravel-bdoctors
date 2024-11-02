@@ -63,6 +63,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
+        $doctor->load('fields');
         return view('admin.doctors.show', compact('doctor'));
     }
 

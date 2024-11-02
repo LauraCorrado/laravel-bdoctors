@@ -17,8 +17,10 @@ function updateSelectedFields() {
         //inserisco testo label della checkbox selezionata
         selectedFieldsDiv.innerHTML += `<strong>${checkbox.nextElementSibling.innerText}</strong><br>`;
     });
-
-    if (checkboxes.length === 0) {
+    //se è pieno
+    if (checkboxes.length > 0) {
+        selectedFieldsDiv.style.display = 'block'
+    } else {
         selectedFieldsDiv.innerHTML = '<em>Nessuna specializzazione selezionata</em>';
     }
 }

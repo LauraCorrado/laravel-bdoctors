@@ -36,7 +36,7 @@
                             <label class="form-label fw-bolder m-0 py-1" for="fields">Specializzazioni*</label>
                             <div>
                                 <button type="button" class="my-2 fields_select" data-bs-toggle="modal" data-bs-target="#fieldsModal">Seleziona specializzazioni</button>
-                                <div id="selectedFields" class="mt-2"></div>
+                                <div id="selectedFields" class="mt-2 mx-auto p-3 selected_fields"></div>
                             </div>
                             {{-- <div>
                                 @foreach($fields as $field)

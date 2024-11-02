@@ -27,7 +27,7 @@
 
         <div class="col-md-6 mb-3 border p-3">
             <h5>Specializzazioni: 
-                @if ($doctor->fields)
+                @if ($doctor->fields && $doctor->fields->isNotEmpty())
                     @foreach ($doctor->fields as $field)
                         <strong>{{$field->name}}</strong>
                     @endforeach
