@@ -36,4 +36,17 @@ class StoreDoctorRequest extends FormRequest
             "thumb" => 'nullable|string',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'user_name.required' => 'È necessario inserire il tuo nome per registrare il tuo profilo.',
+            'user_surname.required' => 'È necessario inserire il tuo cognome per registrare il tuo profilo.',
+            'address.required' => 'È necessario inserire il tuo indirizzo per registrare il tuo profilo.',
+            'city.required' => 'È necessario inserire la tua città per registrare il tuo profilo.',
+            'phone_number.required' => 'È necessario inserire il tuo numero di telefono per registrare il tuo profilo.',
+            'fields.required' => 'È necessario selezionare almeno una specializzazione per registrare il tuo profilo.',
+            'performance.required' => 'È necessario descrivere le tue prestazioni per registrare il tuo profilo.',
+        ];
+    }
 }
