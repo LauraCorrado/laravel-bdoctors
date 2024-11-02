@@ -24,29 +24,30 @@ class StoreDoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            "user_name" => 'required|string|max:150',
-            "user_surname" => 'required|string|max:150',
+            "user_name" => 'required|string|min:4|max:150',
+            "user_surname" => 'required|string|min:4|max:150',
             "city" => 'required|string|max:150',
-            "address" => 'required|string|max:150',
-            "phone_number" => 'required|string|max:20',
+            "address" => 'required|string|min:7|max:150',
+            "phone_number" => 'required|string|min:10|max:20',
             'fields' => 'required|array',
             // 'fields.*' => 'exists:fields,id'
-            "performance" => 'required|string',
+            "performance" => 'required|string|min:30|max:150',
             "cv" => 'nullable|string',
             "thumb" => 'nullable|string',
         ];
     }
 
+  
     public function messages()
     {
         return [
-            'user_name.required' => 'È necessario inserire il tuo nome per registrare il tuo profilo.',
-            'user_surname.required' => 'È necessario inserire il tuo cognome per registrare il tuo profilo.',
-            'address.required' => 'È necessario inserire il tuo indirizzo per registrare il tuo profilo.',
-            'city.required' => 'È necessario inserire la tua città per registrare il tuo profilo.',
-            'phone_number.required' => 'È necessario inserire il tuo numero di telefono per registrare il tuo profilo.',
-            'fields.required' => 'È necessario selezionare almeno una specializzazione per registrare il tuo profilo.',
-            'performance.required' => 'È necessario descrivere le tue prestazioni per registrare il tuo profilo.',
+            'user_name.min' => 'Il nome deve contenere almeno 4 caratteri.',
+            'user_surname.min' => 'Il cognome deve contenere almeno 4 caratteri.',
+            'address.min' => 'L\'indirizzo deve contenere almeno 7 caratteri.',
+            'phone_number.min' => 'Il numero di telefono deve contenere almeno 10 cifre.',
+            'performance.min' => 'La descrizione delle prestazioni deve contenere almeno 30 caratteri.',
+            'performance.max' => 'La descrizione delle prestazioni non può superare i 150 caratteri.',
+            'fields.required' => 'Seleziona almeno una specializzazione per registrare il tuo profilo.', 
         ];
     }
 }
