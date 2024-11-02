@@ -26,6 +26,18 @@
         </div>
 
         <div class="col-md-6 mb-3 border p-3">
+            <h5>Specializzazioni: 
+                @if ($doctor->fields)
+                    @foreach ($doctor->fields as $field)
+                        <strong>{{$field->name}}</strong>
+                    @endforeach
+                @else
+                    <strong>Non sono state specificate le specializzazioni</strong>
+                @endif
+            </h5>
+           </div>
+
+        <div class="col-md-6 mb-3 border p-3">
             <h5>Numero di Telefono:</h5>
             <p>{{ $doctor->phone_number }}</p>
         </div>
