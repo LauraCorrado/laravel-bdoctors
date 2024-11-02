@@ -31,6 +31,19 @@
                             <label for="phone_number" class="form-label">Numero di telefono*</label>
                             <input type="text" name="phone_number" id="phone_number" placeholder="Numero di telefono" class="form-control">
                         </div>
+
+                        <div class="col-12">
+                            <label class="form-label fw-bolder m-0 py-1" for="fields">Specializzazioni</label>
+                            <div>
+                                @foreach($fields as $field)
+                                <div class="form-check-inline">
+                                    <input type="checkbox" name="fields[]" class="form-check-input" value="{{$field->id}}" {{ is_array(old('fields')) && in_array($field->id, old('fields')) ? 'checked' : ''}}>
+                                    <label class="form-check-label">{{$field->name}}</label>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
                         <div class="col-12">
                             <label for="performance" class="form-label">Prestazioni*</label>
                             <textarea name="performance" id="performance" rows="4" class="form-control" placeholder="Descrivi le tue prestazioni"></textarea>

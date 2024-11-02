@@ -27,7 +27,8 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view('admin.doctors.create');
+        $fields = Field::all();
+        return view('admin.doctors.create', compact('fields'));
     }
 
     /**
@@ -43,6 +44,13 @@ class DoctorController extends Controller
         $form_data['slug'] = Doctor::createSlug($form_data['user_name'].$form_data['user_surname']);
         $doctor->fill($form_data);
         $doctor->save();
+
+        if($request->has('fields')) {
+            //salvo il valore del campo (l'array di id)
+            $fields = $request->fields;
+            // attach()->prendo array di fields e creo record nella pivot che rappresenta la relazione m-to-m
+            $doctor->fields()->attach($fields);
+        }
         
         return redirect()->route('admin.doctors.show', ['doctor' => $doctor->id]);
     }
