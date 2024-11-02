@@ -14,16 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('doctor_field', function (Blueprint $table) {
-            // $table->unsignedBigInteger('doctor_id');
-            // $table->foreign('doctor_id')->references('id')->on('doctors');
-
-            // $table->unsignedBigInteger('field_id');
-            // $table->foreign('field_id')->references('id')->on('fields');
-            
+            $table->id();
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
             $table->foreignId('field_id')->constrained()->onDelete('cascade');
-
-            $table->timestamps();
         });
     }
 

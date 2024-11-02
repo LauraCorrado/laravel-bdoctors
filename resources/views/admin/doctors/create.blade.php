@@ -7,6 +7,7 @@
             <div class="mb-5 text-center">
                 <h1>Grazie per la tua iscrizione!</h1>
                 <h2 class="m-2">Crea qui il tuo profilo</h2>
+                <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>
                 <form action="{{ route('admin.doctors.store') }}" method="POST" class="my-4 text-center">
                     @csrf
@@ -34,18 +35,18 @@
 
                         <div class="col-12">
                             <label class="form-label fw-bolder m-0 py-1" for="fields">Specializzazioni*</label>
-                            <div>
-                                <button type="button" class="my-2 fields_select" data-bs-toggle="modal" data-bs-target="#fieldsModal">Seleziona specializzazioni</button>
-                                <div id="selectedFields" class="mt-2 mx-auto p-3 selected_fields"></div>
-                            </div>
-                            {{-- <div>
-                                @foreach($fields as $field)
-                                <div class="form-check-inline">
-                                    <input type="checkbox" name="fields[]" class="form-check-input" value="{{$field->id}}" {{ is_array(old('fields')) && in_array($field->id, old('fields')) ? 'checked' : ''}}>
-                                    <label class="form-check-label">{{$field->name}}</label>
+                            <p>Seleziona uno o più campi di specializzazione</p>
+                                <div class="row py-3">
+                                    @foreach($fields as $field)
+                                    <div class="col-6 col-md-4 d-flex">
+                                        <div class="form-check-inline m-0">
+                                            <input type="checkbox" name="fields[]" class="form-check-input" value="{{$field->id}}" {{ is_array(old('fields')) && in_array($field->id, old('fields')) ? 'checked' : ''}}>
+                                            <label class="form-check-label ps-1">{{$field->name}}</label>
+                                        </div>
+
+                                    </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
-                            </div> --}}
                         </div>
 
                         <div class="col-12">
@@ -61,6 +62,4 @@
         </div>
     </div>
 </div>
-<!-- Modale per le Specializzazioni -->
-@include('admin.doctors.partials.fields-modal')
 @endsection

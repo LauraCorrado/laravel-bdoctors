@@ -29,6 +29,8 @@ class StoreDoctorRequest extends FormRequest
             "city" => 'required|string|max:150',
             "address" => 'required|string|max:150',
             "phone_number" => 'required|string|max:20',
+            'fields' => 'required|array',
+            // 'fields.*' => 'exists:fields,id'
             "performance" => 'required|string',
             "cv" => 'nullable|string',
             "thumb" => 'nullable|string',

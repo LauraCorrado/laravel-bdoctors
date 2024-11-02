@@ -24,9 +24,8 @@ form {
     }
 }
 
-.selected_fields {
-    border: 1px dotted black;
+.fields {
+    border: 2px dotted $navy-blue;
     width: fit-content;
     padding: 20px;
-    display: none;
 }
