@@ -21,11 +21,8 @@
 
 <body>
     <div id="app">
-
-
         @include('partials.header')
-
-        <main class="">
+        <main class="py-4 px-3">
             @yield('content')
         </main>
     </div>
