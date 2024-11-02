@@ -34,18 +34,19 @@
 
                         <div class="col-12">
                             <label class="form-label fw-bolder m-0 py-1" for="fields">Specializzazioni*</label>
-                            <div>
+                            {{-- <div>
                                 <button type="button" class="my-2 fields_select" data-bs-toggle="modal" data-bs-target="#fieldsModal">Seleziona specializzazioni</button>
                                 <div id="selectedFields" class="mt-2 mx-auto p-3 selected_fields"></div>
-                            </div>
-                            {{-- <div>
+                                <input type="hidden" id="selectedFieldsInput" name="fields" value="">
+                            </div> --}}
+                            <div>
                                 @foreach($fields as $field)
                                 <div class="form-check-inline">
                                     <input type="checkbox" name="fields[]" class="form-check-input" value="{{$field->id}}" {{ is_array(old('fields')) && in_array($field->id, old('fields')) ? 'checked' : ''}}>
                                     <label class="form-check-label">{{$field->name}}</label>
                                 </div>
                                 @endforeach
-                            </div> --}}
+                            </div>
                         </div>
 
                         <div class="col-12">
@@ -61,6 +62,4 @@
         </div>
     </div>
 </div>
-<!-- Modale per le Specializzazioni -->
-@include('admin.doctors.partials.fields-modal')
 @endsection
