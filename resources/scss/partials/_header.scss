@@ -1,3 +1,12 @@
 .bg-header {
     background-color: $navy-blue;
+    .logo-box {
+        width: 70px;
+        height: 70px;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
 }
