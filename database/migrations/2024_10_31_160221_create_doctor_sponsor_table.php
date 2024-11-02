@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('doctors_sponsors', function (Blueprint $table) {
+        Schema::create('doctor_sponsor', function (Blueprint $table) {
             $table->id();
             $table->dateTime('expiring_date');
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
@@ -29,6 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors_sponsors');
+
+    Schema::dropIfExists('doctor_sponsor');
     }
 };
