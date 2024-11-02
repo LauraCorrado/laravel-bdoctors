@@ -9,4 +9,10 @@
             object-fit: contain;
         }
     }
+    .nav-link {
+        color: white;
+        &:hover {
+            color: #45C8BB;
+        }
+    }
 }
