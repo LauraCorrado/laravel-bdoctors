@@ -35,7 +35,7 @@
                         <div class="col-12">
                             <label class="form-label fw-bolder m-0 py-1" for="fields">Specializzazioni*</label>
                             <div>
-                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#fieldsModal">Seleziona specializzazioni</button>
+                                <button type="button" class="my-2 fields_select" data-bs-toggle="modal" data-bs-target="#fieldsModal">Seleziona specializzazioni</button>
                                 <div id="selectedFields" class="mt-2"></div>
                             </div>
                             {{-- <div>
@@ -53,7 +53,7 @@
                             <textarea name="performance" id="performance" rows="4" class="form-control" placeholder="Descrivi le tue prestazioni" required></textarea>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="mt-3">Salva i dati</button>
+                            <button type="submit" class="mt-3 save">Salva i dati</button>
                         </div>
                     </div>
                 </form>
