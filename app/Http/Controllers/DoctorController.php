@@ -75,7 +75,8 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        //
+        $fields = Field::all();
+        return view('admin.doctors.edit', compact('doctor', 'fields'));
     }
 
     /**
@@ -87,7 +88,22 @@ class DoctorController extends Controller
      */
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
-        //
+   
+        $form_data = $request->validated();
+
+        $form_data['slug'] = Doctor::createSlug($form_data['user_name'] . $form_data['user_surname']);
+
+        $doctor->fill($form_data);
+        $doctor->save();
+
+        if ($request->has('fields')) {
+            $fields = $request->fields;
+            $doctor->fields()->sync($fields);
+        }
+
+        
+        return redirect()->route('admin.doctors.show', ['doctor' => $doctor->id]);
+                     
     }
 
     /**
