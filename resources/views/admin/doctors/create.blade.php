@@ -35,13 +35,17 @@
                         <div class="col-12">
                             <label class="form-label fw-bolder m-0 py-1" for="fields">Specializzazioni*</label>
                             <div>
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#fieldsModal">Seleziona specializzazioni</button>
+                                <div id="selectedFields" class="mt-2"></div>
+                            </div>
+                            {{-- <div>
                                 @foreach($fields as $field)
                                 <div class="form-check-inline">
                                     <input type="checkbox" name="fields[]" class="form-check-input" value="{{$field->id}}" {{ is_array(old('fields')) && in_array($field->id, old('fields')) ? 'checked' : ''}}>
                                     <label class="form-check-label">{{$field->name}}</label>
                                 </div>
                                 @endforeach
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="col-12">
