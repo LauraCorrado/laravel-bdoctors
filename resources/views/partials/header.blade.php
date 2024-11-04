@@ -42,14 +42,14 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{__('Dashboard')}}</a>
-                            <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
                             <a class="dropdown-item" href="{{ route('admin.doctors.index') }}">{{__('Elenco medici')}}</a>
                             {{-- verifico se user è autenticato (auth::check()) e se ha un profilo doctor --}}
                             @if(Auth::check() && Auth::user()->doctor)
-                                <a class="dropdown-item" href="{{ route('admin.doctors.show', ['doctor' => Auth::user()->doctor->slug]) }}">
-                                    {{ __('Il tuo profilo') }}
-                                </a>
+                            <a class="dropdown-item" href="{{ route('admin.doctors.show', ['doctor' => Auth::user()->doctor->slug]) }}">
+                                {{ __('Il tuo profilo') }}
+                            </a>
                             @endif
+                            <a class="dropdown-item" href="{{ url('profile') }}">{{__('Impostazioni')}}</a>
                             {{-- <a class="dropdown-item" href="{{ route('admin.doctors.create') }}">{{ __('Create') }}</a> --}}
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
