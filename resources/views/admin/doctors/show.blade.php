@@ -46,7 +46,8 @@
         </div>
 
         <div class="col-12 text-center mt-4">
-            <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-primary">Modifica</a>
+            <a href="{{route('admin.dashboard')}}" class="btn btn-secondary">{{ __('Vai alla dashboard') }}</a>
+            <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-primary">{{__('Modifica')}}</a>
         </div>
     </div>
 </div>
