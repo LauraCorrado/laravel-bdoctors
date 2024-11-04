@@ -33,7 +33,7 @@ class StoreDoctorRequest extends FormRequest
             // 'fields.*' => 'exists:fields,id'
             "performance" => 'required|string|min:30|max:150',
             "cv" => 'nullable|string',
-            "thumb" => 'nullable|string',
+            "thumb" => 'nullable',
         ];
     }
 
@@ -47,7 +47,8 @@ class StoreDoctorRequest extends FormRequest
             'phone_number.min' => 'Il numero di telefono deve contenere almeno 10 cifre.',
             'performance.min' => 'La descrizione delle prestazioni deve contenere almeno 30 caratteri.',
             'performance.max' => 'La descrizione delle prestazioni non può superare i 150 caratteri.',
-            'fields.required' => 'Seleziona almeno una specializzazione per registrare il tuo profilo.', 
+            'fields.required' => 'Seleziona almeno una specializzazione per registrare il tuo profilo.',
+            // 'thumb.mimes' => 'Il file deve avere una delle seguenti estensioni: jpeg,png,jpg,svg',
         ];
     }
 }
