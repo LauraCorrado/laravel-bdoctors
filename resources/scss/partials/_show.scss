@@ -1,0 +1,54 @@
+.profile-bg {
+    background-color: $light-gray;
+    box-shadow: 5px 5px 10px $dark-grey;
+}
+
+.user-name {
+    color: $navy-blue;
+}
+
+.avatars {
+    max-width: 300px;
+    max-height: 300px;
+    overflow: hidden;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+.border-style {
+    border: 1px solid $navy-blue;
+}
+
+.performances {
+    font-size: 14px;
+}
+
+.show-buttons {
+    .save {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    h5{
+        font-size: 22px;
+    }
+
+    a {
+        font-size: 18px;
+    }
+
+    .show-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .save {
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+    }
+}
