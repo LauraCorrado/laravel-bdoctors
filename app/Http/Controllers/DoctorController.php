@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\Field;
+use Illuminate\Support\Str;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
 {
@@ -42,6 +44,14 @@ class DoctorController extends Controller
         $form_data = $request->validated();
 
         $form_data['slug'] = Doctor::createSlug($form_data['user_name'].' '.$form_data['user_surname']);
+        if($request->hasFile('thumb')){
+            $path = Storage::disk('public')->put('thumb', $form_data['thumb']);
+            $form_data['thumb'] = $path;
+        }
+        else {
+            // Se non c'è un file caricato, puoi decidere di mantenere il valore esistente
+            $form_data['thumb'] = $doctor->thumb; // Mantieni il valore attuale se non ci sono nuove immagini
+        }
         $doctor->fill($form_data);
         // auth = funzione globale che restituisce l'istanza del gestore di autenticazione (verifica se utente è autenticato e in caso restituisce id user, altrimenti è null)
         $doctor->user_id = auth()->id();
@@ -95,6 +105,14 @@ class DoctorController extends Controller
         $form_data = $request->validated();
 
         $form_data['slug'] = Doctor::createSlug($form_data['user_name'] . $form_data['user_surname']);
+
+        if($request->hasFile('thumb')){
+            if(!Str::startsWith($doctor->thumb, 'https')){
+                Storage::disk('public')->delete($doctor->thumb);
+            }
+            $path = Storage::disk('public')->put('thumb', $form_data['thumb']);
+            $form_data['thumb'] = $path;
+        }
 
         $doctor->fill($form_data);
         $doctor->save();
