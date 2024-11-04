@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-expand-md bg-header shadow-sm">
+    <nav class="navbar navbar-expand-md bg-header">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo-box">
