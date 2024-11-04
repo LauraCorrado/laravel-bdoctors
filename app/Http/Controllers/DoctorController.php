@@ -105,7 +105,7 @@ class DoctorController extends Controller
         }
 
         
-        return redirect()->route('admin.doctors.show', ['doctor' => $doctor->id]);
+        return redirect()->route('admin.doctors.show', ['doctor' => $doctor->slug]);
                      
     }
 

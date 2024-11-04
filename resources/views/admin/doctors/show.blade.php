@@ -46,8 +46,10 @@
         </div>
 
         <div class="col-12 text-center mt-4">
-            <a href="{{route('admin.dashboard')}}" class="btn btn-secondary">{{ __('Vai alla dashboard') }}</a>
-            <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-primary">{{__('Modifica')}}</a>
+            <div class="my-3">
+                <a href="{{route('admin.dashboard')}}" class="text-decoration-none me-2 back">{{ __('Torna alla dashboard') }}</a>
+                <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="text-decoration-none save">{{__('Modifica')}}</a>
+            </div>
         </div>
     </div>
 </div>
