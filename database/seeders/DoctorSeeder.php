@@ -26,7 +26,7 @@ class DoctorSeeder extends Seeder
             $new_doctor -> cv = $doctor ['cv'];
             $new_doctor -> thumb = $doctor ['thumb'];
             $new_doctor -> performance = $doctor ['performance'];
-            $new_doctor -> slug = Doctor::createSlug($doctor ['user_name'].$doctor['user_surname']);
+            $new_doctor -> slug = Doctor::createSlug($doctor ['user_name'].' '.$doctor['user_surname']);
             $new_doctor -> save();
         }
     }
