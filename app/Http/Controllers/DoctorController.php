@@ -48,9 +48,9 @@ class DoctorController extends Controller
             $path = Storage::disk('public')->put('thumb', $form_data['thumb']);
             $form_data['thumb'] = $path;
         }
-        else {
-            // Se non c'è un file caricato, puoi decidere di mantenere il valore esistente
-            $form_data['thumb'] = $doctor->thumb; // Mantieni il valore attuale se non ci sono nuove immagini
+        if($request->hasFile('cv')){
+            $path = Storage::disk('public')->put('cv', $form_data['cv']);
+            $form_data['cv'] = $path;
         }
         $doctor->fill($form_data);
         // auth = funzione globale che restituisce l'istanza del gestore di autenticazione (verifica se utente è autenticato e in caso restituisce id user, altrimenti è null)
@@ -112,6 +112,13 @@ class DoctorController extends Controller
             }
             $path = Storage::disk('public')->put('thumb', $form_data['thumb']);
             $form_data['thumb'] = $path;
+        }
+        if($request->hasFile('thumb')){
+            if($doctor->cv){
+                Storage::disk('public')->delete($doctor->cv);
+            }
+            $path = Storage::disk('public')->put('cv', $form_data['cv']);
+            $form_data['cv'] = $path;
         }
 
         $doctor->fill($form_data);

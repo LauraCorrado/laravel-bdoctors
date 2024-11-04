@@ -25,8 +25,6 @@ return new class extends Migration
             $table->string('cv')->nullable();
             $table->string('thumb')->nullable()->default('https://placehold.co/500x500?text=Avatar');
             $table->text('performance');
-            // $table->
-            // $table->
             $table->timestamps();
         });
     }
