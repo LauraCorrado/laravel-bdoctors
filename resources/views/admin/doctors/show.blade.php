@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-12 text-center mb-4">
-            <h1>Profilo del Medico</h1>
+            <h1>Profilo di <strong>{{ $doctor->user_name }} {{ $doctor->user_surname }}</strong></h1>
         </div>
 
         <div class="col-md-6 mb-3 border p-3">
