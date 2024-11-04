@@ -54,6 +54,14 @@
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
+                        <label for="cv" class="form-label fw-bolder m-0 py-1">Curriculum Vitae</label>
+                        <input type="file" name="cv" id="cv" placeholder="Importa il tuo cv"
+                            class="form-control">
+                        @error('cv')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
                         <label for="thumb" class="form-label fw-bolder m-0 py-1">Immagine del profilo</label>
                         <input type="file" name="thumb" id="thumb" placeholder="Immagine del profilo"
                             class="form-control">

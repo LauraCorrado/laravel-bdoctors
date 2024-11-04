@@ -17,11 +17,16 @@
         </div>
         <div class="col-md-6 mb-3 border p-3">
             <h5>Immagine:</h5>
-            {{-- @if (Str::startsWith($doctor->thumb, 'https')) --}}
-            {{-- <img src="{{ $doctor->thumb }}" alt="doctor-avatar" class="img-fluid rounded-circle"> --}}
-            {{-- @else --}}
+            @if (!Str::startsWith($doctor->thumb, 'https'))
             <img src="{{ asset('storage/'.$doctor->thumb) }}" alt="doctor-avatar" class="img-fluid rounded-circle">
-            {{-- @endif --}}
+            @else
+            <img src="{{ $doctor->thumb }}" alt="doctor-avatar" class="img-fluid rounded-circle">
+            @endif
+        </div>
+        <div class="col-md-6 mb-3 border p-3">
+            @if ($doctor->cv)
+            <a href="{{asset('storage/'.$doctor->cv)}}" target="_blank">Curriculum Vitae</a>
+            @endif
         </div>
         <div class="col-md-6 mb-3 border p-3">
             <h5>Indirizzo:</h5>

@@ -32,8 +32,8 @@ class UpdateDoctorRequest extends FormRequest
                 'fields' => 'required|array',
                 // 'fields.*' => 'exists:fields,id'
                 "performance" => 'required|string|min:30|max:150',
-                "cv" => 'nullable|string',
-                "thumb" => 'nullable|image|mimes:jpeg,png,jpg,svg',
+                "cv" => 'nullable',
+                "thumb" => 'nullable',
             ];
     }
 
@@ -47,7 +47,6 @@ class UpdateDoctorRequest extends FormRequest
             'performance.min' => 'La descrizione delle prestazioni deve contenere almeno 30 caratteri.',
             'performance.max' => 'La descrizione delle prestazioni non può superare i 150 caratteri.',
             'fields.required' => 'Seleziona almeno una specializzazione per registrare il tuo profilo.',
-            'thumb.mimes' => 'Il file deve avere una delle seguenti estensioni: jpeg,png,jpg,svg',
         ];
     }
 }
