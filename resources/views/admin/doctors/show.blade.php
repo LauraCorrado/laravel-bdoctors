@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-12 text-center mb-4">
-            <h1>Profilo del Medico</h1>
+            <h1>Profilo di <strong>{{ $doctor->user_name }} {{ $doctor->user_surname }}</strong></h1>
         </div>
 
         <div class="col-md-6 mb-3 border p-3">
@@ -46,7 +46,10 @@
         </div>
 
         <div class="col-12 text-center mt-4">
-            <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-primary">Modifica</a>
+            <div class="my-3">
+                <a href="{{route('admin.dashboard')}}" class="text-decoration-none me-2 back">{{ __('Torna alla dashboard') }}</a>
+                <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="text-decoration-none save">{{__('Modifica')}}</a>
+            </div>
         </div>
     </div>
 </div>

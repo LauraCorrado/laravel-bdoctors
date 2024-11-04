@@ -81,7 +81,8 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" class="mt-3 btn btn-primary">Salva le modifiche</button>
+                        <a class="text-decoration-none back me-2" href="{{ route('admin.doctors.show', ['doctor' => Auth::user()->doctor->slug]) }}">{{ __('Torna al profilo') }}</a>
+                        <button type="submit" class="save">{{ __('Salva le modifiche')}}</button>
                     </div>
                 </div>
             </form>

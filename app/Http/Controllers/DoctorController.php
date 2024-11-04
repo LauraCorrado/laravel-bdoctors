@@ -41,8 +41,10 @@ class DoctorController extends Controller
     {
         $form_data = $request->validated();
 
-        $form_data['slug'] = Doctor::createSlug($form_data['user_name'].$form_data['user_surname']);
+        $form_data['slug'] = Doctor::createSlug($form_data['user_name'].' '.$form_data['user_surname']);
         $doctor->fill($form_data);
+        // auth = funzione globale che restituisce l'istanza del gestore di autenticazione (verifica se utente è autenticato e in caso restituisce id user, altrimenti è null)
+        $doctor->user_id = auth()->id();
         $doctor->save();
 
         if($request->has('fields')) {
@@ -52,7 +54,7 @@ class DoctorController extends Controller
             $doctor->fields()->attach($fields);
         }
         
-        return redirect()->route('admin.doctors.show', ['doctor' => $doctor->id]);
+        return redirect()->route('admin.doctors.show', ['doctor' => $doctor->slug]);
     }
 
     /**
@@ -61,8 +63,9 @@ class DoctorController extends Controller
      * @param  \App\Models\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show($slug)
     {
+        $doctor = Doctor::where('slug', $slug)->firstOrFail();
         $doctor->load('fields');
         return view('admin.doctors.show', compact('doctor'));
     }
@@ -102,7 +105,7 @@ class DoctorController extends Controller
         }
 
         
-        return redirect()->route('admin.doctors.show', ['doctor' => $doctor->id]);
+        return redirect()->route('admin.doctors.show', ['doctor' => $doctor->slug]);
                      
     }
 
