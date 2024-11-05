@@ -17,7 +17,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                        <a class="nav-link fs-3" href="{{url('/') }}">{{ __('BDoctors') }}</a>
                     </li>
                 </ul>
 
@@ -26,11 +26,11 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Sign in') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                     </li>
                     @endif
                     @else
@@ -42,7 +42,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{__('Dashboard')}}</a>
-                            <a class="dropdown-item" href="{{ route('admin.doctors.index') }}">{{__('Elenco medici')}}</a>
+                            {{-- <a class="dropdown-item" href="{{ route('admin.doctors.index') }}">{{__('Elenco medici')}}</a> --}}
                             {{-- verifico se user è autenticato (auth::check()) e se ha un profilo doctor --}}
                             @if(Auth::check() && Auth::user()->doctor)
                             <a class="dropdown-item" href="{{ route('admin.doctors.show', ['doctor' => Auth::user()->doctor->slug]) }}">
@@ -53,7 +53,7 @@
                             {{-- <a class="dropdown-item" href="{{ route('admin.doctors.create') }}">{{ __('Create') }}</a> --}}
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Esci') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
