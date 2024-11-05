@@ -22,7 +22,7 @@
 <body>
     <div id="app">
         @include('partials.header')
-        <main class="py-3">
+        <main>
             @yield('content')
         </main>
     </div>
