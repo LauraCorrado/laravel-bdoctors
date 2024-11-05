@@ -9,7 +9,7 @@
                 <h2 class="m-2">Crea qui il tuo profilo</h2>
                 <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>
-            <form action="{{ route('admin.doctors.store') }}" method="POST" class="my-4 text-center"
+            <form id="form-doc-create" action="{{ route('admin.doctors.store') }}" method="POST" class="my-4 text-center"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="row g-3">
