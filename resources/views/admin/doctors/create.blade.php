@@ -74,7 +74,7 @@
                         <p>Seleziona uno o più campi di specializzazione</p>
                         <div class="row py-3">
                             @foreach($fields as $field)
-                            <div class="col-6 col-md-4 d-flex">
+                            <div class="col-12 col-md-4 col-lg-3 d-flex">
                                 <div class="form-check-inline m-0">
                                     <input type="checkbox" name="fields[]" class="form-check-input"
                                         value="{{ $field->id }}" {{ is_array(old('fields')) && in_array($field->id,
