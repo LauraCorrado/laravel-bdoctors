@@ -11,7 +11,7 @@ class DoctorController extends Controller
     
     public function index()
     {
-        $doctors = Doctor::all(); 
+        $doctors = Doctor::with('fields')->get();
         return response()->json([
             'success' => true,
             'results' => $doctors
