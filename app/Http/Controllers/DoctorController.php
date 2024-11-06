@@ -88,6 +88,10 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
+        if ($doctor->user_id !== auth()->id()) {
+            abort(403, 'Azione non autorizzata.');
+        }
+
         $fields = Field::all();
         return view('admin.doctors.edit', compact('doctor', 'fields'));
     }
@@ -101,7 +105,10 @@ class DoctorController extends Controller
      */
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
-   
+        if ($doctor->user_id !== auth()->id()) {
+            abort(403, 'Azione non autorizzata.');
+        }
+
         $form_data = $request->validated();
 
         $form_data['slug'] = Doctor::createSlug($form_data['user_name'] . $form_data['user_surname']);
