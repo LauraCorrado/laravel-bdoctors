@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-12">
             <div class="mb-5 text-center">
-                <h1>Grazie per la tua iscrizione!</h1>
-                <h2 class="m-2">Crea qui il tuo profilo</h2>
+                <h1>Grazie per l'iscrizione, <br><strong>{{$user->name}} {{$user->surname}}</strong>!</h1>
+                <h3 class="m-2">Aggiungi informazioni al tuo profilo</h3>
                 <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>
             <form id="form-doc-create" action="{{ route('admin.doctors.store') }}" method="POST" class="my-4 text-center"
@@ -14,17 +14,17 @@
                 @csrf
                 <div class="row g-3">
                     <div class="col-12 col-md-6 col-lg-4">
-                        <label for="user_name" class="form-label fw-bolder m-0 py-1">Nome*</label>
+                        <label for="user_name" class="form-label fw-bolder m-0 py-1">Nome</label>
                         <input type="text" name="user_name" id="user_name" placeholder="Nome" class="form-control @error('user_name') is-invalid @enderror"
-                            required value="{{ old('user_name') }}">
+                            required value="{{ old('user_name', auth()->user()->name) }}" readonly>
                         @error('user_name')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
-                        <label for="user_surname" class="form-label fw-bolder m-0 py-1">Cognome*</label>
+                        <label for="user_surname" class="form-label fw-bolder m-0 py-1">Cognome</label>
                         <input type="text" name="user_surname" id="user_surname" placeholder="Cognome"
-                            class="form-control @error('user_surname') is-invalid @enderror" required value="{{ old('user_surname') }}">
+                            class="form-control @error('user_surname') is-invalid @enderror" required value="{{ old('user_name', auth()->user()->surname) }}" readonly>
                         @error('user_surname')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
