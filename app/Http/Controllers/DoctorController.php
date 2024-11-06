@@ -29,8 +29,9 @@ class DoctorController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
         $fields = Field::all();
-        return view('admin.doctors.create', compact('fields'));
+        return view('admin.doctors.create', compact('fields', 'user'));
     }
 
     /**
@@ -44,10 +45,13 @@ class DoctorController extends Controller
         
         $form_data = $request->validated();
 
+        $form_data['user_name'] = auth()->user()->name;
+        $form_data['user_surname'] = auth()->user()->surname;
+
         $slug = Doctor::createSlug($form_data['user_name'].' '.$form_data['user_surname']);
         while (Doctor::where('slug', $slug)->exists()) {
             // Aggiungi un suffisso casuale allo slug se già esiste nel database
-            $slug = Doctor::createSlug($form_data['user_name'] . ' ' . $form_data['user_surname'] . '-' . Str::random(2));
+            $slug = Doctor::createSlug($form_data['user_name'] . ' ' . $form_data['user_surname'] . '-' . rand(1000, 9999));
         }
         $form_data['slug'] = $slug;
 
