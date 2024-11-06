@@ -15,42 +15,42 @@
                 <div class="row g-3">
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="user_name" class="form-label fw-bolder m-0 py-1">Nome*</label>
-                        <input type="text" name="user_name" id="user_name" placeholder="Nome" class="form-control"
+                        <input type="text" name="user_name" id="user_name" placeholder="Nome" class="form-control @error('user_name') is-invalid @enderror"
                             required value="{{ old('user_name') }}">
                         @error('user_name')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="user_surname" class="form-label fw-bolder m-0 py-1">Cognome*</label>
                         <input type="text" name="user_surname" id="user_surname" placeholder="Cognome"
-                            class="form-control" required value="{{ old('user_surname') }}">
+                            class="form-control @error('user_surname') is-invalid @enderror" required value="{{ old('user_surname') }}">
                         @error('user_surname')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="address" class="form-label fw-bolder m-0 py-1">Indirizzo*</label>
-                        <input type="text" name="address" id="address" placeholder="Indirizzo" class="form-control"
+                        <input type="text" name="address" id="address" placeholder="Indirizzo" class="form-control @error('address') is-invalid @enderror"
                             required value="{{ old('address') }}">
                         @error('address')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="city" class="form-label fw-bolder m-0 py-1">Città*</label>
-                        <input type="text" name="city" id="city" placeholder="Città" class="form-control" required
+                        <input type="text" name="city" id="city" placeholder="Città" class="form-control @error('city') is-invalid @enderror" required
                             value="{{ old('city') }}">
                         @error('city')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="phone_number" class="form-label fw-bolder m-0 py-1">Numero di telefono*</label>
                         <input type="text" name="phone_number" id="phone_number" placeholder="Numero di telefono"
-                            class="form-control" required value="{{ old('phone_number') }}">
+                            class="form-control @error('phone_number') is-invalid @enderror" required value="{{ old('phone_number') }}">
                         @error('phone_number')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -58,7 +58,7 @@
                         <input type="file" name="cv" id="cv" placeholder="Importa il tuo cv"
                             class="form-control">
                         @error('cv')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -66,7 +66,7 @@
                         <input type="file" name="thumb" id="thumb" placeholder="Immagine del profilo"
                             class="form-control">
                         @error('thumb')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12">
@@ -85,15 +85,15 @@
                             @endforeach
                         </div>
                         @error('fields')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12">
                         <label for="performance" class="form-label fw-bolder m-0 py-1">Prestazioni*</label>
-                        <textarea name="performance" id="performance" rows="4" class="form-control"
+                        <textarea name="performance" id="performance" rows="4" class="form-control @error('performance') is-invalid @enderror"
                             placeholder="Descrivi le tue prestazioni" required>{{ old('performance') }}</textarea>
                         @error('performance')
-                        <div class="text-danger">{{ $message }}</div>
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12">
