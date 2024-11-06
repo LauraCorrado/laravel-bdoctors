@@ -18,7 +18,7 @@
                         <input type="text" name="user_name" id="user_name" placeholder="Nome" class="form-control @error('user_name') is-invalid @enderror"
                             required value="{{ old('user_name', auth()->user()->name) }}" readonly>
                         @error('user_name')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -26,7 +26,7 @@
                         <input type="text" name="user_surname" id="user_surname" placeholder="Cognome"
                             class="form-control @error('user_surname') is-invalid @enderror" required value="{{ old('user_name', auth()->user()->surname) }}" readonly>
                         @error('user_surname')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -34,7 +34,7 @@
                         <input type="text" name="address" id="address" placeholder="Indirizzo" class="form-control @error('address') is-invalid @enderror"
                             required value="{{ old('address') }}">
                         @error('address')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -42,7 +42,7 @@
                         <input type="text" name="city" id="city" placeholder="Città" class="form-control @error('city') is-invalid @enderror" required
                             value="{{ old('city') }}">
                         @error('city')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -50,7 +50,7 @@
                         <input type="text" name="phone_number" id="phone_number" placeholder="Numero di telefono"
                             class="form-control @error('phone_number') is-invalid @enderror" required value="{{ old('phone_number') }}">
                         @error('phone_number')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -58,7 +58,7 @@
                         <input type="file" name="cv" id="cv" placeholder="Importa il tuo cv"
                             class="form-control">
                         @error('cv')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -66,7 +66,7 @@
                         <input type="file" name="thumb" id="thumb" placeholder="Immagine del profilo"
                             class="form-control">
                         @error('thumb')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12">
@@ -85,7 +85,7 @@
                             @endforeach
                         </div>
                         @error('fields')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12">
@@ -93,7 +93,7 @@
                         <textarea name="performance" id="performance" rows="4" class="form-control @error('performance') is-invalid @enderror"
                             placeholder="Descrivi le tue prestazioni" required>{{ old('performance') }}</textarea>
                         @error('performance')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12">
