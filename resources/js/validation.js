@@ -1,7 +1,4 @@
 import validate from 'validate.js';
-/*Regole di convalida apprese:
-- allowEmpty false -> per non accettare oggetti, array, stringhe vuoti e o stringhe con spazi bianchi
-*/
 // form registrazione
 console.log("validation.js loaded");
 document.addEventListener('DOMContentLoaded', function () {
@@ -77,6 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         message: "^Il numero di telefono può contenere solo numeri"
                     }
                 },
+                cv: {
+                    presence: false
+                },
+                thumb: {
+                    presence: false
+                },
                 fields: {
                     presence: { allowEmpty: false, message: "^Seleziona almeno una specializzazione per registrare il tuo profilo"},
                     type: "array",
@@ -111,10 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, {});
                 const errors = validate(formValues, constraints);
                 if (errors) {
-                    console.log("error", errors)
                     showErrors(errors, form);
                 } else {
-                    console.log('no errors')
+                    console.log("No validation errors");
                     form.submit();
                 }
             })
