@@ -29,7 +29,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        $fields = Field::all();
+        $fields = Field::orderBy('name')->get();
         return view('admin.doctors.create', compact('fields'));
     }
 
@@ -88,7 +88,7 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        $fields = Field::all();
+        $fields = Field::orderBy('name')->get();
         return view('admin.doctors.edit', compact('doctor', 'fields'));
     }
 
