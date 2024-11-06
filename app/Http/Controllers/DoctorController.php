@@ -41,9 +41,16 @@ class DoctorController extends Controller
      */
     public function store(StoreDoctorRequest $request, Doctor $doctor)
     {
+        
         $form_data = $request->validated();
 
-        $form_data['slug'] = Doctor::createSlug($form_data['user_name'].' '.$form_data['user_surname']);
+        $slug = Doctor::createSlug($form_data['user_name'].' '.$form_data['user_surname']);
+        while (Doctor::where('slug', $slug)->exists()) {
+            // Aggiungi un suffisso casuale allo slug se già esiste nel database
+            $slug = Doctor::createSlug($form_data['user_name'] . ' ' . $form_data['user_surname'] . '-' . Str::random(2));
+        }
+        $form_data['slug'] = $slug;
+
         if($request->hasFile('thumb')){
             $path = Storage::disk('public')->put('thumb', $form_data['thumb']);
             $form_data['thumb'] = $path;
@@ -76,6 +83,9 @@ class DoctorController extends Controller
     public function show($slug)
     {
         $doctor = Doctor::where('slug', $slug)->firstOrFail();
+        if ($doctor->user_id !== auth()->id()) {
+            abort(403, 'Azione non autorizzata.');
+        }
         $doctor->load('fields');
         return view('admin.doctors.show', compact('doctor'));
     }
