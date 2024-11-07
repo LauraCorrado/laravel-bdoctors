@@ -10,19 +10,24 @@ use App\Models\Field;
 class DoctorController extends Controller
 {
     public function index(Request $request) {
-        $query = Doctor::with('fields');
-    
-        // Filtra per specializzazione
-        if ($request->has('fields')) {
-            $fields = $request->input('fields');
-            $query->whereHas('fields', function ($qu) use ($fields) {
-                $qu->whereIn('name', $fields);
-            });
-        }
-        $doctors = $query->paginate(6);
+        $doctors = Doctor::with('fields')->get();
         return response()->json([
             'success' => true,
             'results' => $doctors
         ]);
+        // $query = Doctor::with('fields');
+    
+        // // Filtra per specializzazione
+        // if ($request->has('fields')) {
+        //     $fields = $request->input('fields');
+        //     $query->whereHas('fields', function ($qu) use ($fields) {
+        //         $qu->whereIn('name', $fields);
+        //     });
+        // }
+        // $doctors = $query->paginate(6);
+        // return response()->json([
+        //     'success' => true,
+        //     'results' => $doctors
+        // ]);
     }
 }
