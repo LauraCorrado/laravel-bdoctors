@@ -9,16 +9,6 @@ use App\Models\Field;
 
 class DoctorController extends Controller
 {
-    
-    // public function index()
-    // {
-    //     $doctors = Doctor::with('fields')->paginate(6);
-    //     return response()->json([
-    //         'success' => true,
-    //         'results' => $doctors
-    //     ]);
-    // }
-
     public function index(Request $request) {
         $query = Doctor::with('fields');
     
