@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\DoctorController as DoctorController;
+use App\Http\Controllers\Api\FieldController as FieldController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Rotta per ottenere tutti i dottori
 
 Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
-Route::get('/doctors/search', [DoctorController::class, 'getFields']);
+Route::get('/fields', [FieldController::class, 'index']);
