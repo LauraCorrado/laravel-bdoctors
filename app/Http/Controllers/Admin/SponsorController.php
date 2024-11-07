@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use App\Models\Sponsor;
+use App\Http\Requests\StoreSponsorRequest;
+use App\Http\Requests\UpdateSponsorRequest;
 
-use App\Models\Rating;
-use App\Http\Requests\StoreRatingRequest;
-use App\Http\Requests\UpdateRatingRequest;
-
-class RatingController extends Controller
+class SponsorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class RatingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreRatingRequest  $request
+     * @param  \App\Http\Requests\StoreSponsorRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRatingRequest $request)
+    public function store(StoreSponsorRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class RatingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Models\Sponsor  $sponsor
      * @return \Illuminate\Http\Response
      */
-    public function show(Rating $rating)
+    public function show(Sponsor $sponsor)
     {
         //
     }
@@ -53,10 +53,10 @@ class RatingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Models\Sponsor  $sponsor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rating $rating)
+    public function edit(Sponsor $sponsor)
     {
         //
     }
@@ -64,11 +64,11 @@ class RatingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateRatingRequest  $request
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Http\Requests\UpdateSponsorRequest  $request
+     * @param  \App\Models\Sponsor  $sponsor
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRatingRequest $request, Rating $rating)
+    public function update(UpdateSponsorRequest $request, Sponsor $sponsor)
     {
         //
     }
@@ -76,10 +76,10 @@ class RatingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Models\Sponsor  $sponsor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rating $rating)
+    public function destroy(Sponsor $sponsor)
     {
         //
     }
