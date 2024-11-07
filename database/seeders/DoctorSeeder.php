@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Doctor;
+use App\Models\Field;
 use App\Models\User;
 
 use Faker\Factory as Faker;
@@ -18,6 +19,9 @@ class DoctorSeeder extends Seeder
      */
     public function run()
     {
+        //specializzazioni
+        $fields = Field::all();
+        //dottori
         $doctors = config('doctors');
         //per utenti fittizi associati
         $faker = Faker::create();
@@ -44,6 +48,10 @@ class DoctorSeeder extends Seeder
             
             $new_doctor->user_id = $user->id;
             $new_doctor -> save();
+            // array con specializzazioni random, da una a 3
+            $new_doctor->fields()->attach(
+                $fields->random(rand(1, 3))->pluck('id')->toArray()
+            );
         }
     }
 }
