@@ -10,7 +10,7 @@ return [
         "phone_number" => "+39 06 12345678",
         "cv" => "https://example.com/cv/john_doe.pdf",
         "thumb" => "https://placehold.co/500x500?text=John+Doe",
-        "performance" => "Specialista in cardiologia con oltre 15 anni di esperienza in chirurgia cardiaca e assistenza ai pazienti."
+        "performance" => "Specialista in Medicina dello Sport con un'ampia esperienza nella prevenzione, diagnosi e riabilitazione delle lesioni sportive. Esperto nella gestione dei programmi di recupero post-infortunio e nella consulenza per il miglioramento delle performance atletiche"
     ],
     [
         "id" => 2,
@@ -21,7 +21,7 @@ return [
         "phone_number" => "+39 02 7654321",
         "cv" => "https://example.com/cv/anna_rossi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Anna+Rossi",
-        "performance" => "Pediatra esperta in malattie infantili e prevenzione della salute dei bambini."
+        "performance" => "Specialista in Pediatria con esperienza nella diagnosi e cura delle malattie infantili, dalla nascita fino all'adolescenza, con particolare attenzione alla crescita e allo sviluppo dei bambini."
     ],
     [
         "id" => 3,
@@ -32,7 +32,7 @@ return [
         "phone_number" => "+39 081 9876543",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Marco+Bianchi",
-        "performance" => "Chirurgo ortopedico specializzato in traumi sportivi e chirurgia di sostituzione articolare."
+        "performance" => "Diagnosi e trattamento delle patologie reumatiche. Esperto nel trattamento di artrite, lupus, osteoporosi e altre malattie autoimmuni."
     ],
     [
         "id" => 4,
@@ -43,7 +43,7 @@ return [
         "phone_number" => "+39 011 4567890",
         "cv" => "https://example.com/cv/luisa_verdi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Luisa+Verdi",
-        "performance" => "Dermatologa esperta in malattie della pelle, dermatologia cosmetica e trattamenti laser."
+        "performance" => "Diagnosi e trattamento delle patologie gastrointestinali, oltre che 20 anni di esperienza nel trattamento di allergie e malattie immunologiche."
     ],
     [
         "id" => 5,
@@ -54,7 +54,7 @@ return [
         "phone_number" => "+39 055 1239876",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Avatar",
-        "performance" => "Psichiatra specializzato in disturbi d'ansia, disturbi dell'umore e trattamento delle dipendenze."
+        "performance" => "Esperto nella gestione di patologie come insufficienza cardiaca, aritmie, ipertensione e malattia coronarica, con un approccio innovativo e personalizzato per prevenire eventi cardiovascolari e migliorare la salute del cuore dei pazienti."
     ],
     [
         "id" => 6,
@@ -65,7 +65,7 @@ return [
         "phone_number" => "+39 041 3456789",
         "cv" => "https://example.com/cv/francesca_gallo.pdf",
         "thumb" => "https://placehold.co/500x500?text=Francesca+Gallo",
-        "performance" => "Endocrinologa esperta in disturbi ormonali, gestione del diabete e patologie della tiroide."
+        "performance" => "Doo 10 anni nel trattamento dei disturbi sessuali maschili, infertilità e patologie ormonali, mi sono specializzata in neurologia pediatrica e nella cura di epilessia e malattie neurodegenerative."
     ],
     [
         "id" => 7,
@@ -76,7 +76,7 @@ return [
         "phone_number" => "+39 010 8765432",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Roberto+Marini",
-        "performance" => "Neurologo specializzato in malattie neurodegenerative e terapia cognitiva."
+        "performance" => "Specialista in Oncologia Pediatrica ed Ematologia, con una solida esperienza nella diagnosi e nel trattamento di tumori e malattie ematologiche nei bambini. Si occupa di tumori solidi, leucemie, linfomi e altre malattie ematologiche, utilizzando approcci terapeutici avanzati, tra cui radioterapia e trapianto di cellule."
     ],
     [
         "id" => 8,
@@ -87,7 +87,7 @@ return [
         "phone_number" => "+39 051 6543210",
         "cv" => "https://example.com/cv/marta_bassi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Marta+Bassi",
-        "performance" => "Oncologa con esperienza in trattamenti innovativi per il cancro e immunoterapia."
+        "performance" => "Specialista in Pediatria con expertise in Chirurgia Vascolare e Chirurgia Generale e d'Urgenza, focalizzato sulla diagnosi e trattamento di patologie pediatriche complesse, incluse malformazioni vascolari, urgenze chirurgiche e interventi chirurgici generali nei bambini."
     ],
     [
         "id" => 9,
@@ -98,7 +98,7 @@ return [
         "phone_number" => "+39 091 1234567",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Carlo+Esposito",
-        "performance" => "Gastroenterologo esperto in disturbi digestivi e gestione delle malattie epatiche."
+        "performance" => "Mi occupo da oltre 20 anni di patologie infettive complesse, gestendo infezioni virali, batteriche e fungine, e offro anche trattamenti avanzati per le malattie oculari, inclusi disturbi infettivi degli occhi e condizioni croniche."
     ],
     [
         "id" => 10,
