@@ -40,12 +40,12 @@
                     <p>{{ $doctor->phone_number }}</p>
                 </div>
             </div>
-            <div class="row pb-3">
-                <div class="col-12 col-md-6">
+            <div class="row pb-3 gy-3">
+                <div class="col-12">
                     <h5>Prestazioni:</h5>
                     <p class="performances">{{ $doctor->performance }}</p>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12">
                     <h5>Specializzazioni:</h5>
                     @if ($doctor->fields && $doctor->fields->isNotEmpty())
                     @foreach ($doctor->fields as $field)
