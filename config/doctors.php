@@ -21,7 +21,8 @@ return [
         "phone_number" => "+39 02 7654321",
         "cv" => "https://example.com/cv/anna_rossi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Anna+Rossi",
-        "performance" => "Pediatra esperta in malattie infantili e prevenzione della salute dei bambini."
+        "performance" => "Pediatra esperta in malattie infantili e prevenzione della salute dei bambini.",
+        "fields" => ["Pediatria"]
     ],
     [
         "id" => 3,
