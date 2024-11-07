@@ -50,7 +50,7 @@ class DoctorSeeder extends Seeder
             $new_doctor -> save();
             // array con specializzazioni random, da una a 3
             $new_doctor->fields()->attach(
-                $fields->random(rand(1, 3))->pluck('id')->toArray()
+                $fields->random(1)->pluck('id')->toArray()
             );
         }
     }
