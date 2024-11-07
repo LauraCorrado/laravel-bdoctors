@@ -10,33 +10,29 @@ use App\Models\Field;
 class DoctorController extends Controller
 {
     
-    public function index()
-    {
-        $doctors = Doctor::with('fields')->get();
+    // public function index()
+    // {
+    //     $doctors = Doctor::with('fields')->paginate(6);
+    //     return response()->json([
+    //         'success' => true,
+    //         'results' => $doctors
+    //     ]);
+    // }
+
+    public function index(Request $request) {
+        $query = Doctor::with('fields');
+    
+        // Filtra per specializzazione
+        if ($request->has('fields')) {
+            $fields = $request->input('fields');
+            $query->whereHas('fields', function ($qu) use ($fields) {
+                $qu->whereIn('name', $fields);
+            });
+        }
+        $doctors = $query->paginate(6);
         return response()->json([
             'success' => true,
             'results' => $doctors
         ]);
     }
-
-    public function getFields() {
-        $fields = Field::all();
-        return response()->json([
-            'success' => true,
-            'results' => $fields
-        ]);
-    }
-
-    // public function searchByFields(Request $request) {
-    //     // inizializziamo una query per Doctor
-    //     $query = Doctor::query();
-
-    //     // --- FILTRO ----
-    //     if($request->filled('field')) {
-    //         // whereHas per filtrare in base a relazione esistente
-    //         $query->whereHas('fields', function ($qu) use ($request) {
-    //             $qu->where('name', 'like')
-    //         })
-    //     }
-    // }
 }
