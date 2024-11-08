@@ -32,7 +32,7 @@ class DoctorController extends Controller
     }
 
     public function details($slug) {
-        $doctor = Doctor::whit('fields')->where('slug', $slug)->first();
+        $doctor = Doctor::with('fields')->where('slug', $slug)->first();
         if($doctor) {
             return response()->json([
                 'success' => true,
@@ -41,7 +41,8 @@ class DoctorController extends Controller
         }
 
         return response()->json([
-            'success' => false
+            'success' => false,
+            'message' => 'Dottore non trovato'
         ]);
     }
 }
