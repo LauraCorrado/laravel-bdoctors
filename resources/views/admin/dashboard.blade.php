@@ -19,25 +19,28 @@
                     @endif
                     <p>{{ __('Hai effettuato con successo il login!') }}</p>
                     <p class="mt-1">{{ __('Questa è la tua dashboard.') }}</p>
-                    <div class="mt-4 show-buttons">
-                        <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="text-decoration-none save">{{
-                            __('Modifica i tuoi dati') }}</a>
+                    <div class="m-2 btn btn-sm btn-primary col-12 col-md-6 col-lg-3">
+                        <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="text-decoration-none text-white">{{
+                            __('Modifica i tuoi dati') }}
+                        </a>
                     </div>
-                    <div class="mt-4 show-buttons">
-                        <a {{-- href="{{ route('admin.doctors.messages', $doctor->id) }}" --}}
-                            class="mt-1 text-decoration-none save">{{ __('I tuoi messaggi') }}</a>
-                    </div>
-                    <div class="mt-4 show-buttons">
-                        <a {{-- href="{{ route('admin.doctors.review', $doctor->id) }}" --}}
-                            class="mt-1 text-decoration-none save">{{ __('Cosa dicono di te i pazienti') }}</a>
-                    </div>
-                    <div class="mt-4 show-buttons">
-                        <a {{-- href="{{ route('admin.doctors.sponsor', $doctor->id) }}" --}}
-                            class="mt-1 text-decoration-none save">{{ __('Promuovi il tuo profilo') }}</a>
-                    </div>
-                    <div class="mt-4 show-buttons">
-                        <a {{-- href="{{ route('admin.doctors.ratings', $doctor->id) }}" --}}
-                            class="mt-1 text-decoration-none save">{{ __('Le tue statistiche') }}</a>
+                    <div class="row text-center">
+                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
+                            <a {{-- href="{{ route('admin.doctors.messages', $doctor->id) }}" --}}
+                                class="mt-1 text-decoration-none save">{{ __('I tuoi messaggi') }}</a>
+                        </div>
+                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
+                            <a {{-- href="{{ route('admin.doctors.review', $doctor->id) }}" --}}
+                                class="mt-1 text-decoration-none save">{{ __('Recensioni') }}</a>
+                        </div>
+                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
+                            <a {{-- href="{{ route('admin.doctors.sponsor', $doctor->id) }}" --}}
+                                class="mt-1 text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
+                        </div>
+                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
+                            <a {{-- href="{{ route('admin.doctors.ratings', $doctor->id) }}" --}}
+                                class="mt-1 text-decoration-none save">{{ __('Le tue statistiche') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
