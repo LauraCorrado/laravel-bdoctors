@@ -30,4 +30,18 @@ class DoctorController extends Controller
         //     'results' => $doctors
         // ]);
     }
+
+    public function details($slug) {
+        $doctor = Doctor::whit('fields')->where('slug', $slug)->first();
+        if($doctor) {
+            return response()->json([
+                'success' => true,
+                'results' => $doctor
+            ]);
+        }
+
+        return response()->json([
+            'success' => false
+        ]);
+    }
 }
