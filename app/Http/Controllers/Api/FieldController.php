@@ -9,7 +9,7 @@ use App\Models\Field;
 class FieldController extends Controller
 {
     public function index() {
-        $fields = Field::all();
+        $fields = Field::orderBy('name', 'ASC')->get();
         return response()->json([
             'success' => true,
             'results' => $fields
