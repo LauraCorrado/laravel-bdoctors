@@ -88,7 +88,7 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::where('slug', $slug)->firstOrFail();
         if ($doctor->user_id !== auth()->id()) {
-            abort(403, 'Azione non autorizzata.');
+            abort(404, 'Pagina non trovata.');
         }
         $doctor->load('fields');
         return view('admin.doctors.show', compact('doctor'));
@@ -103,7 +103,7 @@ class DoctorController extends Controller
     public function edit(Doctor $doctor)
     {
         if ($doctor->user_id !== auth()->id()) {
-            abort(403, 'Azione non autorizzata.');
+            abort(404, 'Pagina non trovata.');
         }
 
         $fields = Field::orderBy('name')->get();
@@ -120,7 +120,7 @@ class DoctorController extends Controller
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
         if ($doctor->user->id !== auth()->id()) {
-            abort(403, 'Azione non autorizzata.');
+            abort(404, 'Pagina non trovata.');
         }
 
         $form_data = $request->validated();
