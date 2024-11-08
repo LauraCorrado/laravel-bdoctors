@@ -24,16 +24,20 @@
                             __('Modifica i tuoi dati') }}</a>
                     </div>
                     <div class="mt-4 show-buttons">
-                        <a class="mt-1 text-decoration-none save">{{ __('I tuoi messaggi') }}</a>
+                        <a {{-- href="{{ route('admin.doctors.messages', $doctor->id) }}" --}}
+                            class="mt-1 text-decoration-none save">{{ __('I tuoi messaggi') }}</a>
                     </div>
                     <div class="mt-4 show-buttons">
-                        <a class="mt-1 text-decoration-none save">{{ __('Cosa dicono di te i pazienti') }}</a>
+                        <a {{-- href="{{ route('admin.doctors.review', $doctor->id) }}" --}}
+                            class="mt-1 text-decoration-none save">{{ __('Cosa dicono di te i pazienti') }}</a>
                     </div>
                     <div class="mt-4 show-buttons">
-                        <a class="mt-1 text-decoration-none save">{{ __('Promuovi il tuo profilo') }}</a>
+                        <a {{-- href="{{ route('admin.doctors.sponsor', $doctor->id) }}" --}}
+                            class="mt-1 text-decoration-none save">{{ __('Promuovi il tuo profilo') }}</a>
                     </div>
                     <div class="mt-4 show-buttons">
-                        <a class="mt-1 text-decoration-none save">{{ __('Le tue statistiche') }}</a>
+                        <a {{-- href="{{ route('admin.doctors.ratings', $doctor->id) }}" --}}
+                            class="mt-1 text-decoration-none save">{{ __('Le tue statistiche') }}</a>
                     </div>
                 </div>
             </div>
