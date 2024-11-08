@@ -25,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
 Route::get('/fields', [FieldController::class, 'index']);
+Route::get('/doctors/{slug}', [DoctorController::class, 'details'])->name('details');
