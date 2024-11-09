@@ -29,6 +29,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // verifico se l'utente autenticato ha un profilo doctor anche in login
+        $user = Auth::user();
+
+        // Se non ha un profilo doctor, reindirizza alla creazione del profilo
+        if (!$user->doctor) {        
+        return redirect()->route('admin.doctors.create');
+    }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
