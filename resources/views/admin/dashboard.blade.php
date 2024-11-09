@@ -2,9 +2,15 @@
 
 @section('content')
 <div class="container">
+    @if($doctor)
     <h1 class="fs-4 text-secondary my-4">
         {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}
     </h1>
+    @else
+    <h1 class="fs-4 text-secondary my-4">
+        {{ __('Non è stato trovato alcun dottore associato a questo account.') }}
+    </h1>
+    @endif
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
