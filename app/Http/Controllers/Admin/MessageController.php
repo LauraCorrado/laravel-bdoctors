@@ -23,7 +23,7 @@ class MessageController extends Controller
 
         $messages = Message::where('doctor_id', $doctor->id)->get();
 
-        return view('admin.doctor.messages.index', compact('messages'));
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
