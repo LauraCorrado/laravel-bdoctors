@@ -1,0 +1,29 @@
+.messages-box {
+    box-shadow: 2px 2px 5px $dark-grey;
+    border: 1px solid $dark-grey;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover{
+        transform: translateY(5px); 
+        box-shadow: 5px 5px 10px $dark-grey; 
+    }
+    .info-user {
+        align-items: center;
+        .id {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 767px){
+    .messages-box {
+        .info-user {
+            align-items: start;
+            justify-content: center;
+            .id {
+                margin-bottom: 10px;
+                margin-left: 16px;
+            }
+        }
+    }
+}

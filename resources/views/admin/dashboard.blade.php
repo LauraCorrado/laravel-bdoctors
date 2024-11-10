@@ -32,7 +32,7 @@
                     </div>
                     <div class="row text-center">
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a {{-- href="{{ route('admin.doctors.messages', $doctor->id) }}" --}}
+                            <a href="{{ route('admin.messages.index') }}" 
                                 class="mt-1 text-decoration-none save">{{ __('I tuoi messaggi') }}</a>
                         </div>
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">

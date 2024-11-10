@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,7 +16,14 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $doctor = Auth::user()->doctor;
+        if (!$doctor) {
+            abort(404, 'Pagina non trovata.');
+        }
+
+        $messages = Message::where('doctor_id', $doctor->id)->get();
+
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
