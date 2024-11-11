@@ -15,7 +15,13 @@ return [
     ["id" => 12, "name" => "Giulia", "email" => "giulia@example.com", "content" => "Il dottore è molto disponibile e professionale. Mi sono trovata benissimo.", "doctor_id" => 14],
     ["id" => 13, "name" => "Antonio", "email" => "antonio@example.com", "content" => "La visita è stata rapida e il trattamento è stato efficace. Grazie!", "doctor_id" => 8],
     ["id" => 14, "name" => "Chiara", "email" => "chiara@example.com", "content" => "Un'esperienza eccellente! Molto competente e attento alle esigenze del paziente.", "doctor_id" => 11],
-    ["id" => 15, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 12]
+    ["id" => 15, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 12],
+    ["id" => 16, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 10],
+    ["id" => 17, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 1],
+    ["id" => 18, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 20],
+    ["id" => 19, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 19],
+    ["id" => 20, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 11],
+    ["id" => 21, "name" => "Marco", "email" => "marco@example.com", "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.", "doctor_id" => 3]
 ];
 
 
