@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Field;
+use App\Models\Review;
 
 class DoctorController extends Controller
 {
     public function index(Request $request) {
-        $doctors = Doctor::with('fields')->get();
+        $doctors = Doctor::with(['fields', 'reviews'])->get();
         return response()->json([
             'success' => true,
             'results' => $doctors
@@ -32,7 +33,7 @@ class DoctorController extends Controller
     }
 
     public function details($slug) {
-        $doctor = Doctor::with('fields')->where('slug', $slug)->first();
+        $doctor = Doctor::with(['fields', 'reviews'])->where('slug', $slug)->first();
         if($doctor) {
             return response()->json([
                 'success' => true,
