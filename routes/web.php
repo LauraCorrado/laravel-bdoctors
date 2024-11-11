@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\BraintreeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('doctors', DoctorController::class);
     Route::resource('messages', MessageController::class);
 });
+
+// Braintree payment route
+Route::any('/payment', [BraintreeController::class, 'token'])->name('token')->middleware('auth');
 
 require __DIR__.'/auth.php';

@@ -11,7 +11,7 @@
                 <li>5,99 € per 72 ore di sponsorizzazione</li>
                 <li>9,99 € per 144 ore di sponsorizzazione</li>
             </ul>
-            <p>Per attivare la promozione, effettua il pagamento utilizzando la tua carta di credito.</p>
+            <p>Per attivare la promozione, effettua il pagamento utilizzando questo form</p>
         </div>
     </div>
 </div>
