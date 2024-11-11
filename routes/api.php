@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DoctorController as DoctorController;
 use App\Http\Controllers\Api\FieldController as FieldController;
 use App\Http\Controllers\Api\MessageController as MessageController;
+use App\Http\Controllers\Api\ReviewController as ReviewController; 
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,4 @@ Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index'
 Route::get('/fields', [FieldController::class, 'index']);
 Route::get('/doctors/{slug}', [DoctorController::class, 'details'])->name('details');
 Route::post('/messages', [MessageController::class, 'store']);
+Route::post('/reviews', [ReviewController::class, 'store']);
