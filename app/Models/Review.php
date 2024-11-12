@@ -14,7 +14,8 @@ class Review extends Model
         'name',
         'email',
         'content',
-        'doctor_id'
+        'doctor_id',
+        'vote'
     ];
 
     public function doctor(){
