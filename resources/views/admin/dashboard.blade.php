@@ -6,6 +6,7 @@
     <h1 class="fs-4 text-secondary my-4">
         {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}
     </h1>
+    <p><strong>{{ __('Media dei voti:') }}</strong> {{ number_format($averageRating, 1) }} / 5</p>
     @else
     <h1 class="fs-4 text-secondary my-4">
         {{ __('Non è stato trovato alcun dottore associato a questo account.') }}

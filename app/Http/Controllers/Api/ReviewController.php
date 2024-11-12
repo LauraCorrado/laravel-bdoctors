@@ -16,10 +16,9 @@ class ReviewController extends Controller
         $doctor = Doctor::where('slug', $slug)->first();
         
         if (!$doctor) {
-            // Se il dottore non esiste, restituisci un errore 404
             return response()->json([
                 'success' => false,
-                'message' => 'Dottore non trovato.'
+                'message' => 'Pagina non trovata.'
             ], 404);
         }
 
@@ -43,6 +42,11 @@ class ReviewController extends Controller
             'email' => $validated['email'],
             'content' => $validated['content'],
             'vote' => $validated['vote']
+        ]);
+
+        $averageRating = Review::where('doctor_id', $doctor->id)->avg('vote') ?? 0.0;
+        $doctor->update([
+            'average_rating' => $averageRating
         ]);
 
         // Risposta di successo
