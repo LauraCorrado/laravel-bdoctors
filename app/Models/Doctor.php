@@ -8,7 +8,6 @@ use App\Models\Field;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\Message;
-use App\Models\Rating;
 use App\Models\Sponsor;
 use Illuminate\Support\Str;
 
