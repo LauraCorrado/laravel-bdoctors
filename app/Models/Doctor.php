@@ -42,11 +42,6 @@ class Doctor extends Model
         return $this->hasMany(Message::class);
     }
 
-    //relazione MtM
-    public function ratings() {
-        return $this->belongsToMany(Rating::class);
-    }
-
     // relazione MtM
     public function sponsors(){
         return $this->belongsToMany(Sponsor::class);
