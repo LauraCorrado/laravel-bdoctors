@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\BraintreeController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('doctors', DoctorController::class);
     Route::resource('messages', MessageController::class);
+    Route::resource('reviews', ReviewController::class);
+    // Route::get('/doctors/{slug}/reviews', [ReviewController::class, 'index'])->name('admin.doctors.reviews'); // Visualizza le recensioni del dottore
 });
 
 // Braintree payment route

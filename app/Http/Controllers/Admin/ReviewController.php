@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Review;
+use App\Models\Doctor;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
 
@@ -13,9 +15,18 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
-        //
+        $doctor = Auth::user()->doctor;
+        if (!$doctor) {
+            abort(404, 'Pagina non trovata.');
+        }
+
+        $doctor = Doctor::where('slug', $slug)->firstOrFail();
+        // recovery delle recensioni relative al dottore con quello slug
+        $reviews = $doctor->reviews;
+
+        return view('admin.reviews.index', compact('reviews', 'doctor'));
     }
 
     /**

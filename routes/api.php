@@ -24,10 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Rotta per ottenere tutti i dottori
 
-Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
-Route::get('/fields', [FieldController::class, 'index']);
-Route::get('/doctors/{slug}', [DoctorController::class, 'details'])->name('details');
-Route::post('/messages', [MessageController::class, 'store']);
-Route::post('/reviews', [ReviewController::class, 'store']);
+Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index'); // Rotta per ottenere tutti i dottori
+Route::get('/fields', [FieldController::class, 'index']); // Rotta per ottenere tutte le specializzazioni dei dottori
+Route::get('/doctors/{slug}', [DoctorController::class, 'details'])->name('details'); // rotta per ottenere dettagli dottore tramite slug
+Route::post('/messages', [MessageController::class, 'store']); // rotta salvataggio messaggi
+Route::post('/reviews/{slug}', [ReviewController::class, 'store']); // rotta salvataggio recensioni
+Route::put('/doctors/{slug}/average-rating', [DoctorController::class, 'updateAvgRating']); // rotta put per update della media dei voti
