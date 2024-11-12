@@ -25,30 +25,30 @@
                     @endif
                     <p>{{ __('Hai effettuato con successo il login!') }}</p>
                     <p class="mt-1">{{ __('Questa è la tua dashboard.') }}</p>
-                    <div class="m-2 btn btn-sm btn-primary col-12 col-md-6 col-lg-3">
-                        <a href="{{ route('admin.doctors.edit', $doctor->id) }}"
-                            class="text-decoration-none text-white">{{
-                            __('Modifica i tuoi dati') }}
-                        </a>
-                    </div>
                     <div class="row text-center">
+                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
+                            <a href="{{ route('admin.doctors.edit', $doctor->id) }}"
+                                class="mt-1 text-decoration-none save">{{
+                                __('Modifica i tuoi dati') }}
+                            </a>
+                        </div>
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
                             <a href="{{ route('admin.messages.index') }}" class="mt-1 text-decoration-none save">{{
                                 __('I tuoi messaggi') }}</a>
                         </div>
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a {{-- href="{{ route('admin.doctors.review', $doctor->id) }}" --}}
-                                class="mt-1 text-decoration-none save">{{ __('Recensioni') }}</a>
+                            <a href="{{ route('admin.reviews.index') }}" class="mt-1 text-decoration-none save">{{
+                                __('Recensioni') }}</a>
                         </div>
                         {{-- Braintree-linked button --}}
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
                             <a {{-- href="{{ route('admin.doctors.sponsor', $doctor->id) }}" --}}
                                 class="mt-1 text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
                         </div>
-                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a {{-- href="{{ route('admin.doctors.ratings', $doctor->id) }}" --}}
-                                class="mt-1 text-decoration-none save">{{ __('Le tue statistiche') }}</a>
-                        </div>
+                        {{-- <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
+                            <a href="{{ route('admin.ratings.index') }}" class="mt-1 text-decoration-none save">{{
+                                __('Le tue statistiche') }}</a>
+                        </div> --}}
                     </div>
                 </div>
             </div>
