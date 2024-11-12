@@ -7,13 +7,15 @@ return [
         "email" => "giovanni@example.com",
         "content" => "Molto soddisfatto del trattamento ricevuto. Consiglio vivamente questo dottore.",
         "doctor_id" => 5,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 2,
         "name" => "Maria",
         "email" => "maria@example.com",
         "content" => "Il medico è stato molto professionale e ha risolto il mio problema in breve tempo.",
-        "doctor_id" => 2,
+        "doctor_id" => 5,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 3,
@@ -21,13 +23,15 @@ return [
         "email" => "luca@example.com",
         "content" => "Dottore competente, ma un po' troppo tempo d'attesa per la visita.",
         "doctor_id" => 3,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 4,
         "name" => "Sofia",
         "email" => "sofia@example.com",
         "content" => "Esperienza positiva, sicuramente tornerò per un altro controllo.",
-        "doctor_id" => 7,
+        "doctor_id" => 5,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 5,
@@ -35,6 +39,7 @@ return [
         "email" => "alessandro@example.com",
         "content" => "Un medico molto empatico, mi ha messo subito a mio agio. Lo consiglio.",
         "doctor_id" => 9,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 6,
@@ -42,6 +47,7 @@ return [
         "email" => "francesca@example.com",
         "content" => "Purtroppo non sono rimasta soddisfatta. La diagnosi non è stata corretta.",
         "doctor_id" => 1,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 7,
@@ -49,6 +55,7 @@ return [
         "email" => "paolo@example.com",
         "content" => "Ottima esperienza, il dottore ha risposto a tutte le mie domande in maniera chiara.",
         "doctor_id" => 4,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 8,
@@ -56,6 +63,7 @@ return [
         "email" => "elena@example.com",
         "content" => "Il dottore è stato molto gentile e competente. Lo raccomando a chiunque.",
         "doctor_id" => 10,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 9,
@@ -63,6 +71,7 @@ return [
         "email" => "giorgio@example.com",
         "content" => "Una visita veloce ma accurata. Il trattamento mi ha aiutato molto.",
         "doctor_id" => 6,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 10,
@@ -70,6 +79,7 @@ return [
         "email" => "laura@example.com",
         "content" => "Il medico mi ha dato una spiegazione esauriente riguardo la mia malattia. Molto soddisfatta.",
         "doctor_id" => 15,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 11,
@@ -77,6 +87,7 @@ return [
         "email" => "simone@example.com",
         "content" => "Un po' troppo caro per la visita, ma la qualità del servizio è alta.",
         "doctor_id" => 13,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 12,
@@ -84,6 +95,7 @@ return [
         "email" => "giulia@example.com",
         "content" => "Il dottore è molto disponibile e professionale. Mi sono trovata benissimo.",
         "doctor_id" => 14,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 13,
@@ -91,6 +103,7 @@ return [
         "email" => "antonio@example.com",
         "content" => "La visita è stata rapida e il trattamento è stato efficace. Grazie!",
         "doctor_id" => 8,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 14,
@@ -98,6 +111,7 @@ return [
         "email" => "chiara@example.com",
         "content" => "Un'esperienza eccellente! Molto competente e attento alle esigenze del paziente.",
         "doctor_id" => 11,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 15,
@@ -105,6 +119,7 @@ return [
         "email" => "marco@example.com",
         "content" => "Visita molto soddisfacente. Il medico è stato molto professionale e cortese.",
         "doctor_id" => 12,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 16,
@@ -112,6 +127,7 @@ return [
         "email" => "federica@example.com",
         "content" => "Servizio molto rapido e ben curato. Consigliato!",
         "doctor_id" => 10,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 17,
@@ -119,13 +135,15 @@ return [
         "email" => "alberto@example.com",
         "content" => "Molto professionale, tornerò sicuramente.",
         "doctor_id" => 1,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 18,
         "name" => "Martina",
         "email" => "martina@example.com",
         "content" => "Servizio impeccabile e visita esaustiva. Ottima esperienza.",
-        "doctor_id" => 20,
+        "doctor_id" => 15,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 19,
@@ -133,6 +151,7 @@ return [
         "email" => "claudio@example.com",
         "content" => "Efficace e veloce, consigliato!",
         "doctor_id" => 19,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 20,
@@ -140,6 +159,7 @@ return [
         "email" => "veronica@example.com",
         "content" => "Mi ha aiutata molto con il mio problema.",
         "doctor_id" => 11,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 21,
@@ -147,13 +167,15 @@ return [
         "email" => "stefano@example.com",
         "content" => "Il dottore è molto disponibile e professionale.",
         "doctor_id" => 5,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 22,
         "name" => "Valeria",
         "email" => "valeria@example.com",
-        "content" => "Molto preparato e attento. Consiglio a tutti!",
+        "content" => "Consiglio anche se non con così tanta sicurezza.",
         "doctor_id" => 6,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 23,
@@ -161,6 +183,7 @@ return [
         "email" => "leonardo@example.com",
         "content" => "La visita è stata completa e accurata. Lo raccomando.",
         "doctor_id" => 3,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 24,
@@ -168,6 +191,7 @@ return [
         "email" => "martina_smith@example.com",
         "content" => "Un'esperienza positiva. Dottore molto gentile.",
         "doctor_id" => 15,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 25,
@@ -175,6 +199,7 @@ return [
         "email" => "pietro@example.com",
         "content" => "Professionale e puntuale.",
         "doctor_id" => 9,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 26,
@@ -182,6 +207,7 @@ return [
         "email" => "alice@example.com",
         "content" => "Il dottore è stato molto attento e chiaro nelle spiegazioni.",
         "doctor_id" => 8,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 27,
@@ -189,6 +215,7 @@ return [
         "email" => "gabriele@example.com",
         "content" => "Molto esperto e disponibile.",
         "doctor_id" => 7,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 28,
@@ -196,6 +223,7 @@ return [
         "email" => "elisabetta@example.com",
         "content" => "Grande competenza e professionalità. Lo consiglio.",
         "doctor_id" => 10,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 29,
@@ -203,6 +231,7 @@ return [
         "email" => "fabio@example.com",
         "content" => "Ottimo medico, mi ha fatto sentire a mio agio.",
         "doctor_id" => 4,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 30,
@@ -210,6 +239,7 @@ return [
         "email" => "lucia@example.com",
         "content" => "Un professionista preparato e gentile.",
         "doctor_id" => 13,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 31,
@@ -217,6 +247,7 @@ return [
         "email" => "michele@example.com",
         "content" => "La visita è stata molto accurata e chiara.",
         "doctor_id" => 14,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 32,
@@ -224,6 +255,7 @@ return [
         "email" => "roberta@example.com",
         "content" => "Ha risolto il mio problema con grande competenza.",
         "doctor_id" => 5,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 33,
@@ -231,6 +263,7 @@ return [
         "email" => "tommaso@example.com",
         "content" => "Competente e rassicurante.",
         "doctor_id" => 17,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 34,
@@ -238,6 +271,7 @@ return [
         "email" => "silvia@example.com",
         "content" => "Un medico di grande umanità e professionalità.",
         "doctor_id" => 6,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 35,
@@ -245,6 +279,7 @@ return [
         "email" => "emanuele@example.com",
         "content" => "Consiglio vivamente per la sua precisione e attenzione.",
         "doctor_id" => 9,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 36,
@@ -252,6 +287,7 @@ return [
         "email" => "federico@example.com",
         "content" => "Molto competente e preparato.",
         "doctor_id" => 8,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 37,
@@ -259,6 +295,7 @@ return [
         "email" => "veronica_jones@example.com",
         "content" => "Esperienza molto positiva. Tornerò per le prossime visite.",
         "doctor_id" => 4,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 38,
@@ -266,6 +303,7 @@ return [
         "email" => "gianni@example.com",
         "content" => "Competente e cortese, un ottimo professionista.",
         "doctor_id" => 3,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 39,
@@ -273,6 +311,7 @@ return [
         "email" => "nicoletta@example.com",
         "content" => "Molto gentile e preparato.",
         "doctor_id" => 12,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 40,
@@ -280,6 +319,7 @@ return [
         "email" => "flavio@example.com",
         "content" => "Visita rapida e precisa.",
         "doctor_id" => 16,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 41,
@@ -287,6 +327,7 @@ return [
         "email" => "arianna@example.com",
         "content" => "Molto preparato, mi ha risolto un problema di vecchia data.",
         "doctor_id" => 10,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 42,
@@ -294,6 +335,7 @@ return [
         "email" => "giorgia@example.com",
         "content" => "Competente e preparato. Ottimo medico.",
         "doctor_id" => 18,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 43,
@@ -301,6 +343,7 @@ return [
         "email" => "sergio@example.com",
         "content" => "Mi ha fatto sentire a mio agio e ha risposto a tutte le domande.",
         "doctor_id" => 15,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 44,
@@ -308,6 +351,7 @@ return [
         "email" => "diana@example.com",
         "content" => "Il medico è stato chiaro e rassicurante.",
         "doctor_id" => 14,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 45,
@@ -315,6 +359,7 @@ return [
         "email" => "andrea@example.com",
         "content" => "Ottimo medico, lo consiglio per competenza e disponibilità.",
         "doctor_id" => 13,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 46,
@@ -322,6 +367,7 @@ return [
         "email" => "sara@example.com",
         "content" => "Un dottore attento e scrupoloso.",
         "doctor_id" => 10,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 47,
@@ -329,6 +375,7 @@ return [
         "email" => "roberto@example.com",
         "content" => "Ha risolto un problema che altri medici non riuscivano a trattare.",
         "doctor_id" => 11,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 48,
@@ -336,6 +383,7 @@ return [
         "email" => "franca@example.com",
         "content" => "Dottore competente e paziente.",
         "doctor_id" => 3,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 49,
@@ -343,6 +391,7 @@ return [
         "email" => "angelo@example.com",
         "content" => "Mi sono sentito ascoltato e trattato con grande attenzione.",
         "doctor_id" => 19,
+        "vote" => rand(3, 5)
     ],
     [ 
         "id" => 50,
@@ -350,6 +399,7 @@ return [
         "email" => "camilla@example.com",
         "content" => "Dottore molto empatico e attento.",
         "doctor_id" => 17,
+        "vote" => rand(3, 5)
     ]
 ]
 

@@ -25,9 +25,10 @@ class StoreReviewRequest extends FormRequest
     {
         return [
             'doctor_id' => 'required|exists:doctors,id',
-            'name' => 'required|string|max:150',
+            'name' => 'nullable|string|max:150',
             'email' => 'required|email|max:150',
             'content' => 'required|string',
+            'vote' => 'nullable|integer|between:0,5'
         ];
     }
 }

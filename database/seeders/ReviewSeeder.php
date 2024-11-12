@@ -23,6 +23,7 @@ class ReviewSeeder extends Seeder
             $new_review->name = $review['name'];
             $new_review->email = $review['email'];
             $new_review->content = $review['content'];
+            $new_review->vote = $review['vote'];
             $new_review->doctor_id = $review['doctor_id'];
             $new_review->save();
         }
