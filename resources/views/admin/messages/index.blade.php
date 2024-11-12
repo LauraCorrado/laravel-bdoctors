@@ -4,7 +4,7 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center fw-bold mb-5">Messaggi dei pazienti</h1>
+                <h1 class="text-center fw-bold mb-5" style="color: #005792">Messaggi dei pazienti</h1>
             </div>
         </div>
         <div class="row gy-4">
