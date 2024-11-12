@@ -29,6 +29,6 @@ Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index'
 Route::get('/fields', [FieldController::class, 'index']); // Rotta per ottenere tutte le specializzazioni dei dottori
 Route::get('/doctors/{slug}', [DoctorController::class, 'details'])->name('details'); // rotta per ottenere dettagli dottore tramite slug
 Route::post('/messages', [MessageController::class, 'store']); // rotta salvataggio messaggi
-Route::post('/reviews', [ReviewController::class, 'store']); // rotta salvataggio recensioni
+Route::post('/reviews/{slug}', [ReviewController::class, 'store']); // rotta salvataggio recensioni
 Route::put('/doctors/{slug}/average-rating', [DoctorController::class, 'updateAvgRating']); // rotta put per update della media dei voti
 

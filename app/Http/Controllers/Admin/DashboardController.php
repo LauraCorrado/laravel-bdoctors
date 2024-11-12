@@ -13,6 +13,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $doctor = Doctor::where('user_id', $user->id)->first();
         $messages = $doctor ? Message::where('doctor_id', $doctor->id)->get() : collect();
-        return view('admin.dashboard', compact('doctor', 'messages'));
+        $averageRating = $doctor ? $doctor->reviews()->avg('vote') : 0;
+        return view('admin.dashboard', compact('doctor', 'messages', 'averageRating'));
     }
 }
