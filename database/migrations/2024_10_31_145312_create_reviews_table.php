@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 150)->default('utente')->nullable();
             $table->string('email', 150);
+            $table->tinyInteger('vote')->unsigned()->nullable();
             $table->text('content');
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
             $table->timestamps();
