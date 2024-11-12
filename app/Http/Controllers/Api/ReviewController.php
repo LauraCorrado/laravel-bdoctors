@@ -10,25 +10,33 @@ use App\Models\Doctor;
 
 class ReviewController extends Controller
 {
-    public function store(StoreReviewRequest $request)
+    public function store(StoreReviewRequest $request, $slug)
     {
-       
-        $doctor = Auth::user()->doctor;
+        // Trova il dottore tramite lo slug
+        $doctor = Doctor::where('slug', $slug)->first();
+        
         if (!$doctor) {
-            abort(404, 'Pagina non trovata.');
+            // Se il dottore non esiste, restituisci un errore 404
+            return response()->json([
+                'success' => false,
+                'message' => 'Dottore non trovato.'
+            ], 404);
         }
 
+        // Valida i dati della recensione
         $validated = $request->validated();
-        // Crea un nome casuale se campo name è vuoto
+
+        // Crea un nome casuale se il campo "name" è vuoto
         if (empty($validated['name'])) {
             $validated['name'] = 'Utente' . rand(1000, 9999);
         }
 
-        // Se il voto non è presente imposto 0 di default
+        // Se il voto non è presente, imposta 0 di default
         if (!isset($validated['vote'])) {
             $validated['vote'] = 0;
         }
-        
+
+        // Crea la recensione associandola al dottore trovato
         $review = Review::create([
             'doctor_id' => $doctor->id,
             'name' => $validated['name'],
@@ -37,11 +45,11 @@ class ReviewController extends Controller
             'vote' => $validated['vote']
         ]);
 
+        // Risposta di successo
         return response()->json([
             'success' => true,
             'message' => 'Recensione inviata con successo!',
-            'review' => $review 
-            
+            'review' => $review
         ]);
     }
 }
