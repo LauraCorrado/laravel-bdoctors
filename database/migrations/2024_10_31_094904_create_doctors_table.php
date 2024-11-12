@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
+            $table->decimal('average_rating', 3, 1)->nullable()->default(0);
             $table->string('user_name', 100);
             $table->string('user_surname', 100);
             $table->string('city', 100);
