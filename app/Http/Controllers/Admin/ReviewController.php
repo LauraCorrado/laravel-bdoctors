@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -15,7 +16,14 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $doctor = Auth::user()->doctor;
+        if (!$doctor) {
+            abort(404, 'Pagina non trovata.');
+        }
+
+        $reviews = Review::where('doctor_id', $doctor->id)->get();
+
+        return view('admin.reviews.index', compact('reviews', 'doctor'));
     }
 
     /**

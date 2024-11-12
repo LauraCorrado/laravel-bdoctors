@@ -37,8 +37,9 @@
                                 __('I tuoi messaggi') }}</a>
                         </div>
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a {{-- href="{{ route('admin.doctors.review', $doctor->id) }}" --}}
-                                class="mt-1 text-decoration-none save">{{ __('Recensioni') }}</a>
+                            <a href="{{ route('admin.reviews.index') }}"
+                                class="mt-1 text-decoration-none save">{{
+                                __('Recensioni') }}</a>
                         </div>
                         {{-- Braintree-linked button --}}
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
