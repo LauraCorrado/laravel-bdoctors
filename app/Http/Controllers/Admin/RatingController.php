@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Rating;
 use App\Http\Requests\StoreRatingRequest;
 use App\Http\Requests\UpdateRatingRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
@@ -15,7 +16,14 @@ class RatingController extends Controller
      */
     public function index()
     {
-        //
+        $doctor = Auth::user()->doctor;
+        if (!$doctor) {
+            abort(404, 'Pagina non trovata.');
+        }
+
+        $ratings = Rating::where('doctor_id', $doctor->id)->get();
+
+        return view('admin.ratings.index', compact('ratings', 'doctor'));
     }
 
     /**

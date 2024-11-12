@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ReviewController;
+// use App\Http\Controllers\Admin\RatingController;
 use App\Http\Controllers\BraintreeController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('doctors', DoctorController::class);
     Route::resource('messages', MessageController::class);
     Route::resource('reviews', ReviewController::class);
+    // Route::resource('ratings', RatingController::class);
 });
 
 // Braintree payment route
