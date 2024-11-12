@@ -4,15 +4,21 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReviewRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Review;
+use App\Models\Doctor;
 
 class ReviewController extends Controller
 {
     public function store(StoreReviewRequest $request)
     {
        
-        $validated = $request->validated();
+        $doctor = Auth::user()->doctor;
+        if (!$doctor) {
+            abort(404, 'Pagina non trovata.');
+        }
 
+        $validated = $request->validated();
         // Crea un nome casuale se campo name è vuoto
         if (empty($validated['name'])) {
             $validated['name'] = 'Utente' . rand(1000, 9999);
@@ -24,7 +30,7 @@ class ReviewController extends Controller
         }
         
         $review = Review::create([
-            'doctor_id' => $validated['doctor_id'],
+            'doctor_id' => $doctor->id,
             'name' => $validated['name'],
             'email' => $validated['email'],
             'content' => $validated['content'],
