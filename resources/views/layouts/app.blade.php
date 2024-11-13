@@ -17,6 +17,9 @@
 
     <!-- Usando Vite + Validate -->
     @vite(['resources/js/app.js', 'resources/js/validation.js'])
+
+    {{-- Braintree --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
 </head>
 
 <body>

@@ -16,6 +16,6 @@ class BraintreeController extends Controller
             'privateKey' => env("BRAINTREE_PRIVATE_KEY")
         ]);
             $clientToken = $gateway->clientToken()->generate();
-            return view ('braintree',['token' => $clientToken]);
+            return view ('admin.doctors.braintree',['token' => $clientToken]);
     }
 }
