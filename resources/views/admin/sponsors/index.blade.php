@@ -4,8 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            @foreach ($sponsors as $sponsor)
             <p>Sponsor package: {{ $sponsor->package }}</p>
-            <a href="{{ route('admin.doctors.braintree', ['sponsorId' => $sponsor->id]) }}">Paga</a>
+            <a href="{{ route('admin.doctors.braintree', ['sponsorId' => $sponsor->id]) }}" class="text-decoration-none save">Paga</a>
+            @endforeach
         </div>
     </div>
 </div>
