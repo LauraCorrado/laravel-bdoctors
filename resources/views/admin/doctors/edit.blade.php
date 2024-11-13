@@ -9,7 +9,7 @@
                 <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>
             <form action="{{ route('admin.doctors.update', ['doctor' => $doctor->id]) }}" method="post"
-                class="my-4 text-center" enctype="multipart/form-data">
+                class="my-4" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -73,40 +73,47 @@
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-12">
-                        <label class="form-label fw-bolder m-0 py-1" for="fields">Specializzazioni*</label>
-                        <p>Seleziona uno o più campi di specializzazione</p>
-                        <div class="row py-3">
+                        <div class="text-center my-3">
+                            <label class="form-label fw-bolder" for="fields">Specializzazioni*</label>
+                            <p>Seleziona uno o più campi di specializzazione</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <div class="row">
                             @foreach($fields as $field)
-                            <div class="col-12 col-md-4 col-lg-3 d-flex">
-                                <div class="form-check-inline m-0">
-                                    <input type="checkbox" name="fields[]" class="form-check-input"
-                                        value="{{ $field->id }}" {{ in_array($field->id, old('fields',
-                                    $doctor->fields->pluck('id')->toArray())) ? 'checked' : '' }}>
-                                    <label class="form-check-label ps-1">{{ $field->name }}</label>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" name="fields[]" class="form-check-input"
+                                            value="{{ $field->id }}" {{ in_array($field->id, old('fields', $doctor->fields->pluck('id')->toArray())) ? 'checked' : '' }}>
+                                        <label class="form-check-label">{{ $field->name }}</label>
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                         @error('fields')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-
+                </div>
+                <div class="row">
                     <div class="col-12">
                         <label for="performance" class="form-label fw-bolder m-0 py-1">Prestazioni*</label>
-                        <textarea name="performance" id="performance" rows="4" class="form-control"
+                        <textarea name="performance" id="performance" rows="4" class="form-control mb-3"
                             placeholder="Descrivi le tue prestazioni"
                             required>{{ old('performance', $doctor->performance) }}</textarea>
                         @error('performance')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div>
 
-                    <div class="col-12">
                         <a class="text-decoration-none back me-2"
                             href="{{ route('admin.doctors.show', ['doctor' => Auth::user()->doctor->slug]) }}">{{
-                            __('Torna al profilo') }}</a>
+                            __('Torna al profilo') }}
+                        </a>
                         <button type="submit" class="save">{{ __('Salva le modifiche')}}</button>
                     </div>
                 </div>
