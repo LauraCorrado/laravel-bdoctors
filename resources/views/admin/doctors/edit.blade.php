@@ -110,11 +110,17 @@
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
 
-                        <a class="text-decoration-none back me-2"
-                            href="{{ route('admin.doctors.show', ['doctor' => Auth::user()->doctor->slug]) }}">{{
-                            __('Torna al profilo') }}
-                        </a>
-                        <button type="submit" class="save">{{ __('Salva le modifiche')}}</button>
+                        <div class="text-center">
+                            <div class="m-auto">
+                                <a class="text-decoration-none back"
+                                href="{{ route('admin.doctors.show', ['doctor' => Auth::user()->doctor->slug]) }}">{{
+                                __('Torna al profilo') }}
+                                </a>
+                            </div>
+                            <div class="my-3">
+                                <button type="submit" class="save">{{ __('Salva le modifiche')}}</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
