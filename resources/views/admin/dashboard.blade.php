@@ -43,7 +43,7 @@
                         </div>
                         {{-- Braintree-linked button --}}
                         <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a href="{{ route('admin.doctors.braintree') }}" class="mt-1 text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
+                            <a href="{{ route('admin.sponsors.index') }}" class="mt-1 text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
                         </div>
                         {{-- <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
                             <a href="{{ route('admin.ratings.index') }}" class="mt-1 text-decoration-none save">{{
