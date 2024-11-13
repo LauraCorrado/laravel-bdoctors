@@ -37,7 +37,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('reviews', ReviewController::class);
     Route::resource('sponsors', SponsorController::class);
     // Braintree payment route
-    Route::any('/payment', [BraintreeController::class, 'token'])->name('doctors.braintree')->middleware('auth');
+    Route::get('/admin/doctors/braintree/{sponsorId}', [BraintreeController::class, 'token'])->name('admin.doctors.braintree');
+    // Route::any('/payment', [BraintreeController::class, 'token'])->name('doctors.braintree')->middleware('auth');
     // Route::get('/token', [BraintreeController::class, 'token'])->name('token');
 });
 
