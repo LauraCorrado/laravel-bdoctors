@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
 use App\Models\Sponsor;
-use App\Models\DoctorSponsor;
+use Carbon\Carbon; 
 
 class BraintreeController extends Controller
 {
@@ -20,6 +20,7 @@ class BraintreeController extends Controller
             'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
             'privateKey' => env("BRAINTREE_PRIVATE_KEY")
         ]);
+        // genera token
         $clientToken = $gateway->clientToken()->generate();
 
         // gestione pagamento se esiste nonce
@@ -37,27 +38,28 @@ class BraintreeController extends Controller
                 ]
             ]);
 
-            //verifica se pagamento è andato a buon fine
+            // verifica se pagamento è andato a buon fine
             if ($result->success) {
-                //in caso, calcolo la data di scadenza in base alla durata della sponsorizzazione
-                $expiringDate = now()->addHours($sponsor->duration);
+                // Calcolare la data di scadenza basata su created_at (usando Carbon)
+                // Ad esempio, se la durata è espressa in ore, aggiungiamo le ore a created_at
+                $expiringDate = Carbon::now()->addHours($sponsor->duration);
 
                 // sponsorizzazione per il medico
                 $doctorId = auth()->user()->doctor->id;
-
-                $doctorSponsor = new DoctorSponsor();
-                $doctorSponsor->doctor_id = $doctorId;
-                $doctorSponsor->sponsor_id = $sponsorId;
-                $doctorSponsor->expiring_date = $expiringDate;
-                $doctorSponsor->save();
-
-                // in caso di successo redirect verso la dashboard o una pagina di conferma
-                return redirect()->route('admin.doctors.show')->with('success', 'Pagamento completato e sponsorizzazione attivata!');
+                
+                // Aggiungi direttamente alla tabella pivot `doctor_sponsor`
+                auth()->user()->doctor->sponsors()->attach($sponsorId, [
+                    'expiring_date' => $expiringDate, // Salva la data di scadenza nella pivot
+                ]);
+                
+                // In caso di successo, redirect verso la dashboard o una pagina di conferma
+                return redirect()->route('admin.doctors.show', $doctorId)
+                    ->with('success', 'Pagamento completato e sponsorizzazione attivata!');
             } else {
                 return back()->with('error', 'C\'è stato un problema nel pagamento. Riprova più tardi');
             }
         }
-
+        
         return view('admin.doctors.braintree', ['token' => $clientToken, 'sponsor' => $sponsor]);
     }
 }
