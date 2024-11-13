@@ -43,6 +43,6 @@ class Doctor extends Model
 
     // relazione MtM
     public function sponsors(){
-        return $this->belongsToMany(Sponsor::class);
+        return $this->belongsToMany(Sponsor::class)->using(DoctorSponsor::class)->withPivot('expiring_date');;
     }
 }
