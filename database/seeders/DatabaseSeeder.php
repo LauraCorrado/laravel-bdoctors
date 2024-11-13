@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             FieldSeeder::class,
             DoctorSeeder::class,
-            ReviewSeeder::class
+            ReviewSeeder::class,
+            SponsorSeeder::class
         ]);
     }
 }
