@@ -86,7 +86,7 @@
                     <div class="col-lg-12 col-md-12 col-12">
                         <div class="row">
                             @foreach($fields as $field)
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-lg-4 col-md-4 col-12">
                                     <div class="form-check mb-2">
                                         <input type="checkbox" name="fields[]" class="form-check-input"
                                             value="{{ $field->id }}" {{ in_array($field->id, old('fields', $doctor->fields->pluck('id')->toArray())) ? 'checked' : '' }}>
