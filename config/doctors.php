@@ -10,7 +10,7 @@ return [
         "phone_number" => "+39 06 12345678",
         "cv" => "https://example.com/cv/john_doe.pdf",
         "thumb" => "https://placehold.co/500x500?text=John+Doe",
-        "performance" => "Specialista in Medicina dello Sport con un'ampia esperienza nella prevenzione, diagnosi e riabilitazione delle lesioni sportive. Esperto nella gestione dei programmi di recupero post-infortunio e nella consulenza per il miglioramento delle performance atletiche"
+        "performance" => "Eseguo una valutazione completa del paziente, raccogliendo un'anamnesi dettagliata e analizzando con attenzione i sintomi."
     ],
     [
         "id" => 2,
@@ -21,7 +21,7 @@ return [
         "phone_number" => "+39 02 7654321",
         "cv" => "https://example.com/cv/anna_rossi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Anna+Rossi",
-        "performance" => "Specialista in Pediatria con esperienza nella diagnosi e cura delle malattie infantili, dalla nascita fino all'adolescenza, con particolare attenzione alla crescita e allo sviluppo dei bambini."
+        "performance" => "Monitoro regolarmente i parametri vitali dei pazienti e controllo lo stato generale di salute."
     ],
     [
         "id" => 3,
@@ -32,7 +32,7 @@ return [
         "phone_number" => "+39 081 9876543",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Marco+Bianchi",
-        "performance" => "Diagnosi e trattamento delle patologie reumatiche. Esperto nel trattamento di artrite, lupus, osteoporosi e altre malattie autoimmuni."
+        "performance" => "Effettuo visite di controllo periodiche per valutare il benessere complessivo e lo stato di salute del paziente."
     ],
     [
         "id" => 4,
@@ -43,7 +43,7 @@ return [
         "phone_number" => "+39 011 4567890",
         "cv" => "https://example.com/cv/luisa_verdi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Luisa+Verdi",
-        "performance" => "Diagnosi e trattamento delle patologie gastrointestinali, oltre che 20 anni di esperienza nel trattamento di allergie e malattie immunologiche."
+        "performance" => "Conduco un esame fisico accurato e consiglio, se necessario, ulteriori accertamenti diagnostici."
     ],
     [
         "id" => 5,
@@ -54,7 +54,7 @@ return [
         "phone_number" => "+39 055 1239876",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Avatar",
-        "performance" => "Esperto nella gestione di patologie come insufficienza cardiaca, aritmie, ipertensione e malattia coronarica, con un approccio innovativo e personalizzato per prevenire eventi cardiovascolari e migliorare la salute del cuore dei pazienti."
+        "performance" => "Offro consulenza su stile di vita e prevenzione, per aiutare i pazienti a mantenere una salute ottimale."
     ],
     [
         "id" => 6,
@@ -65,7 +65,7 @@ return [
         "phone_number" => "+39 041 3456789",
         "cv" => "https://example.com/cv/francesca_gallo.pdf",
         "thumb" => "https://placehold.co/500x500?text=Francesca+Gallo",
-        "performance" => "Doo 10 anni nel trattamento dei disturbi sessuali maschili, infertilità e patologie ormonali, mi sono specializzata in neurologia pediatrica e nella cura di epilessia e malattie neurodegenerative."
+        "performance" => "Prescrivo esami di laboratorio e mi occupo di interpretare i risultati per garantire una diagnosi accurata."
     ],
     [
         "id" => 7,
@@ -76,7 +76,7 @@ return [
         "phone_number" => "+39 010 8765432",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Roberto+Marini",
-        "performance" => "Specialista in Oncologia Pediatrica ed Ematologia, con una solida esperienza nella diagnosi e nel trattamento di tumori e malattie ematologiche nei bambini. Si occupa di tumori solidi, leucemie, linfomi e altre malattie ematologiche, utilizzando approcci terapeutici avanzati, tra cui radioterapia e trapianto di cellule."
+        "performance" => "Somministro trattamenti farmacologici e monitoro gli effetti collaterali per adattare la terapia, se necessario."
     ],
     [
         "id" => 8,
@@ -87,7 +87,7 @@ return [
         "phone_number" => "+39 051 6543210",
         "cv" => "https://example.com/cv/marta_bassi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Marta+Bassi",
-        "performance" => "Specialista in Pediatria con expertise in Chirurgia Vascolare e Chirurgia Generale e d'Urgenza, focalizzato sulla diagnosi e trattamento di patologie pediatriche complesse, incluse malformazioni vascolari, urgenze chirurgiche e interventi chirurgici generali nei bambini."
+        "performance" => "Pianifico e seguo terapie a lungo termine per supportare i pazienti nella gestione delle loro condizioni."
     ],
     [
         "id" => 9,
@@ -98,7 +98,7 @@ return [
         "phone_number" => "+39 091 1234567",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Carlo+Esposito",
-        "performance" => "Mi occupo da oltre 20 anni di patologie infettive complesse, gestendo infezioni virali, batteriche e fungine, e offro anche trattamenti avanzati per le malattie oculari, inclusi disturbi infettivi degli occhi e condizioni croniche."
+        "performance" => "Eseguo test di screening e valuto i fattori di rischio, personalizzando i piani di prevenzione."
     ],
     [
         "id" => 10,
@@ -109,7 +109,7 @@ return [
         "phone_number" => "+39 070 2345678",
         "cv" => "https://example.com/cv/silvia_fontana.pdf",
         "thumb" => "https://placehold.co/500x500?text=Silvia+Fontana",
-        "performance" => "Oculista specializzata in malattie della retina e chirurgia laser per gli occhi."
+        "performance" => "Svolgo colloqui di supporto psicologico per promuovere il benessere emotivo e mentale dei pazienti."
     ],
     [
         "id" => 11,
@@ -120,7 +120,7 @@ return [
         "phone_number" => "+39 075 1234567",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Lorenzo+D'Amico",
-        "performance" => "Pneumologo con esperienza in asma, BPCO e terapia respiratoria."
+        "performance" => "Valuto le condizioni fisiche dei pazienti dopo infortuni o interventi, pianificando il recupero."
     ],
     [
         "id" => 12,
@@ -131,7 +131,7 @@ return [
         "phone_number" => "+39 045 7654321",
         "cv" => "https://example.com/cv/paola_rossi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Paola+Rossi",
-        "performance" => "Ginecologa specializzata in ostetricia e salute riproduttiva."
+        "performance" => "Pianifico programmi di riabilitazione e monitoro i progressi, adattando il percorso terapeutico se necessario."
     ],
     [
         "id" => 13,
@@ -142,7 +142,7 @@ return [
         "phone_number" => "+39 071 3456789",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Giulia+Costa",
-        "performance" => "Radiologa specializzata in imaging diagnostico e radiologia interventistica."
+        "performance" => "Somministro vaccini e consiglio i pazienti su un calendario vaccinale adeguato."
     ],
     [
         "id" => 14,
@@ -153,7 +153,7 @@ return [
         "phone_number" => "+39 0461 234567",
         "cv" => "https://example.com/cv/stefano_longo.pdf",
         "thumb" => "https://placehold.co/500x500?text=Stefano+Longo",
-        "performance" => "Nefrologo con esperienza in malattie renali e terapia renale."
+        "performance" => "Offro consulenze personalizzate su alimentazione e gestione del peso per migliorare la salute generale."
     ],
     [
         "id" => 15,
@@ -164,7 +164,7 @@ return [
         "phone_number" => "+39 040 7654321",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Alessandro+Barone",
-        "performance" => "Geriatra specializzato nella cura degli anziani e nelle sindromi geriatriche."
+        "performance" => "Pianifico e monitoro trattamenti per gestire condizioni croniche, aiutando i pazienti a mantenere la qualità della vita."
     ],
     [
         "id" => 16,
@@ -175,7 +175,7 @@ return [
         "phone_number" => "+39 0541 123456",
         "cv" => "https://example.com/cv/fabio_bianchi.pdf",
         "thumb" => "https://placehold.co/500x500?text=Fabio+Bianchi",
-        "performance" => "Urologo specializzato in chirurgia urologica e salute della prostata."
+        "performance" => "Educo i pazienti alla prevenzione e alla riconoscenza precoce dei sintomi, per intervenire tempestivamente."
     ],
     [
         "id" => 17,
@@ -186,7 +186,7 @@ return [
         "phone_number" => "+39 0521 765432",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Emilia+Moretti",
-        "performance" => "Reumatologa specializzata in artrite, malattie autoimmuni e dolori articolari."
+        "performance" => "Eseguo controlli di routine e aggiorno i pazienti sui loro piani di trattamento, monitorando i progressi."
     ],
     [
         "id" => 18,
@@ -197,7 +197,7 @@ return [
         "phone_number" => "+39 079 3456789",
         "cv" => "https://example.com/cv/nicola_meloni.pdf",
         "thumb" => "https://placehold.co/500x500?text=Nicola+Meloni",
-        "performance" => "Allergologo e immunologo esperto in test e trattamenti per le allergie."
+        "performance" => "Somministro terapie specifiche e gestisco piccole emergenze, garantendo il miglior supporto possibile.."
     ],
     [
         "id" => 19,
@@ -208,7 +208,7 @@ return [
         "phone_number" => "+39 080 5678901",
         "cv" => null,
         "thumb" => "https://placehold.co/500x500?text=Luca+Ferro",
-        "performance" => "Ematologo specializzato in disturbi del sangue e oncologia."
+        "performance" => "Offro consulenza su temi di salute legati al lavoro o all'attività sportiva, per prevenire problemi e migliorare le performance."
     ],
     [
         "id" => 20,
@@ -219,7 +219,7 @@ return [
         "phone_number" => "+39 095 2345678",
         "cv" => "https://example.com/cv/sara_giordano.pdf",
         "thumb" => "https://placehold.co/500x500?text=Sara+Giordano",
-        "performance" => "Psicologa specializzata in terapia comportamentale e consulenza per la salute mentale."
+        "performance" => "Fornisco informazioni e orientamento sui servizi sanitari aggiuntivi disponibili, aiutando i pazienti a trovare il supporto necessario."
     ]
 ];
 
