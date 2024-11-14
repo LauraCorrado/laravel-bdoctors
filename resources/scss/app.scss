@@ -20,7 +20,8 @@ body {
 // bottoni
 .save,
 .back,
-.deluxe-button {
+.deluxe-button,
+.button-home {
     color: $pure-white;
     border: none;
     border-radius: 8px;
@@ -71,6 +72,19 @@ body {
 
     &:active {
         background-color: $deluxe;
-        color: $pure-white;
+    }
+}
+
+.button-home {
+    letter-spacing: 1px;
+    background-color: $aqua-green;
+    box-shadow: 2px 2px 0 $pure-white;
+    &:hover {
+        background-color: $mint-green;
+        box-shadow: 1px 1px 0 $pure-white;
+    }
+
+    &:active {
+        background-color: $aqua-green;
     }
 }
