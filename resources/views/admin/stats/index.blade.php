@@ -4,37 +4,43 @@
 
 <div class="container py-5">
     <div class="row mt-2">
-        <div class="col-12 text-center mb-5">
+        <div class="col-12 text-center mb-3">
             <h1 class="stat-title text-uppercase">Le tue Statistiche</h1>
         </div>
 
         <!-- Sezione per visualizzare le statistiche -->
         <div class="col-12 d-flex justify-content-center">
             <div class="stats-box text-center">
-                <p class="stat-item"><strong>Numero totale di Messaggi Ricevuti:</strong> {{ $messageCount }}</p>
-                <p class="stat-item"><strong>Numero di Recensioni:</strong> {{ $reviewCount }}</p>
-                <p class="stat-item"><strong>Numero Totale di Voti Ricevuti:</strong> {{ $totalVotes }}</p>
+                <p class="stat-item"><strong>Totale Messaggi Ricevuti:</strong> {{ $messageCount }}</p>
+                <p class="stat-item"><strong>Totale Recensioni:</strong> {{ $reviewCount }}</p>
+                <p class="stat-item"><strong>Totale Voti Ricevuti:</strong> {{ $totalVotes }}</p>
                 <p class="stat-item"><strong>{{ __('Media dei voti:') }}</strong> {{ number_format($averageRating, 1) }} / 5</p>
             </div>
         </div>
 
         {{-- Messaggi m/a --}}
-        <div class="col-12 mt-5">
-            <h3 class="text-center">Numero di messaggi ricevuti per mese e anno</h3>
+        <div class="col-12 mt-5 p-3 rounded stats-details">
+            <h3 class="text-center months_years">Numero di messaggi ricevuti per mese e anno</h3>
             <div class="d-flex justify-content-center">
                 @foreach ($monthlyMessages as $monthYear => $count)
-                    <p class="badge text-bg-success p-3 fs-5">{{$count}} nel {{$monthYear}}</p>
+                    <p class="badge badge-messages p-3 fs-5">{{$count}} nel {{$monthYear}}</p>
                 @endforeach
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="{{route('admin.messages.index')}}" class="text-decoration-none mt-3 stats-redirect">Visualizza tutti i messaggi</a>
             </div>
         </div>
 
         {{-- Recensioni m/a --}}
-        <div class="col-12 mt-5">
-            <h3 class="text-center">Numero di recensioni ricevute per mese e anno</h3>
-            <div class="d-flex justify-content-center">
+        <div class="col-12 mt-5 p-3 rounded stats-details">
+            <h3 class="text-center months_years">Numero di recensioni ricevute per mese e anno</h3>
+            <div class="d-flex justify-content-center flex-wrap">
                 @foreach ($monthlyReviews as $monthYearRev => $count)
-                    <p class="badge text-bg-primary p-3 fs-5 mx-2">{{$count}} nel {{$monthYearRev}}</p>
+                    <p class="badge badge-reviews p-3 fs-5 mx-2">{{$count}} nel {{$monthYearRev}}</p>
                 @endforeach
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="{{route('admin.reviews.index')}}" class="text-decoration-none mt-3 stats-redirect">Visualizza tutte le recensioni</a>
             </div>
         </div>
 

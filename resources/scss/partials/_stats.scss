@@ -1,4 +1,5 @@
 .stats-box {
+    background-color: $light-gray;
     box-shadow: 2px 2px 5px $dark-grey;
     border: 1px solid $dark-grey;
     padding: 20px;
@@ -24,4 +25,81 @@
     color: $dark-grey;
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+.months_years {
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: $navy-blue;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px $pure-white;
+}
+
+.badge {
+    box-shadow: 2px 2px 3px $dark-grey;
+    transition: all 0.3s;
+    cursor: default;
+    &:hover {
+        color:#181818;
+    }   
+}
+
+.badge-messages {
+    background-color: $rose;
+    &:hover {
+        background-color: $soft-pink;
+    }
+}
+
+.badge-reviews {
+    background-color: $hard-blue;
+    &:hover {
+        background-color: $light-blue;
+    }
+}
+
+.stats-redirect {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    color: $navy-blue;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.stats-redirect::before,
+.stats-redirect::after {
+ content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.stats-redirect::before {
+  background-color: $light-blue;
+  height: 3px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.stats-redirect::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #54b3d6;
+}
+
+.stats-redirect:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.stats-redirect:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.stats-details {
+    border: 3px solid $light-gray;
 }
