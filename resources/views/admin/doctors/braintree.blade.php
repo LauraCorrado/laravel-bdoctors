@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <div class="col-12 text-center mb-5">
             <!-- Messaggi di successo o errore -->
@@ -22,7 +22,9 @@
         <div class="col-12 text-center mb-5">
             <form method="POST" action="{{ route('admin.doctors.braintree', ['sponsorId' => $sponsor->id]) }}" class="p-2">
                 @csrf
-                <div id="dropin-container" style="display: flex; justify-content: center; align-items: center;"></div>
+                <div class="d-flex justify-content-center">
+                    <div id="dropin-container" style="display: flex; justify-content-center; align-items: center;"></div>
+                </div>
                 <div style="display: flex; justify-content: center; align-items: center; color: white;">
                     <button id="submit-button" class="btn btn-sm btn-success">Conferma il pagamento</button>
                 </div>

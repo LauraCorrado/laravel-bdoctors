@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5">
+<div class="container my-5">
     <div class="row">
-        <div class="col-12 text-center mb-5">
-            <h1 class="text-center fw-bold mb-5" style="color: #005792">{{ $doctor->user_name }}, ecco le tue recensioni</h1>
+        <div class="col-12">
+            <h1 class="text-center fw-bold mb-3" style="color: #005792">{{ $doctor->user_name }}, ecco le tue recensioni</h1>
         </div>
     </div>
     <div class="row gy-4">
