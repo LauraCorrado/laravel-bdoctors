@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-12 text-center mb-5">
             <h1>Profilo di <strong class="user-name">{{ $doctor->user_name }} {{ $doctor->user_surname }}</strong></h1>

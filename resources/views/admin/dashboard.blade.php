@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container my-5">
     @if($doctor)
     <h1 class="fs-4 text-secondary my-4">
         {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}

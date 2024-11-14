@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
+<div class="container my-5">
     <div class="row">
         <div class="col-12">
             <div class="mb-5 text-center">
