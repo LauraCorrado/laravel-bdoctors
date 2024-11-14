@@ -6,6 +6,7 @@
 @import 'partials/welcome.scss';
 @import 'partials/edit.scss';
 @import 'partials/messages.scss';
+@import 'partials/sponsors-packages';
 
 // FONT //
 
@@ -18,7 +19,8 @@ body {
 
 // bottoni
 .save,
-.back {
+.back,
+.deluxe-button {
     color: $pure-white;
     border: none;
     border-radius: 8px;
@@ -56,6 +58,19 @@ body {
 
     &:active {
         background-color: $dark-grey;
+        color: $pure-white;
+    }
+}
+
+.deluxe-button {
+    letter-spacing: 1px;
+    background-color: $deluxe;
+    &:hover {
+        background-color: $deluxe-hover;
+    }
+
+    &:active {
+        background-color: $deluxe;
         color: $pure-white;
     }
 }

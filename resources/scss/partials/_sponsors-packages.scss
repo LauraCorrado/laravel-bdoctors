@@ -1,0 +1,44 @@
+.packages-titles {
+    h1 {
+        color: $navy-blue;
+    }
+}
+
+.packages {
+    border: none;
+    box-shadow: 3px 3px 5px $dark-grey;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; 
+
+    &:hover {
+        transform: translateY(5px); 
+        box-shadow: 5px 5px 10px $dark-grey; 
+        cursor: pointer;
+    }
+
+    .card-header {
+        background-color: $light-blue;
+        letter-spacing: 2px;
+        h5 {
+            font-size: 22px;
+        }
+    }
+
+    .card-body {
+        .price {
+            color: $navy-blue;
+        }
+    }
+}
+.deluxe-package {
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    .card-header {
+        background-color: $deluxe-hover;
+    }
+
+    &:hover {
+        box-shadow: 0 0 5px 2px $deluxe, 
+                    0 0 20px 5px $deluxe-hover,
+                    0 0 30px 20px $deluxe-shadow;
+        
+    }
+}
