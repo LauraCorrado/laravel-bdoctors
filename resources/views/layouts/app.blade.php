@@ -18,8 +18,14 @@
     <!-- Usando Vite + Validate -->
     @vite(['resources/js/app.js', 'resources/js/validation.js'])
 
+    {{-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     {{-- Braintree --}}
+    {{-- <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script> --}}
+   
     <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.87.0/js/client.js"></script>
 </head>
 
 <body>

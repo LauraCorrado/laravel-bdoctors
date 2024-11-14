@@ -90,7 +90,7 @@ class DoctorController extends Controller
         if ($doctor->user_id !== auth()->id()) {
             abort(404, 'Pagina non trovata.');
         }
-        $doctor->load('fields');
+        $doctor->load('fields', 'sponsors');
         return view('admin.doctors.show', compact('doctor'));
     }
 
