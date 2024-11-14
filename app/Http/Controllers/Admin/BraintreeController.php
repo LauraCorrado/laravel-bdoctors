@@ -10,9 +10,8 @@ use Carbon\Carbon;
 class BraintreeController extends Controller
 {
     // generate a Braintree client token
-     // generate a Braintree client token
-     public function token(Request $request, $sponsorId){
-        // recupero lo sponsor selezionato
+    public function token(Request $request, $sponsorId) {
+        // Recupero lo sponsor selezionato
         $sponsor = Sponsor::findOrFail($sponsorId);
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
@@ -20,17 +19,16 @@ class BraintreeController extends Controller
             'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
             'privateKey' => env("BRAINTREE_PRIVATE_KEY")
         ]);
-        
-        // genera token
+
+        // Genera il token
         $clientToken = $gateway->clientToken()->generate();
 
         // Se il pagamento è già stato completato (i.e., se c'è un nonce)
         if ($request->has('nonce')) {
             $nonceFromTheClient = $request->input('nonce');
-        
-            // salvo il risultato della transazione di vendita
+
+            // Salvo il risultato della transazione di vendita
             $result = $gateway->transaction()->sale([
-                // uso l'importo del pacchetto
                 'amount' => $sponsor->price,
                 'paymentMethodNonce' => $nonceFromTheClient,
                 'options' => [
@@ -38,21 +36,23 @@ class BraintreeController extends Controller
                 ]
             ]);
 
-            // verifica se il pagamento è andato a buon fine
+            // Verifica se il pagamento è andato a buon fine
             if ($result->success) {
-                // Calcolare la data di scadenza basata su created_at (usando Carbon)
+                // Calcola la data di scadenza usando Carbon
                 $expiringDate = Carbon::now()->addHours($sponsor->duration);
 
-                // sponsorizzazione per il medico
+                // Sponsorizzazione per il medico
                 auth()->user()->doctor->sponsors()->attach($sponsorId, [
                     'expiring_date' => $expiringDate,
                 ]);
-                
-                // In caso di successo, restituisci un messaggio
-                return response()->json(['success' => true, 'message' => 'Pagamento completato, sponsorizzazione attivata']);
+
+                // In caso di successo, aggiungi il messaggio alla sessione e fai il redirect
+                return redirect()->route('admin.doctors.show', ['doctor' => auth()->user()->doctor->slug])
+                                 ->with('success', 'Pagamento completato, sponsorizzazione attivata');
             } else {
-                // Se c'è un errore nel pagamento, restituisci un errore
-                return response()->json(['success' => false, 'error' => 'C\'è stato un errore nel pagamento. Riprova più tardi']);
+                // Se c'è un errore nel pagamento, aggiungi il messaggio di errore alla sessione
+                return redirect()->route('admin.doctors.show', ['doctor' => auth()->user()->doctor->slug])
+                                 ->with('error', 'C\'è stato un errore nel pagamento. Riprova più tardi');
             }
         }
 
