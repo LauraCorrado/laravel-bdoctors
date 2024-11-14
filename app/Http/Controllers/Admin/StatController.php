@@ -18,6 +18,10 @@ class StatController extends Controller
     
         // Numero totale di messaggi
         $messageCount = Message::where('doctor_id', $doctor->id)->count();
+        // Numero totale di recensioni e media dei voti
+        $reviewCount = Review::where('doctor_id', $doctor->id)->count();
+        $totalVotes = Review::where('doctor_id', $doctor->id)->whereNotNull('vote')->count();
+        $averageRating = Review::where('doctor_id', $doctor->id)->avg('vote');
         
         // recupera i messaggi per ogni mese ed ogni anno
         $totalMessages = Message::where('doctor_id', $doctor->id)
@@ -27,11 +31,14 @@ class StatController extends Controller
                                 ->orderBy('month', 'desc')
                                 ->get();
 
-        // Numero totale di recensioni e media dei voti
-        $reviewCount = Review::where('doctor_id', $doctor->id)->count();
-        $totalVotes = Review::where('doctor_id', $doctor->id)->whereNotNull('vote')->count();
-        $averageRating = Review::where('doctor_id', $doctor->id)->avg('vote');
-    
+        // recupera i messaggi per ogni mese ed ogni anno
+        $totalReviews = Review::where('doctor_id', $doctor->id)
+                                ->selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, COUNT(*) as count')
+                                ->groupBy('year', 'month')
+                                ->orderBy('year', 'desc')
+                                ->orderBy('month', 'desc')
+                                ->get();
+
         // Recupera i dati per voti (1, 2, 3, 4, 5) per ogni mese e anno
         $voteCounts = Review::where('doctor_id', $doctor->id)
                             ->selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, vote, COUNT(*) as count')
@@ -40,7 +47,21 @@ class StatController extends Controller
                             ->orderBy('year', 'desc')
                             ->orderBy('month', 'desc')
                             ->get();
-    
+        
+        //preparazione dati messaggi
+        $monthlyMessages = [];
+        $monthlyReviews = [];
+
+        foreach ($totalMessages as $message) {
+            $monthYear = str_pad($message->month, 2, '0', STR_PAD_LEFT) . '/' . $message->year; // 'MM-YYYY'
+            $monthlyMessages[$monthYear] = $message->count;
+        }
+
+        foreach ($totalReviews as $review) {
+            $monthYear = str_pad($review->month, 2, '0', STR_PAD_LEFT) . '/' . $review->year; // 'MM-YYYY'
+            $monthlyReviews[$monthYear] = $review->count;
+        }
+
         // Prepara i dati per il grafico (5 barre per voto: 1, 2, 3, 4, 5)
         $labels = [];
         $data = [
@@ -62,8 +83,6 @@ class StatController extends Controller
             // Aggiungiamo i contatori per ogni voto (1, 2, 3, 4, 5)
             $data[$vote->vote][] = $vote->count;
         }
-    
-        // raggruppiamo i messaggi per mese e per anno
         
 
         // Filler per i mesi che non hanno un voto
@@ -77,8 +96,6 @@ class StatController extends Controller
         }
     
         // Passa i dati alla vista
-        return view('admin.stats.index', compact('messageCount', 'reviewCount', 'averageRating', 'totalVotes', 'labels', 'data'));
+        return view('admin.stats.index', compact('messageCount', 'reviewCount', 'averageRating', 'totalVotes', 'labels', 'data', 'monthlyMessages', 'monthlyReviews'));
     }
-    
-
 }

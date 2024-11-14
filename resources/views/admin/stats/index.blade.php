@@ -11,16 +11,36 @@
         <!-- Sezione per visualizzare le statistiche -->
         <div class="col-12 d-flex justify-content-center">
             <div class="stats-box text-center">
-                <p class="stat-item"><strong>Numero di Messaggi Ricevuti:</strong> {{ $messageCount }}</p>
+                <p class="stat-item"><strong>Numero totale di Messaggi Ricevuti:</strong> {{ $messageCount }}</p>
                 <p class="stat-item"><strong>Numero di Recensioni:</strong> {{ $reviewCount }}</p>
                 <p class="stat-item"><strong>Numero Totale di Voti Ricevuti:</strong> {{ $totalVotes }}</p>
                 <p class="stat-item"><strong>{{ __('Media dei voti:') }}</strong> {{ number_format($averageRating, 1) }} / 5</p>
             </div>
         </div>
 
+        {{-- Messaggi m/a --}}
+        <div class="col-12 mt-5">
+            <h3 class="text-center">Numero di messaggi ricevuti per mese e anno</h3>
+            <div class="d-flex justify-content-center">
+                @foreach ($monthlyMessages as $monthYear => $count)
+                    <p class="badge text-bg-success p-3 fs-5">{{$count}} nel {{$monthYear}}</p>
+                @endforeach
+            </div>
+        </div>
+
+        {{-- Recensioni m/a --}}
+        <div class="col-12 mt-5">
+            <h3 class="text-center">Numero di recensioni ricevute per mese e anno</h3>
+            <div class="d-flex justify-content-center">
+                @foreach ($monthlyReviews as $monthYearRev => $count)
+                    <p class="badge text-bg-primary p-3 fs-5 mx-2">{{$count}} nel {{$monthYearRev}}</p>
+                @endforeach
+            </div>
+        </div>
+
         <!-- Grafico dei Voti per Mese e Anno -->
         <div class="col-12 mt-5">
-            <h2 class="text-center">Distribuzione dei Voti per Mese e Anno</h2>
+            <h2 class="text-center stat-title">Distribuzione dei Voti per Mese e Anno</h2>
             <canvas id="votesChart"></canvas>
         </div>
 
