@@ -8,6 +8,7 @@
 @import 'partials/messages.scss';
 @import 'partials/sponsors-packages';
 @import 'partials/stats.scss';
+@import 'partials/braintree.scss';
 
 
 // FONT //
@@ -17,6 +18,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #E8E8E8;
 }
 
 // bottoni

@@ -1,0 +1,27 @@
+.back-to-sponsors {
+    margin-right: 20px;
+}
+
+.title-pay {
+    color: $navy-blue;
+}
+
+.drop-in {
+    background-color: $deluxe-hover;
+    box-shadow: 2px 2px 3px $dark-grey;
+    .braintree-card {
+        box-shadow: 1px 1px 3px $dark-grey;
+        background-color: $pure-white;
+        .braintree-sheet__text {
+            font-weight: 700;
+            color: $navy-blue;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .back-to-sponsors {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
