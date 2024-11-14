@@ -6,7 +6,7 @@
         <div class="col-12 text-center mb-5">
             <!-- Messaggi di successo o errore -->
             @if (session('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success" id="success-alert">
                     {{ session('success') }}
                 </div>
             @endif
@@ -32,6 +32,16 @@
 </div>
 
 <script>
+    // Timer per far scomparire il messaggio di successo dopo 5 secondi
+    document.addEventListener('DOMContentLoaded', function () {
+        let successAlert = document.getElementById('success-alert');
+        if (successAlert) {
+            setTimeout(function () {
+                successAlert.style.display = 'none';
+            }, 5000); // 5000 ms = 5 secondi
+        }
+    });
+
     const clientToken = "{{ $clientToken }}"
     let button = document.querySelector('#submit-button');
 
