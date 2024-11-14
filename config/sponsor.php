@@ -2,7 +2,7 @@
 
 return [
     [
-        'package' => 'base',   
+        'package' => 'standard',   
         'price' => 2.99,
         'duration' => 24
     ],

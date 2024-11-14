@@ -26,6 +26,11 @@
             </div>
         </div>
         @endforeach
+        <div class="col-12">
+            <div class="d-flex justify-content-center mt-5">
+                <a href="{{route('admin.dashboard')}}" class="back text-decoration-none">Torna alla dashboard</a>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
