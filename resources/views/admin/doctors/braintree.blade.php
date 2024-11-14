@@ -20,6 +20,14 @@
             </form>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-2">
+                <a href="{{route('admin.sponsors.index')}}" class="back text-decoration-none text-center back-to-sponsors">Torna indietro</a>
+                <a href="{{route('admin.dashboard')}}" class="back text-decoration-none text-center">Torna alla dashboard</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
