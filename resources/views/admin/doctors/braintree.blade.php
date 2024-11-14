@@ -2,9 +2,15 @@
 
 @section('content')
 <div class="container my-5">
-    <div class="row">
+    <div class="row" style="display: none" id="alert_row">
         <div class="col-12 text-center mb-5">
             <div id="message-alert" style="display: none;" class="alert fw-bolder" role="alert"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 title-pay">
+            <h1 class="text-center fw-bolder">Effettua qua il tuo pagamento</h1>
+            <h3 class="mb-5 text-center">Hai scelto il pacchetto <strong class="text-capitalize">{{$sponsor->package}}</strong>!</h3>
         </div>
     </div>
     <div class="row">
@@ -12,26 +18,25 @@
             <form method="POST" action="{{ route('admin.doctors.braintree', ['sponsorId' => $sponsor->id]) }}" class="p-2">
                 @csrf
                 <div class="d-flex justify-content-center">
-                    <div id="dropin-container" style="display: flex; justify-content-center; align-items: center;"></div>
+                    <div id="dropin-container" class="drop-in p-4 d-flex justify-content-center align-items-center rounded"></div>
                 </div>
                 <div style="display: flex; justify-content: center; align-items: center; color: white;">
-                    <button id="submit-button" class="btn btn-sm btn-success" {{ isset($paymentSuccess) || isset($paymentError) ? 'disabled' : '' }}>Conferma il pagamento</button>
+                    <button id="submit-button" class="deluxe-button my-4" {{ isset($paymentSuccess) || isset($paymentError) ? 'disabled' : '' }}>Conferma il pagamento</button>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                        <a href="{{route('admin.sponsors.index')}}" class="back text-decoration-none text-center back-to-sponsors">Torna indietro</a>
+                        <a href="{{route('admin.dashboard')}}" class="back text-decoration-none text-center">Torna alla dashboard</a>
+                    </div>
                 </div>
             </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-2">
-                <a href="{{route('admin.sponsors.index')}}" class="back text-decoration-none text-center back-to-sponsors">Torna indietro</a>
-                <a href="{{route('admin.dashboard')}}" class="back text-decoration-none text-center">Torna alla dashboard</a>
-            </div>
         </div>
     </div>
 </div>
 
 <script>
 let successAlert = document.getElementById('message-alert');
+let alertRow = document.getElementById('alert_row');
 
 const clientToken = "{{ $clientToken }}"
 let button = document.querySelector('#submit-button');
@@ -78,8 +83,10 @@ braintree.dropin.create({
                             successAlert.innerHTML = data.error;
                         }
                         successAlert.style.display = 'block';
+                        alertRow.style.display = 'flex';
                         setTimeout(function() {
                         successAlert.style.display = 'none';
+                        alertRow.style.display = 'none';
                         window.location.href = "{{ route('admin.doctors.show', ['doctor' => auth()->user()->doctor->slug]) }}";
                     }, 5000);
                 },
