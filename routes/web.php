@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\Admin\BraintreeController;
+use App\Http\Controllers\Admin\StatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('messages', MessageController::class);
     Route::resource('reviews', ReviewController::class);
     Route::resource('sponsors', SponsorController::class);
+    Route::resource('stats', StatController::class);
     // Braintree payment route
     Route::any('/doctors/braintree/{sponsorId}', [BraintreeController::class, 'token'])->name('doctors.braintree'); //mostra form pagamento
     // Route::any('/payment', [BraintreeController::class, 'token'])->name('doctors.braintree')->middleware('auth');
