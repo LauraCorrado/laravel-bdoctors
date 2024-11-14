@@ -22,10 +22,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     {{-- Braintree --}}
-    {{-- <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script> --}}
-   
     <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.87.0/js/client.js"></script>
+
+    {{-- Chart.js --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
