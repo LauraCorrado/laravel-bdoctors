@@ -14,7 +14,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <div class="rounded bg-info p-3">
+            <div class="rounded bg-dashboard p-3">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="card mt-3">
