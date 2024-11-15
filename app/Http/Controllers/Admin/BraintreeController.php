@@ -60,14 +60,15 @@ class BraintreeController extends Controller
                 $lastSponsor = $doctor->sponsors()->orderByDesc('expiring_date')->first();
                 // verifico se esiste lastSponsor e se la sponsorizzazione è ancora attiva
                 if ($lastSponsor && $lastSponsor->pivot->expiring_date > Carbon::now()) {
-                    // Caso: sponsorizzazione attiva: vai in standby
-                    $startDate = Carbon::parse($lastSponsor->pivot->expiring_date);
+                    // Caso 1: sponsorizzazione attiva: vai in standby
+                    // azzera ora scadenza precedente (startOfDay) + aggiungi ora corrente + aggiungi minuti correnti
+                    $startDate = Carbon::parse($lastSponsor->pivot->expiring_date)->startOfDay()->addHours(Carbon::now()->hour)->addMinutes(Carbon::now()->minute);
                 } else {
-                    // Caso: nessuna sponsorizzazione attiva
+                    // caso 2: nesssuna sponsorizzazione attiva
                     $startDate = Carbon::now();
                 }
     
-                // calcolo la data di scadenza
+                // data di scadenza
                 $expiringDate = $startDate->copy()->addHours($sponsor->duration);
     
                 
