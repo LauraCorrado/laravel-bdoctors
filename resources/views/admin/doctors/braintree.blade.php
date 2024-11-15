@@ -75,10 +75,10 @@ braintree.dropin.create({
                 url: "{{ route('admin.doctors.braintree', ['sponsorId' => $sponsor->id]) }}",
                 data: { nonce: payload.nonce },
                 success: function (data) {
-                    successAlert.classList.remove('alert-success', 'alert-danger');
+                    successAlert.classList.remove('alert-well', 'alert-danger');
                     //successo
                     if (data.success) {
-                            successAlert.classList.add('alert-success');
+                            successAlert.classList.add('alert-well');
                             successAlert.innerHTML = data.message;
                         } else { //insuccesso
                             successAlert.classList.add('alert-danger');
@@ -90,10 +90,10 @@ braintree.dropin.create({
                         successAlert.style.display = 'none';
                         alertRow.style.display = 'none';
                         window.location.href = "{{ route('admin.doctors.show', ['doctor' => auth()->user()->doctor->slug]) }}";
-                    }, 5000);
+                    }, 3000);
                 },
                 error: function (data) {
-                    successAlert.classList.remove('alert-success', 'alert-danger');
+                    successAlert.classList.remove('alert-well', 'alert-danger');
                     successAlert.classList.add('alert-danger');
                         successAlert.innerHTML = "C'è stato un errore con il pagamento. Riprova più tardi.";
                         successAlert.style.display = 'block';
