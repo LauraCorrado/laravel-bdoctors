@@ -408,7 +408,63 @@ return [
         "content" => "Non si può accettare un trattamento del genere. Lo sconsiglio vivamente.",
         "doctor_id" => 1,
         "vote" => rand(1, 1)
-    ]
+    ],
+    [ 
+        "id" => 52,
+        "name" => "Simone",
+        "email" => "simone@example.com",
+        "content" => "Ottimo internista. Così giovane ma così capace!",
+        "doctor_id" => 11,
+        "vote" => rand(5, 5)
+    ],
+    [ 
+        "id" => 53,
+        "name" => "Gioele",
+        "email" => "gioele@example.com",
+        "content" => "Forse un po' troppo giovane e spensierato, molto distratto. Tuttavia, mi ha aiutato con grande cura e professionalità. Consiglio.",
+        "doctor_id" => 11,
+        "vote" => rand(4, 5)
+    ],
+    [ 
+        "id" => 54,
+        "name" => "Pier Giovanni",
+        "email" => "piergiovanni@example.com",
+        "content" => "Ho chiesto un parere al dottor Turk in quanto mi era stato consigliato. Sono parecchio soddisfatto.",
+        "doctor_id" => 12,
+        "vote" => rand(4, 5)
+    ],
+    [ 
+        "id" => 55,
+        "name" => "Sandra",
+        "email" => "sandra@example.com",
+        "content" => "Il dottore è stato contattato per un secondo parere. Non sono per nulla soddisfatta.",
+        "doctor_id" => 12,
+        "vote" => rand(1, 2)
+    ],
+    [ 
+        "id" => 56,
+        "name" => "Loretta",
+        "email" => "loretta@example.com",
+        "content" => "Professionale.",
+        "doctor_id" => 12,
+        "vote" => rand(4, 5)
+    ],
+    [ 
+        "id" => 57,
+        "name" => "Gianfranco",
+        "email" => "gianfranco@example.com",
+        "content" => "Mi sembra un po' cinico e misantropo. In ogni caso, è stato un ottimo medico.",
+        "doctor_id" => 13,
+        "vote" => rand(4, 5)
+    ],
+    [ 
+        "id" => 58,
+        "name" => "Olivia",
+        "email" => "olivia@example.com",
+        "content" => "Ho trovato difficile parlare con il dottor Cox, mi sembrava parecchio disinteressato. Ho aspettato a lungo per una visita. Anche se il problema viene risolto, il rapporto medico-paziente dovrebbe essere centrale se si cerca una buona recensione.",
+        "doctor_id" => 13,
+        "vote" => rand(1, 2)
+    ],
 ]
 
 ?>

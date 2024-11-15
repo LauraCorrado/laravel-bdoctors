@@ -21,7 +21,7 @@ return [
         "phone_number" => "+39 02 7654321",
         "cv" => "/curricula/wilson.pdf",
         "thumb" => "http://127.0.0.1:8000/img/james-wilson.jpg",
-        "performance" => "Monitoro regolarmente i parametri vitali dei pazienti e controllo lo stato generale di salute."
+        "performance" => "Mi occupo di fornire un'assistenza completa al paziente, concentrandomi sia sulle cure fisiche che sul supporto emotivo."
     ],
     [
         "id" => 3,
@@ -54,7 +54,7 @@ return [
         "phone_number" => "+39 055 1239876",
         "cv" => "/curricula/cameron.pdf",
         "thumb" => "http://127.0.0.1:8000/img/allison-cameron.jpg",
-        "performance" => "Offro consulenza su stile di vita e prevenzione, per aiutare i pazienti a mantenere una salute ottimale."
+        "performance" => "Effettuo diagnosi precise e creo piani di trattamento personalizzati per ogni paziente."
     ],
     [
         "id" => 6,
@@ -109,7 +109,40 @@ return [
         "phone_number" => "+39 070 2345678",
         "cv" => "/curricula/martini.pdf",
         "thumb" => "http://127.0.0.1:8000/img/lele-martini.jpg",
-        "performance" => "Svolgo colloqui di supporto psicologico per promuovere il benessere emotivo e mentale dei pazienti."
+        "performance" => "Mi occupo di interpretare i risultati di test diagnostici e prescrivere il trattamento migliore per ogni paziente."
+    ],
+    [
+        "id" => 11,
+        "user_name" => "John",
+        "user_surname" => "Dorian",
+        "city" => "Lecce",
+        "address" => "Via dei Caduti, 46",
+        "phone_number" => "+39 055 9876543",
+        "cv" => null,
+        "thumb" => "http://127.0.0.1:8000/img/john-dorian.jpg",
+        "performance" => "Svolgo visite quotidiane ai pazienti, cercando sempre di migliorare il mio approccio nella cura e nella comprensione dei loro bisogni."
+    ],
+    [
+        "id" => 12,
+        "user_name" => "Christopher",
+        "user_surname" => "Turk",
+        "city" => "Roma",
+        "address" => "Via Rossi, 1",
+        "phone_number" => "+39 055 8765432",
+        "cv" => null,
+        "thumb" => "http://127.0.0.1:8000/img/christopher-turk.jpg",
+        "performance" => "Valuto attentamente ogni caso clinico e metto sempre il paziente al centro della cura."
+    ],
+    [
+        "id" => 13,
+        "user_name" => "Percival Ulysses",
+        "user_surname" => "Cox",
+        "city" => "Udine",
+        "address" => "Via Nazario Sauro, 4",
+        "phone_number" => "+39 055 6543210",
+        "cv" => null,
+        "thumb" => "http://127.0.0.1:8000/img/perry-cox.jpg",
+        "performance" => "Sono responsabile degli allievi di medicina e questo già mi pesa."
     ]
 ];
 
