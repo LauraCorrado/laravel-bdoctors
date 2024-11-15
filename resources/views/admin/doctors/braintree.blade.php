@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="container my-5">
-    <div class="row" style="display: none" id="alert_row">
-        <div class="col-12 text-center mb-5">
-            <div id="message-alert" style="display: none;" class="alert fw-bolder" role="alert"></div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-12 title-pay">
             <h1 class="text-center fw-bolder">Effettua qua il tuo pagamento</h1>
@@ -23,13 +18,20 @@
                 <div style="display: flex; justify-content: center; align-items: center; color: white;">
                     <button id="submit-button" class="deluxe-button my-4" {{ isset($paymentSuccess) || isset($paymentError) ? 'disabled' : '' }}>Conferma il pagamento</button>
                 </div>
-                <div class="col-12">
-                    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
-                        <a href="{{route('admin.sponsors.index')}}" class="back text-decoration-none text-center back-to-sponsors">Torna indietro</a>
-                        <a href="{{route('admin.dashboard')}}" class="back text-decoration-none text-center">Torna alla dashboard</a>
-                    </div>
-                </div>
             </form>
+        </div>
+    </div>
+    <div class="row" style="display: none" id="alert_row">
+        <div class="col-12 text-center mb-5">
+            <div id="message-alert" style="display: none;" class="alert fw-bolder" role="alert"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                <a href="{{route('admin.sponsors.index')}}" class="back text-decoration-none text-center back-to-sponsors">Torna indietro</a>
+                <a href="{{route('admin.dashboard')}}" class="back text-decoration-none text-center">Torna alla dashboard</a>
+            </div>
         </div>
     </div>
 </div>
