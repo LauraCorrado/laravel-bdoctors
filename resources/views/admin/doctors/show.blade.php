@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Dettagli - ' . $doctor->user_name . ' ' . $doctor->user_surname)
+
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">

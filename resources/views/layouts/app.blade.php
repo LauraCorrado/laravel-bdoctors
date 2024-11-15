@@ -7,7 +7,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'BDoctors') }}</title>
+    {{-- Titolo dinamico --}}
+    <title>@yield('title', config('app.name', 'BDoctors'))</title>
+
     <link rel="icon" href="{{ Vite::asset('/resources/img/logo.png') }}" type="image/x-icon">
 
 
