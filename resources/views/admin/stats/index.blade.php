@@ -23,7 +23,7 @@
             <h3 class="text-center months_years">Numero di messaggi ricevuti per mese e anno</h3>
             <div class="d-flex justify-content-center">
                 @foreach ($monthlyMessages as $monthYear => $count)
-                    <p class="badge badge-messages p-3 fs-5">{{$count}} nel {{$monthYear}}</p>
+                    <p class="badge badge-stats-section badge-messages p-3 fs-5">{{$count}} nel {{$monthYear}}</p>
                 @endforeach
             </div>
             <div class="d-flex justify-content-center">
@@ -36,7 +36,7 @@
             <h3 class="text-center months_years">Numero di recensioni ricevute per mese e anno</h3>
             <div class="d-flex justify-content-center flex-wrap">
                 @foreach ($monthlyReviews as $monthYearRev => $count)
-                    <p class="badge badge-reviews p-3 fs-5 mx-2">{{$count}} nel {{$monthYearRev}}</p>
+                    <p class="badge badge-stats-section badge-reviews p-3 fs-5 mx-2">{{$count}} nel {{$monthYearRev}}</p>
                 @endforeach
             </div>
             <div class="d-flex justify-content-center">

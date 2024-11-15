@@ -3,6 +3,29 @@
     box-shadow: 5px 5px 10px $dark-grey;
 }
 
+.show-sponsor-section {
+    padding: 20px;
+    font-size: 18px;
+    margin: 10px;
+    .badge-success, .badge-danger {
+        letter-spacing: 1px;
+        box-shadow: 2px 2px 3px $dark-grey;
+        cursor: default;
+    }
+    .badge-success{
+        background-color: $hard-blue;
+    }
+    .badge-danger{
+        background-color: $deluxe-hover;
+        color: #484444;
+    }
+}
+
+.packages-title {
+    text-shadow: 2px 2px 3px $pure-white;
+    font-weight: 600;
+}
+
 .user-name {
     color: $navy-blue;
 }
