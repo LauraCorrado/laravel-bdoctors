@@ -10,6 +10,8 @@ class Sponsor extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['package', 'price', 'duration'];
+
     // relazione MtM
     public function doctors(){
         return $this->belongsToMany(Doctor::class)->withPivot('expiring_date')->withTimestamps();;

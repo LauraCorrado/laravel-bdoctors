@@ -2,6 +2,15 @@
     margin-right: 20px;
 }
 
+.alert-well {
+        background-color: $mint-green;
+        padding: 15px;
+        max-width: 500px;
+        margin: 0 auto;
+        font-size: 18px;
+        text-shadow: 1px 1px 3px $pure-white;
+}
+
 .title-pay {
     color: $navy-blue;
 }

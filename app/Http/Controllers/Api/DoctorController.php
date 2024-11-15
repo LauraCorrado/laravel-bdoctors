@@ -11,17 +11,31 @@ use App\Models\Sponsor;
 
 class DoctorController extends Controller
 {
-    public function index(Request $request) {
-        $doctors = Doctor::with(['fields', 'reviews', 'sponsors'])->get();
+    public function index(Request $request)
+    {
+        $doctors = Doctor::with(['fields', 'reviews', 'sponsors' => function ($query) {
+            // data di scadenza dalla pivot
+            $query->orderByDesc('doctor_sponsor.expiring_date');
+        }])->get();
+
+        // dalla data di scadenza più recente
+        $doctors = $doctors->sortByDesc(function ($doctor) {
+            if ($doctor->sponsors->isNotEmpty()) {
+                return $doctor->sponsors->first()->pivot->expiring_date;
+            }
+            return null;
+        });
+
         return response()->json([
             'success' => true,
             'results' => $doctors
         ]);
     }
 
-    public function details($slug) {
+    public function details($slug)
+    {
         $doctor = Doctor::with(['fields', 'reviews', 'sponsors'])->where('slug', $slug)->first();
-        if($doctor) {
+        if ($doctor) {
             return response()->json([
                 'success' => true,
                 'results' => $doctor
@@ -42,7 +56,7 @@ class DoctorController extends Controller
         ]);
 
         $doctor = Doctor::where('slug', $slug)->firstOrFail();
-        
+
         $doctor->average_rating = $validated['averageRating'];
         $doctor->save();
 
