@@ -9,7 +9,6 @@ use Carbon\Carbon;
 
 class BraintreeController extends Controller
 {
-    // generate a Braintree client token
      // generate a Braintree client token
      public function token(Request $request, $sponsorId){
         // recupero lo sponsor selezionato
