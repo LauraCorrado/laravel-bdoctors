@@ -12,41 +12,94 @@
         {{ __('Non è stato trovato alcun dottore associato a questo account.') }}
     </h1>
     @endif
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="m-0">Benvenuto/a, {{$doctor->user_name}}</h5>
-                </div>
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+    <div class="row">
+        <div class="col-12">
+            <div class="rounded bg-dashboard p-3">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-person-fill text-primary me-2"></i>
+                                    Profilo personale
+                                </h5>
+                                <p class="card-text">Qui puoi modficare il tuo profilo personale.</p>
+                                <div class="text-center">
+                                    <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="mt-1 text-decoration-none save">
+                                        {{ __('Modifica profilo') }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    @endif
-                    <p>{{ __('Hai effettuato con successo il login!') }}</p>
-                    <p class="mt-1">{{ __('Questa è la tua dashboard.') }}</p>
-                    <div class="row text-center">
-                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a href="{{ route('admin.doctors.edit', $doctor->id) }}"
-                                class="mt-1 text-decoration-none save">{{
-                                __('Modifica i tuoi dati') }}
-                            </a>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
+                                    I tuoi messaggi
+                                </h5>
+                                <p class="card-text">Qui puoi visualizzare i messaggi dei tuoi pazienti.</p>
+                                <div class="text-center">
+                                    <a href="{{ route('admin.messages.index') }}" class="mt-1 text-decoration-none save">{{__('Visualizza messaggi') }}</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a href="{{ route('admin.messages.index') }}" class="mt-1 text-decoration-none save">{{
-                                __('I tuoi messaggi') }}</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-star-fill text-primary me-2"></i>
+                                    Recensioni
+                                </h5>
+                                <p class="card-text">Qui puoi visualizzare le recensioni ricevute.</p>
+                                <div class="text-center">
+                                    <a href="{{ route('admin.reviews.index') }}" class="mt-1 text-decoration-none save">{{__('Visualizza recensioni') }}</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a href="{{ route('admin.reviews.index') }}" class="mt-1 text-decoration-none save">{{
-                                __('Recensioni') }}</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-credit-card-2-front-fill text-primary me-2"></i>
+                                    Promozioni
+                                </h5>
+                                <p class="card-text">Qui puoi acquistare i pacchetti per promuovere il tuo profilo.</p>
+                                <div class="text-center">
+                                    <a href="{{ route('admin.sponsors.index') }}" class="mt-1 text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
+                                </div>
+                            </div>
                         </div>
-                        {{-- Braintree-linked button --}}
-                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a href="{{ route('admin.sponsors.index') }}" class="mt-1 text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-bar-chart-line-fill text-primary me-2"></i>
+                                    Statistiche
+                                </h5>
+                                <p class="card-text">Qui puoi visualizzare le tue statistiche personali.</p>
+                                <div class="text-center">
+                                    <a href="{{ route('admin.stats.index') }}" class="mt-1 text-decoration-none save">{{ __('Visualizza statistiche') }}</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mt-md-4 show-buttons col-12 col-md-6 col-lg-3">
-                            <a href="{{ route('admin.stats.index') }}" class="mt-1 text-decoration-none save">{{ __('Le tue statistiche') }}</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-gear-fill text-primary me-2"></i>
+                                    Impostazioni
+                                </h5>
+                                <p class="card-text">Qui puoi le impostazioni del tuo account.</p>
+                                <div class="text-center">
+                                    <a href="{{ url('profile') }}" class="mt-1 text-decoration-none save">{{__('Modifica mpostazioni')}}</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
