@@ -86,7 +86,7 @@
             <div class="my-4 show-buttons">
                 <a href="{{ route('admin.doctors.edit', $doctor->id) }}"
                     class="text-decoration-none save">{{__('Modifica')}}</a>
-                <a href="{{route('admin.dashboard')}}" class="text-decoration-none back">{{ __('Torna alla
+                <a href="{{route('admin.dashboard')}}" class="text-decoration-none back">{{ __('Vai alla
                 dashboard') }}</a>
             </div>
         </div>
