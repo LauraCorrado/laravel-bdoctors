@@ -97,7 +97,7 @@
                                 </h5>
                                 <p class="card-text">Qui puoi le impostazioni del tuo account.</p>
                                 <div class="text-center">
-                                    <a href="{{ url('profile') }}" class="mt-1 text-decoration-none save">{{__('Modifica mpostazioni')}}</a>
+                                    <a href="{{ url('profile') }}" class="mt-1 text-decoration-none save">{{__('Modifica impostazioni')}}</a>
                                 </div>
                             </div>
                         </div>
