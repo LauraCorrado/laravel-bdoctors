@@ -60,15 +60,33 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="cv" class="form-label fw-bolder m-0 py-1">Curriculum Vitae</label>
-                        <input type="file" name="cv" id="cv" placeholder="Importa il tuo cv" class="form-control">
+
+                        <input type="file" name="cv" id="cv" placeholder="Importa il tuo cv" 
+                            class="form-control" value="{{ old('cv') }}">
                         @error('cv')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
+                        
+                        @if ($doctor->cv)
+                            <p class="mt-1">File corrente: <a href="{{ asset('storage/' . $doctor->cv) }}" target="_blank">Visualizza CV</a></p>
+                        @endif
+                    
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4">
+                    
+                    <div class="col-12 col-md-12 col-lg-12">
                         <label for="thumb" class="form-label fw-bolder m-0 py-1">Immagine del profilo</label>
-                        <input type="file" name="thumb" id="thumb" placeholder="Immagine del profilo"
-                            class="form-control">
+                        
+                        @if ($doctor->thumb)
+                            <p>Immagine corrente:</p>
+                            <div class="profile-pic mx-auto">
+                                <img src="{{ asset('storage/' . $doctor->thumb) }}" alt="Immagine del profilo" class="img-fluid img-thumbnail mb-2">
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <input type="file" name="thumb" id="thumb" placeholder="Immagine del profilo" 
+                            class="form-control" value="{{ old('thumb') }}">
                         @error('thumb')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
