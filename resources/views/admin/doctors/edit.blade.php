@@ -9,7 +9,7 @@
                 <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>
             <form id="form-doc-edit" action="{{ route('admin.doctors.update', ['doctor' => $doctor->id]) }}" method="post"
-                class="my-4" enctype="multipart/form-data">
+                class="my-4 create-edit-welcome" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

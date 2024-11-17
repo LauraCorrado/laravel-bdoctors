@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-12">
             <div class="mb-5 text-center">
-                <h1>Grazie per l'iscrizione, <br><strong>{{$user->name}} {{$user->surname}}</strong>!</h1>
+                <h1>Grazie per l'iscrizione, <strong>{{$user->name}} {{$user->surname}}</strong>!</h1>
                 <h3 class="m-2">Aggiungi informazioni al tuo profilo</h3>
                 <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>
-            <form id="form-doc-create" action="{{ route('admin.doctors.store') }}" method="POST" class="my-4"
+            <form id="form-doc-create" action="{{ route('admin.doctors.store') }}" method="POST" class="my-4 create-edit-welcome"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="row g-3">
