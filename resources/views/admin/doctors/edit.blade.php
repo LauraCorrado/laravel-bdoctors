@@ -78,8 +78,8 @@
                         
                         @if ($doctor->thumb)
                             <p>Immagine corrente:</p>
-                            <div class="text-center">
-                                <img src="{{ asset('storage/' . $doctor->thumb) }}" alt="Immagine del profilo" class="img-thumbnail mb-2 w-50">
+                            <div class="profile-pic mx-auto">
+                                <img src="{{ asset('storage/' . $doctor->thumb) }}" alt="Immagine del profilo" class="img-fluid img-thumbnail mb-2">
                             </div>
                         @endif
                     </div>
