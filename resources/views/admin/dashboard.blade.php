@@ -3,10 +3,17 @@
 @section('content')
 <div class="container my-5">
     @if($doctor)
-    <h1 class="fs-4 text-secondary my-4">
+    <h1 class="fs-2 text-secondary my-4 text-center">
         {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}
     </h1>
-    <p><strong>{{ __('Media dei voti:') }}</strong> {{ number_format($averageRating, 1) }} / 5</p>
+    <div class="d-flex justify-content-between align-items-center">
+        <p><strong>{{ __('Media dei voti:') }}</strong> {{ number_format($averageRating, 1) }} / 5</p>
+        @if($sponsorExpiration)
+            <p><strong>{{ __('Tempo sponsorizzazione:') }}</strong>
+                <span id="sponsor-countdown" class="countdown-color"></span>
+            </p>
+        @endif
+    </div>
     @else
     <h1 class="fs-4 text-secondary my-4">
         {{ __('Non è stato trovato alcun dottore associato a questo account.') }}
@@ -107,4 +114,45 @@
         </div>
     </div>
 </div>
+
+@if($sponsorExpiration)
+<script>
+    // Imposta la data di scadenza della sponsorizzazione
+    let sponsorExpirationDate = new Date("{{ $sponsorExpiration->toDateString() }}T{{ $sponsorExpiration->toTimeString() }}").getTime();
+
+    // Funzione per aggiornare il countdown
+    let countdownFunction = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = sponsorExpirationDate - now;
+
+        // Calcola i giorni, ore, minuti e secondi
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        let countdownString = '';
+
+        if (days > 0) {
+            countdownString += days + "gg ";
+        }
+        if (hours > 0) {
+            countdownString += hours + "ore ";
+        }
+        if (minutes > 0 || hours > 0) { // Mostra i minuti se ci sono ore o minuti
+            countdownString += minutes + "min ";
+        }
+        countdownString += seconds + "sec";
+
+        // Mostra il countdown
+        document.getElementById("sponsor-countdown").innerHTML = countdownString;
+
+        // Se il countdown finisce, mostra un messaggio
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("sponsor-countdown").innerHTML = "La sponsorizzazione è scaduta";
+        }
+    }, 1000);
+</script>
+@endif
 @endsection

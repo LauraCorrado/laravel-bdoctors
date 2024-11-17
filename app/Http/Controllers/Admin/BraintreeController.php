@@ -36,23 +36,6 @@ class BraintreeController extends Controller
                 ]
             ]);
 
-            /*// verifica se il pagamento è andato a buon fine
-            if ($result->success) {
-                // Calcolare la data di scadenza basata su created_at (usando Carbon)
-                $expiringDate = Carbon::now()->addHours($sponsor->duration);
-
-                // sponsorizzazione per il medico
-                auth()->user()->doctor->sponsors()->attach($sponsorId, [
-                    'expiring_date' => $expiringDate,
-                ]);
-                
-                // In caso di successo, restituisci un messaggio
-                return response()->json(['success' => true, 'message' => 'Pagamento completato. <br> Verrai reindirizzato a breve.']);
-            } else {
-                // Se c'è un errore nel pagamento, restituisci un errore
-                return response()->json(['success' => false, 'error' => 'C\'è stato un errore nel pagamento. Riprova più tardi']);
-            }*/
-
             if ($result->success) {
                 $doctor = auth()->user()->doctor;
     
@@ -62,10 +45,10 @@ class BraintreeController extends Controller
                 if ($lastSponsor && $lastSponsor->pivot->expiring_date > Carbon::now()) {
                     // Caso 1: sponsorizzazione attiva: vai in standby
                     // azzera ora scadenza precedente (startOfDay) + aggiungi ora corrente + aggiungi minuti correnti
-                    $startDate = Carbon::parse($lastSponsor->pivot->expiring_date)->startOfDay()->addHours(Carbon::now()->hour)->addMinutes(Carbon::now()->minute);
+                    $startDate = Carbon::parse($lastSponsor->pivot->expiring_date)->startOfDay()->addHours(Carbon::now()->hour)->addMinutes(Carbon::now()->minute)->setTimezone('Europe/Rome');
                 } else {
                     // caso 2: nesssuna sponsorizzazione attiva
-                    $startDate = Carbon::now();
+                    $startDate = Carbon::now()->setTimezone('Europe/Rome');
                 }
     
                 // data di scadenza
