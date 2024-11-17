@@ -21,9 +21,7 @@
         <!-- Grafico a torta per Messaggi, Recensioni, e Voti -->
         <div class="col-12 mt-5">
             <h2 class="text-center stat-title">Distribuzione di Messaggi, Recensioni e Voti nel Mese Corrente</h2>
-            <div class="d-flex justify-center">
-                <canvas id="statsPieChart"></canvas>
-            </div>
+            <canvas id="statsPieChart"></canvas>
         </div>
 
         <div class="col-12">
@@ -40,19 +38,19 @@
     const reviewCount = {{ $reviewCount }};
     const totalVotes = {{ $totalVotes }};
 
-    // Crea il grafico a torta
+    // Crea il grafico a ciambella (Doughnut Chart)
     var ctx = document.getElementById('statsPieChart').getContext('2d');
     var statsPieChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',  // Modificato da 'pie' a 'doughnut'
         data: {
             labels: ['Messaggi', 'Recensioni', 'Voti'],
             datasets: [{
                 label: 'Statistiche del mese',
                 data: [messageCount, reviewCount, totalVotes], // Dati da visualizzare
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)', // Messaggi
-                    'rgba(54, 162, 235, 0.2)', // Recensioni
-                    'rgba(75, 192, 192, 0.2)'  // Voti
+                    'rgba(255, 99, 132)', // Messaggi
+                    'rgba(54, 162, 235)', // Recensioni
+                    'rgba(75, 192, 192)'  // Voti
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -74,10 +72,16 @@
                             return tooltipItem.label + ': ' + tooltipItem.raw;
                         }
                     }
+                },
+                // Aggiungi la configurazione per un testo al centro del grafico
+                doughnutLabel: {
+                    display: true,
+                    text: 'Statistiche del Mese'
                 }
             }
         }
     });
 </script>
+
 
 @endsection
