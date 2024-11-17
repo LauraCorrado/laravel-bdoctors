@@ -3,13 +3,15 @@
 @section('content')
 <div class="container my-5">
     @if($doctor)
-    <h1 class="fs-2 text-secondary my-4 text-center">
+    <h1 class="text-center mb-4 dashboard-personal-style">
         {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}
     </h1>
-    <div class="d-flex justify-content-between align-items-center">
-        <p><strong>{{ __('Media dei voti:') }}</strong> {{ number_format($averageRating, 1) }} / 5</p>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p><strong>{{ __('Media dei voti') }}</strong>:
+            <span class="avg-dashboard-color">{{ number_format($averageRating, 1) }} / 5</span>
+        </p>
         @if($sponsorExpiration)
-            <p><strong>{{ __('Tempo sponsorizzazione:') }}</strong>
+            <p><strong>{{ __('Scadenza') }}</strong>:
                 <span id="sponsor-countdown" class="countdown-color"></span>
             </p>
         @endif
@@ -24,15 +26,15 @@
             <div class="rounded bg-dashboard p-3">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card mt-3">
+                        <div class="card mt-3 dashboard-sections">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-person-fill text-primary me-2"></i>
+                                <h5 class="card-title fw-bolder titles-dashboard">
+                                    <i class="bi bi-person-fill me-2 dashboard-icons"></i>
                                     Profilo personale
                                 </h5>
                                 <p class="card-text">Qui puoi modficare il tuo profilo personale.</p>
-                                <div class="text-center">
-                                    <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="mt-1 text-decoration-none save">
+                                <div class="text-center mb-2 mt-4">
+                                    <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="text-decoration-none save">
                                         {{ __('Modifica profilo') }}
                                     </a>
                                 </div>
@@ -40,71 +42,71 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card mt-3">
+                        <div class="card mt-3 dashboard-sections">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
+                                <h5 class="card-title fw-bolder titles-dashboard">
+                                    <i class="bi bi-envelope-fill me-2 dashboard-icons"></i>
                                     I tuoi messaggi
                                 </h5>
                                 <p class="card-text">Qui puoi visualizzare i messaggi dei tuoi pazienti.</p>
-                                <div class="text-center">
-                                    <a href="{{ route('admin.messages.index') }}" class="mt-1 text-decoration-none save">{{__('Visualizza messaggi') }}</a>
+                                <div class="text-center mb-2 mt-4">
+                                    <a href="{{ route('admin.messages.index') }}" class="text-decoration-none save">{{__('Visualizza messaggi') }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card mt-3">
+                        <div class="card mt-3 dashboard-sections">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-star-fill text-primary me-2"></i>
+                                <h5 class="card-title fw-bolder titles-dashboard">
+                                    <i class="bi bi-star-fill me-2 dashboard-icons"></i>
                                     Recensioni
                                 </h5>
                                 <p class="card-text">Qui puoi visualizzare le recensioni ricevute.</p>
-                                <div class="text-center">
-                                    <a href="{{ route('admin.reviews.index') }}" class="mt-1 text-decoration-none save">{{__('Visualizza recensioni') }}</a>
+                                <div class="text-center mb-2 mt-4">
+                                    <a href="{{ route('admin.reviews.index') }}" class="text-decoration-none save">{{__('Visualizza recensioni') }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card mt-3">
+                        <div class="card mt-3 dashboard-sections">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-credit-card-2-front-fill text-primary me-2"></i>
+                                <h5 class="card-title fw-bolder titles-dashboard">
+                                    <i class="bi bi-credit-card-2-front-fill me-2 dashboard-icons"></i>
                                     Promozioni
                                 </h5>
                                 <p class="card-text">Qui puoi acquistare i pacchetti per promuovere il tuo profilo.</p>
-                                <div class="text-center">
-                                    <a href="{{ route('admin.sponsors.index') }}" class="mt-1 text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
+                                <div class="text-center mb-2 mt-4">
+                                    <a href="{{ route('admin.sponsors.index') }}" class="text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card mt-3">
+                        <div class="card mt-3 dashboard-sections">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-bar-chart-line-fill text-primary me-2"></i>
+                                <h5 class="card-title fw-bolder titles-dashboard">
+                                    <i class="bi bi-bar-chart-line-fill me-2 dashboard-icons"></i>
                                     Statistiche
                                 </h5>
                                 <p class="card-text">Qui puoi visualizzare le tue statistiche personali.</p>
-                                <div class="text-center">
-                                    <a href="{{ route('admin.stats.index') }}" class="mt-1 text-decoration-none save">{{ __('Visualizza statistiche') }}</a>
+                                <div class="text-center mb-2 mt-4">
+                                    <a href="{{ route('admin.stats.index') }}" class="text-decoration-none save">{{ __('Visualizza statistiche') }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card mt-3">
+                        <div class="card mt-3 dashboard-sections">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-gear-fill text-primary me-2"></i>
+                                <h5 class="card-title fw-bolder titles-dashboard">
+                                    <i class="bi bi-gear-fill me-2 dashboard-icons"></i>
                                     Impostazioni
                                 </h5>
                                 <p class="card-text">Qui puoi le impostazioni del tuo account.</p>
-                                <div class="text-center">
-                                    <a href="{{ url('profile') }}" class="mt-1 text-decoration-none save">{{__('Modifica mpostazioni')}}</a>
+                                <div class="text-center mb-2 mt-4">
+                                    <a href="{{ url('profile') }}" class="text-decoration-none save">{{__('Modifica mpostazioni')}}</a>
                                 </div>
                             </div>
                         </div>
