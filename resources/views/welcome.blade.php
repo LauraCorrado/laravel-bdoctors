@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="text-center homepage-text-box p-5 rounded">
+                <div class="text-center homepage-text-box rounded">
                     <h2 class="mb-3 title-box">Crea e gestisci il tuo profilo medico in modo semplice e intuitivo!</h2>
                     <p>Se sei un medico, potrai <a href="{{ route('register') }}" class="link-homepage position-relative text-decoration-none">registrarti <i class="bi bi-box-arrow-up-right small-icon position-absolute"></i></a>, aggiornare le tue informazioni, visualizzare i messaggi e le recensioni ricevute, sponsorizzare il tuo profilo e monitorare le tue statistiche personali.</p>
                     <p>I visitatori potranno cercare medici specialisti, visualizzare i dettagli dei professionisti e inviare richieste di disponibilità, garantendo un’interazione diretta e trasparente tra medico e paziente.</p>
