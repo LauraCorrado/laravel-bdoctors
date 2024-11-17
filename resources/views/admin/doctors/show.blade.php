@@ -14,17 +14,16 @@
         <div class="col-12 text-center">
             <h3 class="packages-title">Pacchetto/i di sponsorizzazione:</h3>
         </div>
-        <div class="col-12 col-md-6 offset-md-3">
+        <div class="col-12 col-md-8 offset-md-2">
             <ul class="show-sponsor-section list-unstyled profile-bg rounded d-flex flex-column align-items-center justify-content-center">
                 @foreach ($doctor->sponsors()->orderBy('pivot_expiring_date')->get() as $sponsor)
                 {{-- se scadenza è nel futuro --}}
                 @if (Carbon\Carbon::parse($sponsor->pivot->expiring_date)->isFuture())
-                    <li class="my-1">
-                        <span class="badge badge-success text-capitalize p-2 me-1">{{$sponsor->package}}</span>
-                        <span class="badge badge-danger p-2">SCADENZA: {{\Carbon\Carbon::parse($sponsor->pivot->expiring_date)->format('d/m/Y H:i') }}</span>
+                    <li class="my-1 d-flex flex-column flex-md-row align-items-center justify-content-center">
+                        <span class="badge badge-success text-capitalize p-2 me-2 mb-2">{{$sponsor->package}}</span>
+                        <span class="badge badge-danger p-2 mb-2">SCADENZA: {{\Carbon\Carbon::parse($sponsor->pivot->expiring_date)->format('d/m/Y H:i') }}</span>
                     </li>
                 @endif
-                        {{-- </span> da {{ \Carbon\Carbon::parse($sponsor->pivot->created_at)->format('d/m/Y H:i') }} con scadenza il {{\Carbon\Carbon::parse($sponsor->pivot->expiring_date)->format('d/m/Y H:i') }}</span> --}}
                 @endforeach
             </ul>
         </div>
