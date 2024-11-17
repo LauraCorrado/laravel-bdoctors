@@ -16,7 +16,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="user_name" class="form-label fw-bolder m-0 py-1">Nome</label>
                         <input type="text" name="user_name" id="user_name" placeholder="Nome" class="form-control @error('user_name') is-invalid @enderror"
-                            required value="{{ old('user_name', auth()->user()->name) }}" readonly>
+                         value="{{ old('user_name', auth()->user()->name) }}" readonly>
                         @error('user_name')
                         <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
@@ -24,7 +24,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="user_surname" class="form-label fw-bolder m-0 py-1">Cognome</label>
                         <input type="text" name="user_surname" id="user_surname" placeholder="Cognome"
-                            class="form-control @error('user_surname') is-invalid @enderror" required value="{{ old('user_name', auth()->user()->surname) }}" readonly>
+                            class="form-control @error('user_surname') is-invalid @enderror" value="{{ old('user_name', auth()->user()->surname) }}" readonly>
                         @error('user_surname')
                         <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
@@ -32,14 +32,14 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="address" class="form-label fw-bolder m-0 py-1">Indirizzo*</label>
                         <input type="text" name="address" id="address" placeholder="Indirizzo" class="form-control @error('address') is-invalid @enderror"
-                            required value="{{ old('address') }}">
+                         value="{{ old('address') }}">
                         @error('address')
                         <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="city" class="form-label fw-bolder m-0 py-1">Città*</label>
-                        <input type="text" name="city" id="city" placeholder="Città" class="form-control @error('city') is-invalid @enderror" required
+                        <input type="text" name="city" id="city" placeholder="Città" class="form-control @error('city') is-invalid @enderror"
                             value="{{ old('city') }}">
                         @error('city')
                         <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
@@ -48,7 +48,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="phone_number" class="form-label fw-bolder m-0 py-1">Numero di telefono*</label>
                         <input type="text" name="phone_number" id="phone_number" placeholder="Numero di telefono"
-                            class="form-control @error('phone_number') is-invalid @enderror" required value="{{ old('phone_number') }}">
+                            class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}">
                         @error('phone_number')
                         <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
@@ -101,7 +101,7 @@
                     <div class="col-lg-12 col-md-12 col-12">
                         <label for="performance" class="form-label fw-bolder m-0 py-1">Prestazioni*</label>
                         <textarea name="performance" id="performance" rows="4" class="form-control @error('performance') is-invalid @enderror"
-                            placeholder="Descrivi le tue prestazioni" required>{{ old('performance') }}</textarea>
+                            placeholder="Descrivi le tue prestazioni">{{ old('performance') }}</textarea>
                         @error('performance')
                         <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror

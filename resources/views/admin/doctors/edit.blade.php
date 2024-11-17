@@ -8,7 +8,7 @@
                 <h1>Modifica il tuo profilo</h1>
                 <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>
-            <form action="{{ route('admin.doctors.update', ['doctor' => $doctor->id]) }}" method="post"
+            <form id="form-doc-edit" action="{{ route('admin.doctors.update', ['doctor' => $doctor->id]) }}" method="post"
                 class="my-4" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -17,7 +17,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="user_name" class="form-label fw-bolder m-0 py-1">Nome*</label>
                         <input type="text" name="user_name" id="user_name" placeholder="Nome" class="form-control"
-                            required value="{{ old('user_name', $doctor->user_name) }}">
+                         value="{{ old('user_name', $doctor->user_name) }}">
                         @error('user_name')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -26,7 +26,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="user_surname" class="form-label fw-bolder m-0 py-1">Cognome*</label>
                         <input type="text" name="user_surname" id="user_surname" placeholder="Cognome"
-                            class="form-control" required value="{{ old('user_surname', $doctor->user_surname) }}">
+                            class="form-control" value="{{ old('user_surname', $doctor->user_surname) }}">
                         @error('user_surname')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -35,7 +35,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="address" class="form-label fw-bolder m-0 py-1">Indirizzo*</label>
                         <input type="text" name="address" id="address" placeholder="Indirizzo" class="form-control"
-                            required value="{{ old('address', $doctor->address) }}">
+                         value="{{ old('address', $doctor->address) }}">
                         @error('address')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -43,7 +43,7 @@
 
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="city" class="form-label fw-bolder m-0 py-1">Città*</label>
-                        <input type="text" name="city" id="city" placeholder="Città" class="form-control" required
+                        <input type="text" name="city" id="city" placeholder="Città" class="form-control"
                             value="{{ old('city', $doctor->city) }}">
                         @error('city')
                         <div class="text-danger">{{ $message }}</div>
@@ -53,7 +53,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <label for="phone_number" class="form-label fw-bolder m-0 py-1">Numero di telefono*</label>
                         <input type="text" name="phone_number" id="phone_number" placeholder="Numero di telefono"
-                            class="form-control" required value="{{ old('phone_number', $doctor->phone_number) }}">
+                            class="form-control" value="{{ old('phone_number', $doctor->phone_number) }}">
                         @error('phone_number')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -105,7 +105,7 @@
                         <label for="performance" class="form-label fw-bolder m-0 py-1">Prestazioni*</label>
                         <textarea name="performance" id="performance" rows="4" class="form-control mb-3"
                             placeholder="Descrivi le tue prestazioni"
-                            required>{{ old('performance', $doctor->performance) }}</textarea>
+                        >{{ old('performance', $doctor->performance) }}</textarea>
                         @error('performance')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
