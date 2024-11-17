@@ -11,9 +11,9 @@
             <span class="avg-dashboard-color">{{ number_format($averageRating, 1) }} / 5</span>
         </p>
         @if($sponsorExpiration)
-            <p><strong>{{ __('Scadenza') }}</strong>:
-                <span id="sponsor-countdown" class="countdown-color"></span>
-            </p>
+        <p><strong>{{ __('Scadenza') }}</strong>:
+            <span id="sponsor-countdown" class="countdown-color"></span>
+        </p>
         @endif
     </div>
     @else
@@ -34,7 +34,8 @@
                                 </h5>
                                 <p class="card-text">Qui puoi modficare il tuo profilo personale.</p>
                                 <div class="text-center mb-2 mt-4">
-                                    <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="text-decoration-none save">
+                                    <a href="{{ route('admin.doctors.edit', $doctor->id) }}"
+                                        class="text-decoration-none save">
                                         {{ __('Modifica profilo') }}
                                     </a>
                                 </div>
@@ -50,7 +51,8 @@
                                 </h5>
                                 <p class="card-text">Qui puoi visualizzare i messaggi dei tuoi pazienti.</p>
                                 <div class="text-center mb-2 mt-4">
-                                    <a href="{{ route('admin.messages.index') }}" class="text-decoration-none save">{{__('Visualizza messaggi') }}</a>
+                                    <a href="{{ route('admin.messages.index') }}"
+                                        class="text-decoration-none save">{{__('Visualizza messaggi') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +66,8 @@
                                 </h5>
                                 <p class="card-text">Qui puoi visualizzare le recensioni ricevute.</p>
                                 <div class="text-center mb-2 mt-4">
-                                    <a href="{{ route('admin.reviews.index') }}" class="text-decoration-none save">{{__('Visualizza recensioni') }}</a>
+                                    <a href="{{ route('admin.reviews.index') }}"
+                                        class="text-decoration-none save">{{__('Visualizza recensioni') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +81,8 @@
                                 </h5>
                                 <p class="card-text">Qui puoi acquistare i pacchetti per promuovere il tuo profilo.</p>
                                 <div class="text-center mb-2 mt-4">
-                                    <a href="{{ route('admin.sponsors.index') }}" class="text-decoration-none save">{{ __('Promuovi il profilo') }}</a>
+                                    <a href="{{ route('admin.sponsors.index') }}" class="text-decoration-none save">{{
+                                        __('Promuovi il profilo') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +96,8 @@
                                 </h5>
                                 <p class="card-text">Qui puoi visualizzare le tue statistiche personali.</p>
                                 <div class="text-center mb-2 mt-4">
-                                    <a href="{{ route('admin.stats.index') }}" class="text-decoration-none save">{{ __('Visualizza statistiche') }}</a>
+                                    <a href="{{ route('admin.stats.index') }}" class="text-decoration-none save">{{
+                                        __('Visualizza statistiche') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -104,9 +109,10 @@
                                     <i class="bi bi-gear-fill me-2 dashboard-icons"></i>
                                     Impostazioni
                                 </h5>
-                                <p class="card-text">Qui puoi le impostazioni del tuo account.</p>
+                                <p class="card-text">Qui puoi modificare le impostazioni del tuo account.</p>
                                 <div class="text-center mb-2 mt-4">
-                                    <a href="{{ url('profile') }}" class="text-decoration-none save">{{__('Modifica mpostazioni')}}</a>
+                                    <a href="{{ url('profile') }}" class="mt-1 text-decoration-none save">{{__('Modifica
+                                        impostazioni')}}</a>
                                 </div>
                             </div>
                         </div>

@@ -18,36 +18,22 @@
             </div>
         </div>
 
-        {{-- Messaggi m/a --}}
-        <div class="col-12 mt-5 p-3 rounded stats-details">
-            <h3 class="text-center months_years">Numero di messaggi ricevuti per mese e anno</h3>
-            <div class="d-flex justify-content-center">
-                @foreach ($monthlyMessages as $monthYear => $count)
-                    <p class="badge badge-stats-section badge-messages p-3 fs-5">{{$count}} nel {{$monthYear}}</p>
-                @endforeach
-            </div>
-            <div class="d-flex justify-content-center">
-                <a href="{{route('admin.messages.index')}}" class="text-decoration-none mt-3 stats-redirect">Visualizza tutti i messaggi</a>
-            </div>
-        </div>
-
-        {{-- Recensioni m/a --}}
-        <div class="col-12 mt-5 p-3 rounded stats-details">
-            <h3 class="text-center months_years">Numero di recensioni ricevute per mese e anno</h3>
-            <div class="d-flex justify-content-center flex-wrap">
-                @foreach ($monthlyReviews as $monthYearRev => $count)
-                    <p class="badge badge-stats-section badge-reviews p-3 fs-5 mx-2">{{$count}} nel {{$monthYearRev}}</p>
-                @endforeach
-            </div>
-            <div class="d-flex justify-content-center">
-                <a href="{{route('admin.reviews.index')}}" class="text-decoration-none mt-3 stats-redirect">Visualizza tutte le recensioni</a>
-            </div>
-        </div>
-
-        <!-- Grafico dei Voti per Mese e Anno -->
+        <!-- Grafico a torta per Messaggi, Recensioni, e Voti -->
         <div class="col-12 mt-5">
-            <h2 class="text-center stat-title">Distribuzione dei Voti per Mese e Anno</h2>
-            <canvas id="votesChart"></canvas>
+            <h2 class="text-center stat-title">Messaggi, Recensioni e Voti in questo mese</h2>
+            <div class="d-flex justify-content-center">
+                <div class="w-50 text-center">
+                    <canvas id="statsPieChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafico a barre per la distribuzione dei voti -->
+        <div class="col-12 mt-5">
+            <h2 class="text-center stat-title">Distribuzione dei voti per fascia di voto</h2>
+            <div class="d-flex justify-content-center">
+                <canvas id="votesBarChart"></canvas>
+            </div>
         </div>
 
         <div class="col-12">
@@ -60,67 +46,96 @@
 
 <script>
     // Recupera i dati passati dalla vista
-    const labels = @json($labels);  // Mesi e anni (YYYY-MM)
-    const data = @json($data);  // Dati per ciascun voto (1, 2, 3, 4, 5)
+    const messageCount = {{ $messageCount }};
+    const reviewCount = {{ $reviewCount }};
+    const totalVotes = {{ $totalVotes }};
+    const voteDistribution = @json($voteDistribution);  // Recupera la distribuzione dei voti come oggetto JS
 
-    // Crea il grafico a barre
-    var ctx = document.getElementById('votesChart').getContext('2d');
-    var votesChart = new Chart(ctx, {
-        type: 'bar',
+    // Crea il grafico a ciambella (Doughnut Chart)
+    var ctxPie = document.getElementById('statsPieChart').getContext('2d');
+    var statsPieChart = new Chart(ctxPie, {
+        type: 'doughnut',
         data: {
-            labels: labels, // Mesi e Anni come etichette (YYYY-MM)
-            datasets: [
-                {
-                    label: 'Voti 1',
-                    data: data['1'], // Contatore per il voto 1
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Colore delle barre
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Voti 2',
-                    data: data['2'], // Contatore per il voto 2
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Voti 3',
-                    data: data['3'], // Contatore per il voto 3
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                    borderColor: 'rgba(255, 206, 86, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Voti 4',
-                    data: data['4'], // Contatore per il voto 4
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Voti 5',
-                    data: data['5'], // Contatore per il voto 5
-                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                    borderColor: 'rgba(153, 102, 255, 1)',
-                    borderWidth: 1
-                }
-            ]
+            labels: ['Messaggi', 'Recensioni', 'Voti'],
+            datasets: [{
+                label: 'Statistiche del mese',
+                data: [messageCount, reviewCount, totalVotes], // Dati da visualizzare
+                backgroundColor: [
+                    'rgba(255, 99, 132)', // Messaggi
+                    'rgba(54, 162, 235)', // Recensioni
+                    'rgba(75, 192, 192)'  // Voti
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
         },
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                },
+                doughnutLabel: {
+                    display: true,
+                    text: 'Statistiche Mese'
+                }
+            }
+        }
+    });
+
+    // Crea il grafico a barre per la distribuzione dei voti
+    var ctxBar = document.getElementById('votesBarChart').getContext('2d');
+    var votesBarChart = new Chart(ctxBar, {
+        type: 'bar',  // Tipo di grafico a barre
+        data: {
+            labels: ['1 stella', '2 stelle', '3 stelle', '4 stelle', '5 stelle'],  // Etichette delle fasce di voto
+            datasets: [{
+                label: 'Distribuzione dei Voti',
+                data: [
+                    voteDistribution[1], 
+                    voteDistribution[2], 
+                    voteDistribution[3], 
+                    voteDistribution[4], 
+                    voteDistribution[5]
+                ], // Dati delle fasce di voto
+                backgroundColor: 'rgba(54, 162, 235, 0.5)', // Colore delle barre
+                borderColor: 'rgba(54, 162, 235, 1)', // Colore dei bordi
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return 'Voti: ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Numero di Voti'
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Mese e Anno'
+                    ticks: {
+                        stepSize: 1, // Imposta a 1 la distanza tra i numeri sull'asse y
+                        callback: function(value){
+                            return Number.isInteger(value) ? value : ''; // mostra solo inumeri interi
+                        }
                     }
                 }
             }
@@ -129,4 +144,3 @@
 </script>
 
 @endsection
-
