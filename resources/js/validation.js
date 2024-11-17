@@ -180,7 +180,7 @@ if(edit_form) {
             // creazione div del messaggio di errore subito dopo l'input, con aggiunta classi e testo a seconda se user_surname è vuoto o no
             const error = document.createElement("div");
             error.className = "text-danger";
-            error.innerText = user_surname ? "Il cognome non può superare i 50 caratteri." : "Questo campo è obbligatorio.";
+            error.innerText = user_surname ? "Il cognome non può superare i 100 caratteri." : "Questo campo è obbligatorio.";
             document.getElementById("user_surname").after(error);
             // il form non è valido
             formIsValid = false;
@@ -193,7 +193,7 @@ if(edit_form) {
             // creazione div del messaggio di errore subito dopo l'input, con aggiunta classi e testo a seconda se city è vuoto o no
             const error = document.createElement("div");
             error.className = "text-danger";
-            error.innerText = city ? "La città non può superare i 50 caratteri." : "Questo campo è obbligatorio.";
+            error.innerText = city ? "La città non può superare i 100 caratteri." : "Questo campo è obbligatorio.";
             document.getElementById("city").after(error);
             // il form non è valido
             formIsValid = false;
