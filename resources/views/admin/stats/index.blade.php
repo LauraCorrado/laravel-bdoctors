@@ -21,7 +21,17 @@
         <!-- Grafico a torta per Messaggi, Recensioni, e Voti -->
         <div class="col-12 mt-5">
             <h2 class="text-center stat-title">Distribuzione di Messaggi, Recensioni e Voti nel Mese Corrente</h2>
-            <canvas id="statsPieChart"></canvas>
+            <div class="d-flex justify-center">
+                <canvas id="statsPieChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Grafico a barre per la distribuzione dei voti -->
+        <div class="col-12 mt-5">
+            <h2 class="text-center stat-title">Distribuzione dei Voti</h2>
+            <div class="d-flex justify-center">
+                <canvas id="votesBarChart"></canvas>
+            </div>
         </div>
 
         <div class="col-12">
@@ -37,10 +47,11 @@
     const messageCount = {{ $messageCount }};
     const reviewCount = {{ $reviewCount }};
     const totalVotes = {{ $totalVotes }};
+    const voteDistribution = @json($voteDistribution);  // Recupera la distribuzione dei voti come oggetto JS
 
     // Crea il grafico a ciambella (Doughnut Chart)
-    var ctx = document.getElementById('statsPieChart').getContext('2d');
-    var statsPieChart = new Chart(ctx, {
+    var ctxPie = document.getElementById('statsPieChart').getContext('2d');
+    var statsPieChart = new Chart(ctxPie, {
         type: 'doughnut',  // Modificato da 'pie' a 'doughnut'
         data: {
             labels: ['Messaggi', 'Recensioni', 'Voti'],
@@ -73,15 +84,55 @@
                         }
                     }
                 },
-                // Aggiungi la configurazione per un testo al centro del grafico
                 doughnutLabel: {
                     display: true,
-                    text: 'Statistiche del Mese'
+                    text: 'Statistiche Mese'
+                }
+            }
+        }
+    });
+
+    // Crea il grafico a barre per la distribuzione dei voti
+    var ctxBar = document.getElementById('votesBarChart').getContext('2d');
+    var votesBarChart = new Chart(ctxBar, {
+        type: 'bar',  // Tipo di grafico a barre
+        data: {
+            labels: ['1', '2', '3', '4', '5'],  // Etichette delle fasce di voto
+            datasets: [{
+                label: 'Distribuzione dei Voti',
+                data: [
+                    voteDistribution[1], 
+                    voteDistribution[2], 
+                    voteDistribution[3], 
+                    voteDistribution[4], 
+                    voteDistribution[5]
+                ], // Dati delle fasce di voto
+                backgroundColor: 'rgba(54, 162, 235, 0.5)', // Colore delle barre
+                borderColor: 'rgba(54, 162, 235, 1)', // Colore dei bordi
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return 'Voti: ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
         }
     });
 </script>
-
 
 @endsection
