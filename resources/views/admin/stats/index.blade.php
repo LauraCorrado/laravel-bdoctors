@@ -18,6 +18,7 @@
             </div>
         </div>
 
+        @if ($messageCount > 0 || $reviewCount > 0 || $totalVotes > 0)
         <!-- Grafico a torta per Messaggi, Recensioni, e Voti -->
         <div class="col-12 mt-5">
             <h2 class="text-center stat-title">Messaggi, Recensioni e Voti in questo mese</h2>
@@ -34,7 +35,8 @@
             <div class="d-flex justify-content-center">
                 <canvas id="votesBarChart"></canvas>
             </div>
-        </div>
+        </div>           
+        @endif
 
         <div class="col-12">
             <div class="d-flex justify-content-center mt-4">
