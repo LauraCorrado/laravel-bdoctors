@@ -148,3 +148,107 @@ if(create_form) {
     console.log('Qui non puoi visualizzare il form della create')
 }
 
+// --- VALIDAZIONE CREATE: js vanilla ---
+const edit_form = document.getElementById("form-doc-edit");
+if(edit_form) {
+
+    edit_form.addEventListener("submit", function(event) {
+        // flag a true, assumendo di base che i valori siano validi
+        let formIsValid = true
+        // Rimuovo tutti i messaggi di errore preesistenti
+        document.querySelectorAll(".text-danger").forEach(error => error.remove());
+        
+        // --- Gestione dei valori dei campi (uso di trim() per evitare spazi iniziali e finali). Commenti uguali per tutti gli input, ma ne aggiungo se c'è da specificare altro ---
+        // NAME
+        const user_name = document.getElementById("user_name").value.trim();
+        // se il valore di user_name è vuoto o è maggiore della sua lunghezza massima
+        if (!user_name || user_name.length > 50) {
+            // creazione div del messaggio di errore subito dopo l'input, con aggiunta classi e testo a seconda se user_name è vuoto o no
+            const error = document.createElement("div");
+            error.className = "text-danger";
+            error.innerText = user_name ? "Il nome non può superare i 50 caratteri." : "Questo campo è obbligatorio.";
+            document.getElementById("user_name").after(error);
+            // il form non è valido
+            formIsValid = false;
+        }
+
+        // --- Gestione dei valori dei campi (uso di trim() per evitare spazi iniziali e finali). Commenti uguali per tutti gli input, ma ne aggiungo se c'è da specificare altro ---
+        // LAST NAME
+        const user_surname = document.getElementById("user_surname").value.trim();
+        // se il valore di user_surname è vuoto o è maggiore della sua lunghezza massima
+        if (!user_surname || user_surname.length > 50) {
+            // creazione div del messaggio di errore subito dopo l'input, con aggiunta classi e testo a seconda se user_surname è vuoto o no
+            const error = document.createElement("div");
+            error.className = "text-danger";
+            error.innerText = user_surname ? "Il cognome non può superare i 50 caratteri." : "Questo campo è obbligatorio.";
+            document.getElementById("user_surname").after(error);
+            // il form non è valido
+            formIsValid = false;
+        }
+
+        // CITY
+        const city = document.getElementById("city").value.trim();
+        // se il valore di city è vuoto o è maggiore della sua lunghezza massima
+        if (!city || city.length > 50) {
+            // creazione div del messaggio di errore subito dopo l'input, con aggiunta classi e testo a seconda se city è vuoto o no
+            const error = document.createElement("div");
+            error.className = "text-danger";
+            error.innerText = city ? "La città non può superare i 50 caratteri." : "Questo campo è obbligatorio.";
+            document.getElementById("city").after(error);
+            // il form non è valido
+            formIsValid = false;
+        }
+    
+        // ADDRESS
+        const address = document.getElementById("address").value.trim();
+        if (!address || address.length < 5 || address.length > 100) {
+            const error = document.createElement("div");
+            error.className = "text-danger";
+            error.innerText = !address ? "Questo campo è obbligatorio." :
+                              address.length < 5 ? "L'indirizzo deve contenere almeno 5 caratteri." :
+                              "L'indirizzo non può superare i 100 caratteri.";
+            document.getElementById("address").after(error);
+            formIsValid = false;
+        }
+    
+        // PHONE NUMBER
+        const phoneNumber = document.getElementById("phone_number").value.trim();
+        if (!phoneNumber || phoneNumber.length < 10 || phoneNumber.length > 15) {
+            const error = document.createElement("div");
+            error.className = "text-danger";
+            error.innerText = !phoneNumber ? "Questo campo è obbligatorio." :
+                              phoneNumber.length < 10 ? "Il numero di telefono deve contenere almeno 10 cifre." :
+                              "Il numero di telefono non può essere superiore a 15 cifre.";
+            document.getElementById("phone_number").after(error);
+            formIsValid = false;
+        }
+    
+        // PERFORMANCE
+        const performance = document.getElementById("performance").value.trim();
+        if (!performance || performance.length < 30) {
+            const error = document.createElement("div");
+            error.className = "text-danger";
+            error.innerText = !performance ? "Questo campo è obbligatorio." :
+                              "La descrizione delle prestazioni deve contenere almeno 30 caratteri.";
+            document.getElementById("performance").after(error);
+            formIsValid = false;
+        }
+    
+        // FIELDS
+        const fields = document.querySelectorAll('input[name="fields[]"]:checked');
+        // almeno una checkbox deve essere stata selezionata
+        if (fields.length === 0) {
+            const error = document.createElement("div");
+            error.className = "text-danger";
+            error.innerText = "Seleziona almeno una specializzazione.";
+            document.querySelector('label[for="fields"]').after(error);
+            formIsValid = false;
+        }
+        // Se il form non è valido, previeni submit e refresh pagina
+        if (!formIsValid) {
+            event.preventDefault();
+        }
+    });
+} else {
+    console.log('Qui non puoi visualizzare il form della create')
+}
