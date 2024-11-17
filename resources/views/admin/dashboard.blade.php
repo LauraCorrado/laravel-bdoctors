@@ -117,22 +117,22 @@
 
 @if($sponsorExpiration)
 <script>
-    // Imposta la data di scadenza della sponsorizzazione
+    // data di scadenza della sponsorizzazione
     let sponsorExpirationDate = new Date("{{ $sponsorExpiration->toDateString() }}T{{ $sponsorExpiration->toTimeString() }}").getTime();
 
-    // Funzione per aggiornare il countdown
+    // aggiornamento countdown
     let countdownFunction = setInterval(function() {
         let now = new Date().getTime();
         let distance = sponsorExpirationDate - now;
 
-        // Calcola i giorni, ore, minuti e secondi
+        // giorni, ore, minuti e secondi
         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
         let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+        // stringa da stampare
         let countdownString = '';
-
+        // casistica
         if (days > 0) {
             countdownString += days + "gg ";
         }
@@ -144,13 +144,12 @@
         }
         countdownString += seconds + "sec";
 
-        // Mostra il countdown
         document.getElementById("sponsor-countdown").innerHTML = countdownString;
 
-        // Se il countdown finisce, mostra un messaggio
+        // messaggio fine countdown
         if (distance < 0) {
             clearInterval(countdownFunction);
-            document.getElementById("sponsor-countdown").innerHTML = "La sponsorizzazione è scaduta";
+            document.getElementById("sponsor-countdown").innerHTML = "Sponsorizzazione scaduta";
         }
     }, 1000);
 </script>
