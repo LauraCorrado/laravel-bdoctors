@@ -20,16 +20,18 @@
 
         <!-- Grafico a torta per Messaggi, Recensioni, e Voti -->
         <div class="col-12 mt-5">
-            <h2 class="text-center stat-title">Distribuzione di Messaggi, Recensioni e Voti nel Mese Corrente</h2>
-            <div class="d-flex justify-center">
-                <canvas id="statsPieChart"></canvas>
+            <h2 class="text-center stat-title">Messaggi, Recensioni e Voti in questo mese</h2>
+            <div class="d-flex justify-content-center">
+                <div class="w-50 text-center">
+                    <canvas id="statsPieChart"></canvas>
+                </div>
             </div>
         </div>
 
         <!-- Grafico a barre per la distribuzione dei voti -->
         <div class="col-12 mt-5">
-            <h2 class="text-center stat-title">Distribuzione dei Voti</h2>
-            <div class="d-flex justify-center">
+            <h2 class="text-center stat-title">Distribuzione dei voti per fascia di voto</h2>
+            <div class="d-flex justify-content-center">
                 <canvas id="votesBarChart"></canvas>
             </div>
         </div>
@@ -52,7 +54,7 @@
     // Crea il grafico a ciambella (Doughnut Chart)
     var ctxPie = document.getElementById('statsPieChart').getContext('2d');
     var statsPieChart = new Chart(ctxPie, {
-        type: 'doughnut',  // Modificato da 'pie' a 'doughnut'
+        type: 'doughnut',
         data: {
             labels: ['Messaggi', 'Recensioni', 'Voti'],
             datasets: [{
@@ -97,7 +99,7 @@
     var votesBarChart = new Chart(ctxBar, {
         type: 'bar',  // Tipo di grafico a barre
         data: {
-            labels: ['1', '2', '3', '4', '5'],  // Etichette delle fasce di voto
+            labels: ['1 stella', '2 stelle', '3 stelle', '4 stelle', '5 stelle'],  // Etichette delle fasce di voto
             datasets: [{
                 label: 'Distribuzione dei Voti',
                 data: [
@@ -128,7 +130,13 @@
             },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1, // Imposta a 1 la distanza tra i numeri sull'asse y
+                        callback: function(value){
+                            return Number.isInteger(value) ? value : ''; // mostra solo inumeri interi
+                        }
+                    }
                 }
             }
         }
