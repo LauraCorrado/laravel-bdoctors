@@ -8,3 +8,20 @@
     max-height: 100%;
     object-fit: cover;
 }
+
+.cv-exists {
+    padding: 0.375rem 0.75rem;
+    color: $dark-grey;
+    a {
+        font-size: 16px;
+        color: $navy-blue;
+        box-shadow: inset 0 0 0 0 $hard-blue;
+        margin: 0 0 0 0;
+        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+        &:hover {
+            box-shadow: inset 120px 0 0 0 #54b3d6;
+            color: $pure-white;
+        }
+    }
+}

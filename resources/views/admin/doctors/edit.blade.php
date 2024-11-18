@@ -68,7 +68,7 @@
                         @enderror
                         
                         @if ($doctor->cv)
-                            <p class="mt-1">File corrente: <a href="{{ asset('storage/' . $doctor->cv) }}" target="_blank">Visualizza CV</a></p>
+                            <p class="mt-1 cv-exists">File corrente: <a href="{{ asset('storage/' . $doctor->cv) }}" target="_blank">Visualizza CV</a></p>
                         @endif
                     
                     </div>
