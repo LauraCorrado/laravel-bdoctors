@@ -73,18 +73,20 @@
                     
                     </div>
                     
+                    @if ($doctor->thumb && !str_starts_with($doctor->thumb, 'http'))
                     <div class="col-12 col-md-12 col-lg-12">
-                        <label for="thumb" class="form-label fw-bolder m-0 py-1">Immagine del profilo</label>
-                        
-                        @if ($doctor->thumb)
-                            <p>Immagine corrente:</p>
-                            <div class="profile-pic mx-auto">
-                                <img src="{{ asset('storage/' . $doctor->thumb) }}" alt="Immagine del profilo" class="img-fluid img-thumbnail mb-2">
+                        <div class="text-center">
+                            <label for="thumb" class="form-label fw-bolder m-0 py-1">Immagine del profilo</label>
+                                <p>Immagine corrente:</p>
+                                <div class="profile-pic mx-auto">
+                                    <img src="{{ asset('storage/' . $doctor->thumb) }}" alt="Immagine del profilo" class="img-fluid img-thumbnail mb-2">
+                                </div>
                             </div>
-                        @endif
-                    </div>
-
+                        </div>
+                    @endif
+                    
                     <div class="col-12 col-md-6 col-lg-4">
+                        <label for="thumb" class="form-label fw-bolder m-0 py-1">Immagine del profilo</label>
                         <input type="file" name="thumb" id="thumb" placeholder="Immagine del profilo" 
                             class="form-control" value="{{ old('thumb') }}">
                         @error('thumb')
