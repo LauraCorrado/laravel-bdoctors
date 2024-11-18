@@ -47,6 +47,10 @@
 
 .performances {
     font-size: 14px;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 @media screen and (max-width: 767px) {
