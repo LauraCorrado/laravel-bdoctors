@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 position-relative">
             @include('partials.prev-btn')
-            <div class="mb-5 text-center">
+            <div class="mb-5 mt-1 text-center">
                 <h1>Modifica il tuo profilo</h1>
                 <p>I campi contrassegnati con <strong>*</strong> sono obbligatori</p>
             </div>

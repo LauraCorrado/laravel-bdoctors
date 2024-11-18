@@ -4,7 +4,7 @@
 <div class="container my-5">
     <div class="row position-relative">
         @include('partials.prev-btn')
-        <div class="col-12">
+        <div class="col-12 mt-1">
             <div class="text-center packages-titles">
                 <h1 class="fw-bolder">Scegli il pacchetto</h1>
                 <p class="lead">Metti in risalto il tuo profilo nelle ricerche!</p>

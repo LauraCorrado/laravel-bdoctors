@@ -4,7 +4,7 @@
 <div class="container my-5">
     <div class="row position-relative">
         @include('partials.prev-btn')
-        <div class="col-12 title-pay">
+        <div class="col-12 mt-1 title-pay">
             <h3 class="text-center">Hai scelto il pacchetto <strong class="text-capitalize">{{$sponsor->package}}</strong>!</h3>
             <h1 class="text-center fw-bolder mb-5">Effettua qui il tuo pagamento</h1>
         </div>

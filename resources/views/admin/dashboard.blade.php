@@ -5,7 +5,7 @@
     @if($doctor)
     <div class="row position-relative">
         @include('partials.prev-btn')
-        <div class="col-12">
+        <div class="col-12 mt-1">
             <h1 class="text-center mb-4 dashboard-personal-style">
                 {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}
             </h1>
@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-12 position-relative">
             @include('partials.prev-btn')
-            <h1 class="fs-4 text-secondary my-4">
+            <h1 class="fs-4 text-secondary my-4 mt-1">
                 {{ __('Non è stato trovato alcun dottore associato a questo account.') }}
             </h1>
         </div>
