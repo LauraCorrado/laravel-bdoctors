@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const constraints = {
         name: {
             presence: { allowEmpty: false, message: "^Il nome è obbligatorio" },
-            length: { minimum: 3, message: "^Il nome deve avere almeno 3 caratteri" }
+            length: { minimum: 2, message: "^Il nome deve avere almeno 2 caratteri" }
         },
         surname: {
             presence: { allowEmpty: false, message: "^Il cognome è obbligatorio" },
-            length: { minimum: 3, message: "^Il cognome deve avere almeno 3 caratteri" }
+            length: { minimum: 2, message: "^Il cognome deve avere almeno 2 caratteri" }
         },
         email: {
             presence: { allowEmpty: false, message: "^L'email è obbligatoria" },
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     // Evento submit
-    if(reg_form) {
+    if (reg_form) {
 
         reg_form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -72,14 +72,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // --- VALIDAZIONE CREATE: js vanilla ---
 const create_form = document.getElementById("form-doc-create");
-if(create_form) {
+if (create_form) {
 
-    create_form.addEventListener("submit", function(event) {
+    create_form.addEventListener("submit", function (event) {
         // flag a true, assumendo di base che i valori siano validi
         let formIsValid = true
         // Rimuovo tutti i messaggi di errore preesistenti
         document.querySelectorAll(".text-danger").forEach(error => error.remove());
-        
+
         // --- Gestione dei valori dei campi (uso di trim() per evitare spazi iniziali e finali). Commenti uguali per tutti gli input, ma ne aggiungo se c'è da specificare altro ---
         // CITY
         const city = document.getElementById("city").value.trim();
@@ -93,42 +93,42 @@ if(create_form) {
             // il form non è valido
             formIsValid = false;
         }
-    
+
         // ADDRESS
         const address = document.getElementById("address").value.trim();
         if (!address || address.length < 5 || address.length > 100) {
             const error = document.createElement("div");
             error.className = "text-danger";
             error.innerText = !address ? "Questo campo è obbligatorio." :
-                              address.length < 5 ? "L'indirizzo deve contenere almeno 5 caratteri." :
-                              "L'indirizzo non può superare i 100 caratteri.";
+                address.length < 5 ? "L'indirizzo deve contenere almeno 5 caratteri." :
+                    "L'indirizzo non può superare i 100 caratteri.";
             document.getElementById("address").after(error);
             formIsValid = false;
         }
-    
+
         // PHONE NUMBER
         const phoneNumber = document.getElementById("phone_number").value.trim();
         if (!phoneNumber || phoneNumber.length < 10 || phoneNumber.length > 15) {
             const error = document.createElement("div");
             error.className = "text-danger";
             error.innerText = !phoneNumber ? "Questo campo è obbligatorio." :
-                              phoneNumber.length < 10 ? "Il numero di telefono deve contenere almeno 10 cifre." :
-                              "Il numero di telefono non può essere superiore a 15 cifre.";
+                phoneNumber.length < 10 ? "Il numero di telefono deve contenere almeno 10 cifre." :
+                    "Il numero di telefono non può essere superiore a 15 cifre.";
             document.getElementById("phone_number").after(error);
             formIsValid = false;
         }
-    
+
         // PERFORMANCE
         const performance = document.getElementById("performance").value.trim();
         if (!performance || performance.length < 30) {
             const error = document.createElement("div");
             error.className = "text-danger";
             error.innerText = !performance ? "Questo campo è obbligatorio." :
-                              "La descrizione delle prestazioni deve contenere almeno 30 caratteri.";
+                "La descrizione delle prestazioni deve contenere almeno 30 caratteri.";
             document.getElementById("performance").after(error);
             formIsValid = false;
         }
-    
+
         // FIELDS
         const fields = document.querySelectorAll('input[name="fields[]"]:checked');
         // almeno una checkbox deve essere stata selezionata
@@ -150,14 +150,14 @@ if(create_form) {
 
 // --- VALIDAZIONE CREATE: js vanilla ---
 const edit_form = document.getElementById("form-doc-edit");
-if(edit_form) {
+if (edit_form) {
 
-    edit_form.addEventListener("submit", function(event) {
+    edit_form.addEventListener("submit", function (event) {
         // flag a true, assumendo di base che i valori siano validi
         let formIsValid = true
         // Rimuovo tutti i messaggi di errore preesistenti
         document.querySelectorAll(".text-danger").forEach(error => error.remove());
-        
+
         // --- Gestione dei valori dei campi (uso di trim() per evitare spazi iniziali e finali). Commenti uguali per tutti gli input, ma ne aggiungo se c'è da specificare altro ---
         // NAME
         const user_name = document.getElementById("user_name").value.trim();
@@ -198,42 +198,42 @@ if(edit_form) {
             // il form non è valido
             formIsValid = false;
         }
-    
+
         // ADDRESS
         const address = document.getElementById("address").value.trim();
         if (!address || address.length < 5 || address.length > 100) {
             const error = document.createElement("div");
             error.className = "text-danger";
             error.innerText = !address ? "Questo campo è obbligatorio." :
-                              address.length < 5 ? "L'indirizzo deve contenere almeno 5 caratteri." :
-                              "L'indirizzo non può superare i 100 caratteri.";
+                address.length < 5 ? "L'indirizzo deve contenere almeno 5 caratteri." :
+                    "L'indirizzo non può superare i 100 caratteri.";
             document.getElementById("address").after(error);
             formIsValid = false;
         }
-    
+
         // PHONE NUMBER
         const phoneNumber = document.getElementById("phone_number").value.trim();
         if (!phoneNumber || phoneNumber.length < 10 || phoneNumber.length > 15) {
             const error = document.createElement("div");
             error.className = "text-danger";
             error.innerText = !phoneNumber ? "Questo campo è obbligatorio." :
-                              phoneNumber.length < 10 ? "Il numero di telefono deve contenere almeno 10 cifre." :
-                              "Il numero di telefono non può essere superiore a 15 cifre.";
+                phoneNumber.length < 10 ? "Il numero di telefono deve contenere almeno 10 cifre." :
+                    "Il numero di telefono non può essere superiore a 15 cifre.";
             document.getElementById("phone_number").after(error);
             formIsValid = false;
         }
-    
+
         // PERFORMANCE
         const performance = document.getElementById("performance").value.trim();
         if (!performance || performance.length < 30) {
             const error = document.createElement("div");
             error.className = "text-danger";
             error.innerText = !performance ? "Questo campo è obbligatorio." :
-                              "La descrizione delle prestazioni deve contenere almeno 30 caratteri.";
+                "La descrizione delle prestazioni deve contenere almeno 30 caratteri.";
             document.getElementById("performance").after(error);
             formIsValid = false;
         }
-    
+
         // FIELDS
         const fields = document.querySelectorAll('input[name="fields[]"]:checked');
         // almeno una checkbox deve essere stata selezionata

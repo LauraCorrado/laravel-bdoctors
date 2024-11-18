@@ -22,6 +22,16 @@ body {
     background-color: $warm-grey;
 }
 
+.bg-warm-grey {
+    background-color: $warm-grey;
+
+}
+
+.bg-light-grey {
+    background-color: $light-gray;
+
+}
+
 .create-edit-welcome {
     background-color: $light-gray;
     margin: 0 auto;
@@ -94,6 +104,7 @@ body {
     letter-spacing: 1px;
     background-color: $aqua-green;
     box-shadow: 2px 2px 0 $pure-white;
+
     &:hover {
         background-color: $mint-green;
         box-shadow: 1px 1px 0 $pure-white;
