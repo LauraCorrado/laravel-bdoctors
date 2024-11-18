@@ -35,7 +35,15 @@
             <div class="d-flex justify-content-center">
                 <canvas id="votesBarChart"></canvas>
             </div>
-        </div>           
+        </div>
+        
+        {{-- grafico a barre con voti in mese ed anno corrente --}}
+        <div class="col-12 mt-5">
+            <h2 class="text-center stat-title">Distribuzione dei voti per fascia di voto - Mese e Anno</h2>
+            <div class="d-flex justify-content-center">
+                <canvas id="monthlyVotesBarChart"></canvas>
+            </div>
+        </div>
         @endif
 
         <div class="col-12">
@@ -52,6 +60,7 @@
     const reviewCount = {{ $reviewCount }};
     const totalVotes = {{ $totalVotes }};
     const voteDistribution = @json($voteDistribution);  // Recupera la distribuzione dei voti come oggetto JS
+    const monthlyVoteDistribution = @json($monthlyVoteDistribution);  // Distribuzione dei voti per mese e anno
 
     // Crea il grafico a ciambella (Doughnut Chart)
     var ctxPie = document.getElementById('statsPieChart').getContext('2d');
@@ -137,6 +146,103 @@
                         stepSize: 1, // Imposta a 1 la distanza tra i numeri sull'asse y
                         callback: function(value){
                             return Number.isInteger(value) ? value : ''; // mostra solo inumeri interi
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Crea il grafico a barre per la distribuzione dei voti (Mese e Anno)
+    var ctxBar = document.getElementById('monthlyVotesBarChart').getContext('2d');
+    var monthlyVotesBarChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],  // Mesi
+            datasets: [
+                {
+                    label: '1 Stella',
+                    data: [
+                        monthlyVoteDistribution[1][1], monthlyVoteDistribution[2][1], monthlyVoteDistribution[3][1],
+                        monthlyVoteDistribution[4][1], monthlyVoteDistribution[5][1], monthlyVoteDistribution[6][1],
+                        monthlyVoteDistribution[7][1], monthlyVoteDistribution[8][1], monthlyVoteDistribution[9][1],
+                        monthlyVoteDistribution[10][1], monthlyVoteDistribution[11][1], monthlyVoteDistribution[12][1]
+                    ], // Dati per 1 stella
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: '2 Stelle',
+                    data: [
+                        monthlyVoteDistribution[1][2], monthlyVoteDistribution[2][2], monthlyVoteDistribution[3][2],
+                        monthlyVoteDistribution[4][2], monthlyVoteDistribution[5][2], monthlyVoteDistribution[6][2],
+                        monthlyVoteDistribution[7][2], monthlyVoteDistribution[8][2], monthlyVoteDistribution[9][2],
+                        monthlyVoteDistribution[10][2], monthlyVoteDistribution[11][2], monthlyVoteDistribution[12][2]
+                    ], // Dati per 2 stelle
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: '3 Stelle',
+                    data: [
+                        monthlyVoteDistribution[1][3], monthlyVoteDistribution[2][3], monthlyVoteDistribution[3][3],
+                        monthlyVoteDistribution[4][3], monthlyVoteDistribution[5][3], monthlyVoteDistribution[6][3],
+                        monthlyVoteDistribution[7][3], monthlyVoteDistribution[8][3], monthlyVoteDistribution[9][3],
+                        monthlyVoteDistribution[10][3], monthlyVoteDistribution[11][3], monthlyVoteDistribution[12][3]
+                    ], // Dati per 3 stelle
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: '4 Stelle',
+                    data: [
+                        monthlyVoteDistribution[1][4], monthlyVoteDistribution[2][4], monthlyVoteDistribution[3][4],
+                        monthlyVoteDistribution[4][4], monthlyVoteDistribution[5][4], monthlyVoteDistribution[6][4],
+                        monthlyVoteDistribution[7][4], monthlyVoteDistribution[8][4], monthlyVoteDistribution[9][4],
+                        monthlyVoteDistribution[10][4], monthlyVoteDistribution[11][4], monthlyVoteDistribution[12][4]
+                    ], // Dati per 4 stelle
+                    backgroundColor: 'rgba(153, 102, 255, 0.5)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: '5 Stelle',
+                    data: [
+                        monthlyVoteDistribution[1][5], monthlyVoteDistribution[2][5], monthlyVoteDistribution[3][5],
+                        monthlyVoteDistribution[4][5], monthlyVoteDistribution[5][5], monthlyVoteDistribution[6][5],
+                        monthlyVoteDistribution[7][5], monthlyVoteDistribution[8][5], monthlyVoteDistribution[9][5],
+                        monthlyVoteDistribution[10][5], monthlyVoteDistribution[11][5], monthlyVoteDistribution[12][5]
+                    ], // Dati per 5 stelle
+                    backgroundColor: 'rgba(255, 159, 64, 0.5)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return 'Voti: ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1, // Imposta a 1 la distanza tra i numeri sull'asse y
+                        callback: function(value){
+                            return Number.isInteger(value) ? value : ''; // Mostra solo numeri interi
                         }
                     }
                 }
