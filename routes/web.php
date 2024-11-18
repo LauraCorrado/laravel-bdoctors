@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\Admin\BraintreeController;
 use App\Http\Controllers\Admin\StatController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // Verifica se l'utente è autenticato
+    if (Auth::check()) {
+        return redirect()->route('admin.dashboard');
+    }
+    
+    // Se l'utente non è loggato, vai alla pagina welcome
     return view('welcome');
 })->name('welcome');
 
