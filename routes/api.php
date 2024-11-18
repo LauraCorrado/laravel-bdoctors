@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\DoctorController as DoctorController;
 use App\Http\Controllers\Api\FieldController as FieldController;
 use App\Http\Controllers\Api\MessageController as MessageController;
 use App\Http\Controllers\Api\ReviewController as ReviewController;
-use App\Http\Controllers\Api\RatingController as RatingController;
+use App\Http\Controllers\Api\LeadController as LeadController;
 
 
 /*
@@ -31,4 +31,5 @@ Route::get('/doctors/{slug}', [DoctorController::class, 'details'])->name('detai
 Route::post('/messages', [MessageController::class, 'store']); // rotta salvataggio messaggi
 Route::post('/reviews/{slug}', [ReviewController::class, 'store']); // rotta salvataggio recensioni
 Route::put('/doctors/{slug}/average-rating', [DoctorController::class, 'updateAvgRating']); // rotta put per update della media dei voti
+Route::post('/contacts', [LeadController::class, 'store'])->name('email_sending'); // rotta per i contatti
 
