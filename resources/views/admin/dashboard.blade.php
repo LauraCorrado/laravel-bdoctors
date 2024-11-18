@@ -3,23 +3,35 @@
 @section('content')
 <div class="container my-5">
     @if($doctor)
-    <h1 class="text-center mb-4 dashboard-personal-style">
-        {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}
-    </h1>
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <p><strong>{{ __('Media dei voti') }}</strong>:
-            <span class="avg-dashboard-color">{{ number_format($averageRating, 1) }} / 5</span>
-        </p>
-        @if($sponsorExpiration)
-        <p><strong>{{ __('Scadenza') }}</strong>:
-            <span id="sponsor-countdown" class="countdown-color"></span>
-        </p>
-        @endif
+    <div class="row position-relative">
+        @include('partials.prev-btn')
+        <div class="col-12 mt-1">
+            <h1 class="text-center mb-4 dashboard-personal-style">
+                {{ __('Dashboard di ') }} {{$doctor->user_name}} {{$doctor->user_surname}}
+            </h1>
+        </div>
+        <div class="col-12">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p><strong>{{ __('Media dei voti') }}</strong>:
+                    <span class="avg-dashboard-color">{{ number_format($averageRating, 1) }} / 5</span>
+                </p>
+                @if($sponsorExpiration)
+                <p><strong>{{ __('Scadenza') }}</strong>:
+                    <span id="sponsor-countdown" class="countdown-color"></span>
+                </p>
+                @endif
+            </div>
+        </div>
     </div>
     @else
-    <h1 class="fs-4 text-secondary my-4">
-        {{ __('Non è stato trovato alcun dottore associato a questo account.') }}
-    </h1>
+    <div class="row">
+        <div class="col-12 position-relative">
+            @include('partials.prev-btn')
+            <h1 class="fs-4 text-secondary my-4 mt-1">
+                {{ __('Non è stato trovato alcun dottore associato a questo account.') }}
+            </h1>
+        </div>
+    </div>
     @endif
     <div class="row">
         <div class="col-12">

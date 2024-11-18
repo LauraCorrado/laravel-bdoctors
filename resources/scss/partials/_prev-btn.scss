@@ -1,0 +1,23 @@
+.redirect_button {
+    top: -27px;
+    left: 0;
+    width: 60px;
+    aspect-ratio: 1/1;
+    transition: all 0.3s;
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(20%) sepia(91%) saturate(1956%) hue-rotate(186deg) brightness(91%) contrast(101%);
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 525px) {
+    .redirect_button {
+        width: 50px;
+        top: -50px;
+    }
+  }

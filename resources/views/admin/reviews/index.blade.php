@@ -3,8 +3,9 @@
 @section('content')
 <div class="container my-5">
     <div class="row">
-        <div class="col-12">
-            <h1 class="text-center fw-bold mb-3" style="color: #005792">{{ $doctor->user_name }}, ecco le tue recensioni</h1>
+        <div class="col-12 position-relative">
+            @include('partials.prev-btn')
+            <h1 class="text-center fw-bold mb-3 mt-1" style="color: #005792">Recensioni dei pazienti</h1>
         </div>
     </div>
     <div class="row gy-4">

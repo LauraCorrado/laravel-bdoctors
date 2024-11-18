@@ -4,8 +4,9 @@
 
 @section('content')
 <div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-12 text-center mb-5">
+    <div class="row justify-content-center position-relative">
+        @include('partials.prev-btn')
+        <div class="col-12 text-center mt-1 mb-5">
             <h1>Profilo di <strong class="user-name">{{ $doctor->user_name }} {{ $doctor->user_surname }}</strong></h1>
         </div>
     </div>
