@@ -91,7 +91,7 @@
                                     <i class="bi bi-credit-card-2-front-fill me-2 dashboard-icons"></i>
                                     Promozioni
                                 </h5>
-                                <p class="card-text">Qui puoi acquistare delle promozioni il tuo profilo.</p>
+                                <p class="card-text">Qui puoi acquistare le promozioni per il tuo profilo.</p>
                                 <div class="text-center mb-2 mt-4">
                                     <a href="{{ route('admin.sponsors.index') }}" class="text-decoration-none save">{{
                                         __('Promuovi il profilo') }}</a>
