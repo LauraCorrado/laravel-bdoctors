@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="container py-5">
-    <div class="row mt-2">
+    <div class="row mt-2 position-relative">
+        @include('partials.prev-btn')
         <div class="col-12 text-center mb-3">
             <h1 class="stat-title text-uppercase">Le tue Statistiche</h1>
         </div>

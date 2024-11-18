@@ -3,7 +3,8 @@
 @section('content')
     <div class="container my-5">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 position-relative">
+                @include('partials.prev-btn')
                 <h1 class="text-center fw-bold mb-3" style="color: #005792">Messaggi dei pazienti</h1>
             </div>
         </div>

@@ -25,3 +25,21 @@
 .dashboard-icons {
     color: $aqua-green;   
 }
+
+@media screen and (max-width: 991px) {
+    .dashboard-personal-style {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .dashboard-personal-style {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .dashboard-personal-style {
+        font-size: 22px;
+    }
+}

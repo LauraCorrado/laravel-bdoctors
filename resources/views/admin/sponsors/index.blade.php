@@ -2,10 +2,11 @@
 @section('title', 'BD - Pacchetti')
 @section('content')
 <div class="container my-5">
-    <div class="row">
+    <div class="row position-relative">
+        @include('partials.prev-btn')
         <div class="col-12">
             <div class="text-center packages-titles">
-                <h1 class="fw-bolder">Scegli il pacchetto di sponsor</h1>
+                <h1 class="fw-bolder">Scegli il pacchetto</h1>
                 <p class="lead">Metti in risalto il tuo profilo nelle ricerche!</p>
                 <p>Seleziona l'opzione che meglio valorizza il profilo per raggiungere più pazienti e far crescere la tua visibilità.</p>
             </div>
