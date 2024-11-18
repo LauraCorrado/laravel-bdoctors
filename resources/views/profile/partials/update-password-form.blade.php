@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-dark">
             {{ __('Aggiorna Password') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-secondary">
             {{ __('Assicurati di usare una password lunga con caratteri casuali.') }}
         </p>
     </header>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <button type="submit" class="btn btn-primary">{{ __('Salva') }}</button>
+            <button type="submit" class="btn button-home save">{{ __('Salva') }}</button>
 
             @if (session('status') === 'password-updated')
             <script>

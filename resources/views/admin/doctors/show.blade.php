@@ -31,7 +31,7 @@
     @endif
     <div class="row text-center profile-bg rounded">
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
-            <div class="avatars rounded">
+            <div class="avatars rounded pt-4">
                 @if (!Str::startsWith($doctor->thumb, 'https'))
                 <img src="{{ asset('storage/'.$doctor->thumb) }}" alt="doctor-avatar">
                 @else
