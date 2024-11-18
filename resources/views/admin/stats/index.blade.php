@@ -20,7 +20,7 @@
 
         @if ($messageCount > 0 || $reviewCount > 0 || $totalVotes > 0)
         <!-- Grafico a torta per Messaggi, Recensioni, e Voti -->
-        <div class="col-12 mt-5">
+        <div class="col-12 col-lg-4 mt-5">
             <h2 class="text-center stat-title">Messaggi, Recensioni e Voti in questo mese</h2>
             <div class="d-flex justify-content-center">
                 <div class="w-50 text-center">
@@ -28,19 +28,18 @@
                 </div>
             </div>
         </div>
-
         <!-- Grafico a barre per la distribuzione dei voti -->
-        <div class="col-12 mt-5">
-            <h2 class="text-center stat-title">Distribuzione dei voti per fascia di voto</h2>
-            <div class="d-flex justify-content-center">
+        <div class="col-12 col-lg-4 mt-5">
+            <h2 class="text-center stat-title">Distribuzione mensile dei voti per fascia di voto</h2>
+            <div class="ratio ratio-16x9 d-flex justify-content-center">
                 <canvas id="votesBarChart"></canvas>
             </div>
         </div>
         
         {{-- grafico a barre con voti in mese ed anno corrente --}}
-        <div class="col-12 mt-5">
+        <div class="col-12 col-lg-4 mt-5">
             <h2 class="text-center stat-title">Distribuzione dei voti per fascia di voto - Mese e Anno</h2>
-            <div class="d-flex justify-content-center">
+            <div class="ratio ratio-16x9 d-flex justify-content-center">
                 <canvas id="monthlyVotesBarChart"></canvas>
             </div>
         </div>
