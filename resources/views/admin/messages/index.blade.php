@@ -16,7 +16,7 @@
                     <div class="card mb-4 messages-box">
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-between">
                             <div class="d-flex flex-column flex-wrap flex-md-row info-user">
-                                <h6 class="text-danger id">(#{{$message->id}})</h6>
+                                {{-- <h6 class="text-danger id">(#{{$message->id}})</h6> --}}
                                 <h5 class="card-title mb-0 ms-3">Da: <strong>{{$message->name}} {{$message->surname}}</strong></h5>
                                 <p class="card-text ms-3 mb-0">Email: <strong class="email">{{$message->email}}</strong></p>
                             </div>
