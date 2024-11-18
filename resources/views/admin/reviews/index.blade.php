@@ -12,7 +12,7 @@
             @if ($reviews->isEmpty())
             <p class="text-center my-4 text-danger fs-5">Non ci sono recensioni da visualizzare.</p>
             @else
-            <ol>
+            <ol class="ps-0">
                 @foreach ($reviews as $review)
                 <div class="card mb-4 messages-box">
                     <div class="card-body d-flex flex-wrap align-items-center justify-content-between">

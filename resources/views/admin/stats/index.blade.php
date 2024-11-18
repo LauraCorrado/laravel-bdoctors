@@ -18,6 +18,15 @@
             </div>
         </div>
 
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <a href="{{route('admin.reviews.index')}}" class="text-decoration-none mt-3 stats-redirect">Visualizza tutte le recensioni</a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="{{route('admin.messages.index')}}" class="text-decoration-none mt-3 stats-redirect">Visualizza tutti i messaggi</a>
+            </div>
+        </div>
+
         @if ($messageCount > 0 || $reviewCount > 0 || $totalVotes > 0)
         <!-- Grafico a torta per Messaggi, Recensioni, e Voti -->
         <div class="col-12 col-lg-4 mt-5">
