@@ -12,7 +12,8 @@ use Illuminate\Queue\SerializesModels;
 class NewContact extends Mailable
 {
     use Queueable, SerializesModels;
-
+    //variabile d'istanza
+    public $lead;
     /**
      * Create a new message instance.
      *
@@ -31,7 +32,8 @@ class NewContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'New Contact',
+            subject: 'Nuovo contatto',
+            replyTo: $this->lead->address
         );
     }
 
@@ -43,7 +45,7 @@ class NewContact extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'email.contact-email',
         );
     }
 
